@@ -3,7 +3,7 @@
 <p align="center">
 	<h1 align="center"><b>Midday</b></h1>
 <p align="center">
-    Run your business smarter
+    Run your business smarters
     <br />
     <br />
     <a href="https://go.midday.ai/anPiuRx">Discord</a>
@@ -81,7 +81,7 @@ We are working on the documentation to get started with Midday for local develop
 
 ## License
 
-This project is licensed under the **[AGPL-3.0](https://opensource.org/licenses/AGPL-3.0)** for non-commercial use. 
+This project is licensed under the **[AGPL-3.0](https://opensource.org/licenses/AGPL-3.0)** for non-commercial use.
 
 ### Commercial Use
 
