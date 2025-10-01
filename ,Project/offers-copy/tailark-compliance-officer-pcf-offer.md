@@ -1,4 +1,4 @@
-# Tailark Pull Cash Forward Offer: Compliance Officers & AML Officers
+# Nicholas Pull Cash Forward Offer: Compliance Officers & AML Officers
 
 ## Target Market Analysis
 
@@ -420,7 +420,7 @@
 
 ### Elevator Pitch (2-3 sentences)
 
-"Tailark is the only automated ASIC intelligence platform that monitors 84,000+ regulated entities and delivers real-time alerts for enforcement actions, regulatory changes, and breach risks. We transform compliance officers from manual monitoring drudgery to strategic leadership by eliminating 80% of their workload while preventing $3.5M+ ASIC penalties through early detection. Our 90-day done-for-you transformation is guaranteed: pass your next audit with zero findings or get a full refund plus $50K penalty coverage."
+"Nicholas is the only automated ASIC intelligence platform that monitors 84,000+ regulated entities and delivers real-time alerts for enforcement actions, regulatory changes, and breach risks. We transform compliance officers from manual monitoring drudgery to strategic leadership by eliminating 80% of their workload while preventing $3.5M+ ASIC penalties through early detection. Our 90-day done-for-you transformation is guaranteed: pass your next audit with zero findings or get a full refund plus $50K penalty coverage."
 
 ### CTAs (3 variants)
 
@@ -432,7 +432,7 @@
 
 1. **Case Study - Prevention**: "We detected a regulatory breach 7 days before our client's internal audit would have caught it. That early warning prevented a mandatory ASIC notification and an estimated $3.5M penalty. The automation paid for itself 23x over in one prevented incident." - Head of Compliance, Top 50 Wealth Manager
 
-2. **Case Study - Efficiency**: "I went from spending 4 hours per day on manual monitoring to 45 minutes. That's 80% of my time back. I redirected those hours to strategic compliance projects that got me promoted to Head of Risk & Compliance. Tailark didn't just save me time - it transformed my career." - Compliance Manager, Boutique Fund Manager
+2. **Case Study - Efficiency**: "I went from spending 4 hours per day on manual monitoring to 45 minutes. That's 80% of my time back. I redirected those hours to strategic compliance projects that got me promoted to Head of Risk & Compliance. Nicholas didn't just save me time - it transformed my career." - Compliance Manager, Boutique Fund Manager
 
 3. **Case Study - Audit Success**: "We passed our ASIC comprehensive inspection with zero findings for the first time in our 12-year history. The auditors specifically commented on our proactive monitoring systems and regulatory intelligence framework. That result alone justified the investment 10x over." - Chief Compliance Officer, Multi-Licence Group
 
@@ -446,7 +446,7 @@ Body: "There are 847 active ASIC investigations happening right now. One of them
 **Email 2 - Solution Introduction**:
 Subject: "How compliance officers are eliminating 80% of manual monitoring work"
 
-Body: "Here's what no one tells you about compliance work: 80% of your time is spent on manual monitoring that could be automated. The remaining 20% - strategic compliance leadership, framework design, audit preparation - that's what actually prevents enforcement actions and gets you promoted. But you can't access that 20% while you're drowning in the 80%. That's why we built Tailark: to automate the 80% so you can lead with the 20%. Real-time monitoring of 84,000+ ASIC entities. Automated alerts for regulatory changes. AI-powered breach detection. All while you focus on being the compliance leader your organization needs. See how it works in 30 minutes: [Book demo]"
+Body: "Here's what no one tells you about compliance work: 80% of your time is spent on manual monitoring that could be automated. The remaining 20% - strategic compliance leadership, framework design, audit preparation - that's what actually prevents enforcement actions and gets you promoted. But you can't access that 20% while you're drowning in the 80%. That's why we built Nicholas: to automate the 80% so you can lead with the 20%. Real-time monitoring of 84,000+ ASIC entities. Automated alerts for regulatory changes. AI-powered breach detection. All while you focus on being the compliance leader your organization needs. See how it works in 30 minutes: [Book demo]"
 
 **Email 3 - Urgency + Risk Reversal**:
 Subject: "Q4 2025 enrollment closes October 31 (7 spots left)"
