@@ -11,7 +11,7 @@
 
 ### Core Value Proposition
 
-**Nicholas Gousis** is a $90M RegTech productized media agency that provides regulatory compliance to ASIC regulated entities feeding them into complimet app.
+**Nicholas Gousis** is a $90M RegTech productized media agency that provides regulatory compliance to ASIC regulated entities feeding them into Complimet app.
 
  It monitors:
  - latest ASIC news and media releases
