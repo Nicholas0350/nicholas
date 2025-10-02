@@ -1,4 +1,4 @@
-# Tailark Money Model - Deterministic $90M Blueprint
+# Money Model - Deterministic $90M Blueprint
 
 **Generated**: 2025-09-30
 **Target**: $90M revenue in 12-18 months via 350 high-value compliance clients
@@ -12,7 +12,7 @@
 
 **Core Formula**: 30-day gross profit ≥ 2× (CAC + COGS)
 
-**Tailark Results**:
+**Results**:
 - **30-Day Gross Profit**: $62,500 per client (average across tiers)
 - **CAC**: $600 (blended)
 - **COGS**: $8,000 (delivery labor + infrastructure)
@@ -709,7 +709,7 @@
 
 **Formula**: 30-day gross profit ≥ 2× (CAC + COGS)
 
-**Tailark Result**:
+**Result**:
 - 30-Day Gross Profit: $52,143 (blended avg)
 - 2× (CAC + COGS): 2 × ($653 + $10,500) = $22,306
 - **Margin**: $52,143 ≥ $22,306 ✅ **2.3× target achieved**
@@ -720,7 +720,7 @@
 
 **Target**: ≥3:1 (scale ≥5:1)
 
-**Tailark Result**:
+**Result**:
 - LTV: $237,429
 - CAC: $653
 - **Ratio**: 364:1 ✅ **73× the scale target**
@@ -731,7 +731,7 @@
 
 **Target**: ≤30 days
 
-**Tailark Result**:
+**Result**:
 - CAC: $653
 - Day-30 Cash: $62,643
 - **Payback**: $653 ÷ ($62,643 ÷ 30) = 0.3 days ✅ **100× faster than target**
@@ -742,7 +742,7 @@
 
 **Target**: No external funding required (self-funding)
 
-**Tailark Result**:
+**Result**:
 - Month 1 Cash Flow: +$3.37M (base case)
 - Cumulative 90-Day: +$17.35M
 - **Funding Required**: $0 ✅ **Cash flow positive from Day 1**
@@ -753,7 +753,7 @@
 
 **Target**: ≥70%
 
-**Tailark Result**:
+**Result**:
 - Revenue: $23.1M (90 days)
 - COGS: $504.4K
 - **Margin**: 97.8% ✅ **28% above target**
@@ -824,7 +824,7 @@
 
 ## CONCLUSION: THE DETERMINISTIC $90M PATH
 
-Tailark's money model is **conservative, defensible, and deterministic**:
+money model is **conservative, defensible, and deterministic**:
 
 1. ✅ **Pull Cash Forward Works**: 50-75% upfront payments = instant payback, zero funding needed
 2. ✅ **Unit Economics Are Exceptional**: 364:1 LTV:CAC, 89% gross margin, 0.3-day payback

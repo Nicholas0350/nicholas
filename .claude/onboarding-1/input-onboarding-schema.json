@@ -1,0 +1,20 @@
+{
+  "ONBOARDING_INPUT": {
+    "target": {
+      "url": "",
+      "description": "",
+      "summary": ""
+    },
+    "inferred": {
+      "deliveryType": "",
+      "deliveryMechanism": "",
+      "advertising": "",
+      "leadGetter": "",
+      "monetization": "",
+      "sellingMechanism": "",
+      "teamSizeGuess": "",
+      "techLevelGuess": ""
+    },
+    "confidence": {}
+  }
+}

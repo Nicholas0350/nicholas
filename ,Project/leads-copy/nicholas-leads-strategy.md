@@ -1,4 +1,4 @@
-# Tailark Core Four Lead Generation Strategy - Complete $90M Roadmap
+# Core Four Lead Generation Strategy - Complete $90M Roadmap
 
 **Target**: 350 customers = $90M revenue across 3 tiers
 **Timeline**: 2.7 quarterly cohorts (12-18 months)
@@ -92,7 +92,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
 
 ### #2 CONTENT STRATEGY (Free Value → Thought Leadership)
 
-**Content Mission**: Position Tailark as the ASIC compliance intelligence authority through crisis-driven, data-backed content that makes compliance officers look like heroes.
+**Content Mission**: Position Nicholas as the ASIC compliance intelligence authority through crisis-driven, data-backed content that makes compliance officers look like heroes.
 
 **Content Pillars (4 Core Themes)**:
 
@@ -130,7 +130,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
 - **Day 1-2**: Publish "847 Active ASIC Investigations: What Your Board Needs to Know" (LinkedIn long-form post)
 - **Day 3**: Twitter/X thread: "10 compliance mistakes that trigger $3.5M+ ASIC penalties" (crisis hook)
 - **Day 4-5**: Email Newsletter #1 to existing contacts: "The Manual Compliance Death Spiral" (problem agitation)
-- **Day 6-7**: YouTube video: "Inside Tailark's ASIC Intelligence Platform" (product demo + authority)
+- **Day 6-7**: YouTube video: "Inside Nicholas's ASIC Intelligence Platform" (product demo + authority)
 
 **Week 2**: Thought Leadership
 - **Day 8**: LinkedIn post: "Why 80% of compliance work can be automated (and why most firms don't)"
@@ -260,7 +260,6 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
    [Book 15-minute ASIC intelligence demo]
 
    Nicholas Gousis
-   Founder, Tailark
    ```
 
    **Email 2: Solution Showcase (Day 3)**
@@ -295,7 +294,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
 
    This is your final reminder:
 
-   Tailark Foundation tier is $50K until March 31st.
+   Foundation tier is $50K until March 31st.
    On April 1st, it jumps to $75K.
 
    We're also capping enrollment at 12 clients per quarter
@@ -324,7 +323,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
    **Trigger**: If no response after 3 LinkedIn messages + 2 emails
 
    **Script** (30-second opener):
-   > "Hi [FIRST_NAME], Nicholas Gousis from Tailark. Quick reason for my call: We monitor 84,000+ ASIC entities for compliance intelligence. Given the 300% surge in Q4 enforcement actions, I wanted to make sure you're aware of the pattern we're seeing in [THEIR SECTOR]. Do you have 2 minutes for me to share what we're seeing?"
+   > "Hi [FIRST_NAME], Nicholas Gousis. Quick reason for my call: We monitor 84,000+ ASIC entities for compliance intelligence. Given the 300% surge in Q4 enforcement actions, I wanted to make sure you're aware of the pattern we're seeing in [THEIR SECTOR]. Do you have 2 minutes for me to share what we're seeing?"
 
    **Objection Handling**:
    - **"We have in-house compliance"**: "That's exactly who we work with - we eliminate 80% of their manual monitoring work so they can focus on strategic compliance."
@@ -356,7 +355,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
 **Channel 1: LinkedIn Ads** ($15,000/month)
 
 **Campaign 1: Retargeting Website Visitors**
-- **Audience**: Anyone who visited tailark.com, viewed penalty calculator, downloaded lead magnet
+- **Audience**: Anyone who visited nicholasgousis.com, viewed penalty calculator, downloaded lead magnet
 - **Ad Format**: Single image ad + text
 - **Creative**: "847 Active ASIC Investigations. Is Your Licence Next?" (crisis hook from offers)
 - **CTA**: "Claim Your Free Penalty Exposure Assessment"
@@ -396,7 +395,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
    > **"ASIC Compliance Monitoring Automated"**
    > Monitor 84,000+ ASIC entities. Real-time alerts.
    > Eliminate 80% of manual work. Free assessment.
-   > [tailark.com/assessment]
+   > [nicholas.com/assessment]
 
 2. **Solution-Aware Keywords**:
    - "ASIC intelligence platform"
@@ -408,7 +407,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
    > **"The ASIC Intelligence Platform"**
    > Only automated system monitoring 84,000+ entities.
    > Zero audit findings guaranteed. 12 spots left.
-   > [tailark.com/zero-findings-guarantee]
+   > [nicholas.com/zero-findings-guarantee]
 
 3. **Crisis Keywords** (High CPC but high intent):
    - "ASIC penalty exposure"
@@ -420,7 +419,7 @@ This lead generation strategy deploys the Core Four framework (Warm Outreach, Co
    > **"847 Active ASIC Investigations"**
    > Is your licence next? Free penalty exposure assessment.
    > Prevent enforcement actions before they happen.
-   > [tailark.com/penalty-assessment]
+   > [nicholas.com/penalty-assessment]
 
 **Budget**: $10,000/month
 - **Expected**: 150-200 clicks ($50-$67 CPC for high-intent B2B)
@@ -724,11 +723,11 @@ Based on 30-day results, identify top-performing channel and 2x resources:
 
 1. **"We already have in-house compliance"**
    - **Counter**: "Perfect. We eliminate 80% of their manual monitoring work so they can focus on strategic compliance. Your team becomes more valuable, not replaced."
-   - **Proof Needed**: Case study of compliance officer who got promoted after implementing Tailark
+   - **Proof Needed**: Case study of compliance officer who got promoted after implementing complimet
 
 2. **"Too expensive"**
    - **Counter**: "Compared to what? You're already spending $120K/year on manual monitoring labor. We're $50K-$200K and we prevent $3.5M penalties. What's the real cost?"
-   - **Proof Needed**: ROI calculator showing cost of manual monitoring vs. Tailark
+   - **Proof Needed**: ROI calculator showing cost of manual monitoring vs. Complimet
 
 3. **"Need to think about it"**
    - **Counter**: "Totally understand. While you're thinking, ASIC's enforcement team isn't waiting. We have 7 spots left for Q4. If those fill, your next window is Q2 2026 during peak enforcement season. Worth booking a spot now and canceling if needed?"

@@ -1,6 +1,6 @@
-# Tailark Pull Cash Forward Offers - Complete Package
+# Pull Cash Forward Offers - Complete Package
 
-## PULL CASH FORWARD OFFER PACKAGE FOR TAILARK REGTECH
+## PULL CASH FORWARD OFFER PACKAGE FOR REGTECH
 
 ### TARGET VERTICAL: ASIC-Regulated Financial Services Entities
 
@@ -230,7 +230,7 @@
 
 ### Elevator Pitch (60 seconds)
 
-"Tailark is the only automated ASIC intelligence platform that monitors 84,000+ regulated entities in real-time and alerts you within 60 seconds of enforcement actions. We eliminate the 10+ hours/week your compliance team wastes on manual monitoring, identify 3+ penalty exposure gaps in your first 14 days, and deliver board-ready compliance reports that make you look like a hero. With 847 active ASIC investigations and a 300% spike in licence cancellations during Q4 enforcement surges, the entities who act now avoid becoming the next case study. We only work with 12 clients per quarter—and if we don't find at least 3 compliance gaps worth $100K+ in penalty exposure, you pay nothing."
+"Complimet is the only automated ASIC intelligence platform that monitors 84,000+ regulated entities in real-time and alerts you within 60 seconds of enforcement actions. We eliminate the 10+ hours/week your compliance team wastes on manual monitoring, identify 3+ penalty exposure gaps in your first 14 days, and deliver board-ready compliance reports that make you look like a hero. With 847 active ASIC investigations and a 300% spike in licence cancellations during Q4 enforcement surges, the entities who act now avoid becoming the next case study. We only work with 12 clients per quarter—and if we don't find at least 3 compliance gaps worth $100K+ in penalty exposure, you pay nothing."
 
 ---
 
@@ -301,7 +301,7 @@ That's the power of automated ASIC intelligence."
 **Body:**
 "This is your final reminder:
 
-Tailark Foundation tier is $50K until March 31st.
+Foundation tier is $50K until March 31st.
 On April 1st, it jumps to $75K.
 
 We're also capping enrollment at 12 clients per quarter (we're at 9/12 as of today).
@@ -351,7 +351,7 @@ Do you want to lock in 2025 pricing or wait and pay 50% more?"
 
 #### Section 4: Solution Mechanism
 - **"How The 14-Day ASIC Penalty Shield Sprint Works"**
-- Day 1: Tailark dashboard access + initial gap assessment
+- Day 1: Complimet dashboard access + initial gap assessment
 - Day 3: First real-time enforcement alert
 - Day 7: Penalty exposure calculator report
 - Day 14: Board-ready compliance summary

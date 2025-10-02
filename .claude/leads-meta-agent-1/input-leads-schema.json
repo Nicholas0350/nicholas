@@ -1,0 +1,42 @@
+{
+  "TARGET_INPUT": {
+    "url": "",
+    "description": "",
+    "summary": ""
+  },
+  "LEADS_INPUT": {
+    "target": {
+      "url": "",
+      "description": "",
+      "summary": ""
+    },
+    "icp": {
+      "roles": [],
+      "companySizes": [],
+      "industries": [],
+      "regions": [],
+      "firmographics": {
+        "revenueBands": [],
+        "decisionMakers": []
+      }
+    },
+    "credibility": {
+      "proofAssets": [],
+      "constraints": [],
+      "socialProof": [],
+      "authorityIndicators": []
+    },
+    "budget": {
+      "cacTargetUSD": 0,
+      "dailyAdBudgetUSD": 0,
+      "monthlyAdBudgetUSD": 0,
+      "clvAssumptionsUSD": 0
+    },
+    "messaging": {
+      "pains": [],
+      "outcomes": [],
+      "hooks": [],
+      "positioning": "",
+      "uniqueValueProps": []
+    }
+  }

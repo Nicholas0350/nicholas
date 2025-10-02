@@ -1,0 +1,67 @@
+{
+    "LEADS_OUTPUT": {
+    "roadmap30Days": {
+      "warm": {
+        "contacts": [],
+        "scripts": [],
+        "networks": [],
+        "referralPartners": []
+      },
+      "content": {
+        "calendar": [],
+        "leadMagnets": [],
+        "pillars": [],
+        "thoughtLeadership": []
+      },
+      "cold": {
+        "sequences": [],
+        "lists": [],
+        "researchMethodology": "",
+        "followUpCadences": []
+      },
+      "paid": {
+        "platforms": [],
+        "budgets": [],
+        "creatives": [],
+        "keywords": [],
+        "targetingStrategy": ""
+      }
+    },
+    "scale90Days": {
+      "channelDoublingPlan": [],
+      "automation": [],
+      "teamPlan": [],
+      "crossPollination": [],
+      "compoundOpportunities": []
+    },
+    "kpis": {
+      "cplBySource": {},
+      "showRates": {},
+      "leadToClose": {},
+      "volumeMetrics": {},
+      "qualityScores": {},
+      "paybackPeriods": {}
+    },
+    "handoff": {
+      "offers": {
+        "objections": [],
+        "proofNeeds": [],
+        "avatar": {},
+        "guarantees": [],
+        "scarcity": []
+      },
+      "money": {
+        "cacAssumptionsUSD": 0,
+        "dailySpendUSD": 0,
+        "budgetAlignment": "",
+        "paybackProjections": {}
+      }
+    },
+    "riskNotes": [],
+    "compoundPatterns": {
+      "reusableTemplates": [],
+      "domainInsights": [],
+      "optimizationRecommendations": []
+      }
+    }
+  }

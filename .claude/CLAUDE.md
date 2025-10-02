@@ -4,19 +4,17 @@
 
 ## On a high level
 
-
-
-
 ### Core Value Proposition
 
-**Nicholas Gousis** is a $90M RegTech productized agency that provides regulatory compliance to ASIC regulated entities.
+**Nicholas Gousis** is a $90M RegTech productized media agency that provides regulatory compliance to ASIC regulated entities.
 
  It monitors:
  - latest ASIC news and media releases
  - changes ASIC data.gov.au in ASIC-regulated AFSL & ACL entities. Data is is updated through automated data Supabase edge function synchronization
  - Corporations Act, ASIC Regulatory Guides for changes in law
+
  - And provides:
- - productizeed agency providing Done for you, Done with you compliance as a service and marketing services
+ - productizeed agency providing Done for you, Done with you regulatory compliance as a service and marketing services
  - Access, analyze, and act on ASIC insights
  - Email alert service for changes in law, news, and media releases
  - AI-powered compliance intelligence
@@ -29,14 +27,13 @@
 ### Key Value Drivers
 - **Pain Avoidance Focus**: Prevent ASIC licence cancellation & enforcement actions ($3.5M+ penalties)
 - **Data Monopoly**: Only automated ASIC data intelligence platform with AI compliance automation
-- **Component Registry**: Operational leverage for scaling compliance delivery without headcount growth
 - **Crisis-Driven Premium Pricing**: 10x regulatory urgency multipliers during enforcement periods
 
 ### Revenue Strategy (Deterministic $90M Path)
 1. **Crisis Marketing** (+$12M): Twitter/X automation using fresh ASIC penalty data
 2. **Presale Targeting** (+$18M): Target entities hiring compliance officers or marketing teams
 
-5. **AI Intelligence** (+$5M): Vercel AI SDK automation for competitive differentiation
+3. **AI Intelligence** (+$5M):
 
 **Customer Segmentation:**
 - **Tier 1**: 63 customers × $200K = $12.6M
@@ -72,19 +69,19 @@ Read and reference Nicholas's global CLAUDE.md workspace memory file to get a se
 
 ### Overview
 
-complimet is Nicholas's primary productized agency $90M RegTech project within the `/Users/nicholas/Sites/nicholasandmidday/` workspace. This project implements ASIC regulatory compliance automation for Australian financial services combining shadcn/ui component registry with real-time ASIC data monitoring and intelligence.
+Nicholas's productized RegTech media agency $90M RegTech project within the `/Users/nicholas/Sites/nicholasandmidday/` workspace.
+
+This project implements ASIC regulatory compliance automation for Australian financial services combining shadcn/ui component registry with real-time ASIC data monitoring and intelligence.
 
 
 ### File Locations
 
-- **Workspace File**: `afsl.code-workspace` (virtual organization of folders)
-- **Editor**: Cursor/VS Code with workspace view
-- **Directory**: `/Users/nicholas/Sites/nicholasandmidday/complimet`
+
 
 ### Project-Specific Helpful Details
 
 - influenced by:
-*Midday* `/Users/nicholas/Active/WORKAPPS/Proxy-Code/midday.ai`
+
 *Firecrawl Observer* `/Users/nicholas/Sites/nicholasandmidday/FIRECRAWL/firecrawl-observer`
 *mixpost* `/Users/nicholas/Active/WORKAPPS/Proxy-Code/mixpost`
 
@@ -100,37 +97,7 @@ complimet is Nicholas's primary productized agency $90M RegTech project within t
 ### Key Directories
 
 ```
-apps/www/                    # Main Next.js application
-├── app/admin-dashboard/     # ASIC compliance admin interface
-├── app/api/                # API routes and Supabase functions
-├── app/examples/           # Component showcase pages
-├── app/financial-advisers/ # Financial adviser profile pages
-├── components/             # Shared UI components
-├── lib/                   # Utilities, auth, and Supabase client
-└── public/r/              # Component registry JSON files
 
-packages/                   # Component libraries and shared code
-├── core/                  # Base UI components (Vite build)
-├── mist-kit/              # Mist theme component library
-├── dusk-kit/              # Dusk theme component library
-├── compliance-pro/        # ASIC compliance-specific components
-├── ai-core/               # AI providers (Anthropic, OpenAI)
-├── intelligence/          # Data crawling and RAG capabilities
-├── database/              # Database schemas and Supabase types
-├── firecrawl-penalty-engine/ # Penalty calculation engine
-└── social-content-generator/ # Social media content generation
-
-data/                      # ASIC regulatory data and schemas
-├── regulatory-guides/     # RG001-RG280 regulatory guides (markdown)
-├── afs-license/          # AFS license application schemas
-└── data-gov-copy/        # Government dataset documentation
-
-supabase/                  # Edge functions for ASIC data sync
-└── functions/
-    ├── data-gov-intelligence/
-    ├── fetch-afs-licensees-data/
-    ├── fetch-financial-advisers-data/
-    └── check-dataset-changes/
 ```
 
 ## Core Business Logic
@@ -139,9 +106,9 @@ supabase/                  # Edge functions for ASIC data sync
 - **Styling**: Tailwind CSS v4.1.6 with utility-first approach
 - **Components**: Radix UI primitives with shadcn/ui design system
 - **State Management**: React hooks + Supabase real-time subscriptions
-- **Theming**: next-themes for dark/light mode with CSS custom properties
+- **Theming**: shadcn ui with a custom design.json file
 - **Animation**: Framer Motion (`motion` package) for component animations
-- **Forms**: next-safe-action for type-safe server actions with Zod validation
+- **Forms**: to be decided shortlist is next-safe-action for type-safe server actions with Zod validation
 
 ### Backend Services
 - **Database**: Supabase PostgreSQL with automated Edge Function deployments
@@ -194,8 +161,8 @@ Components are organized by category (hero-section, features, pricing, etc.) wit
 
 
 ### Build System
-- **Turbo**: Monorepo build orchestration with dependency caching
-- **Package Manager**: pnpm with workspace linking and proper peer dependency resolution
+
+- **Package Manager**: npm with linking and proper peer dependency resolution
 - **TypeScript**: Strict mode enabled across all packages with shared tsconfig
 - **ESLint**: Next.js config with import sorting and React hooks rules
 
@@ -228,5 +195,5 @@ NEXT_PUBLIC_LOOPS_FORM_ID=         # Newsletter signup forms
 
 
 ## GitHub Integration
-- **Repository**: https://github.com/nicholasgousis/complimet
+- **Repository**: https://github.com/Nicholas0350/main-nicholas
 - **Issue-Driven Development**: Check open issues for current priorities
