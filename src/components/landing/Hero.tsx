@@ -1,0 +1,70 @@
+"use client";
+
+// From offers-meta-agent.md Section 1: Hero
+// Headline: "Audit-Ready Compliance In 14 Days Or We Work For Free Until You Are"
+// Subhead: "The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time"
+
+export default function Hero() {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-background">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
+
+      <div className="relative max-w-6xl mx-auto px-4 py-24 text-center space-y-8">
+        {/* Eyebrow */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-sm">
+          <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+          <span className="font-medium">Australia's Only Automated ASIC Intelligence Platform</span>
+        </div>
+
+        {/* Headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl mx-auto">
+          Audit-Ready Compliance In 14 Days Or We Work For Free Until You Are
+        </h1>
+
+        {/* Subhead */}
+        <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+          <a
+            href="#pricing"
+            className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-8 py-4 font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+          >
+            Claim Your Sprint Spot (12 Available)
+          </a>
+          <a
+            href="#calculator"
+            className="inline-flex items-center justify-center rounded-md border-2 border-primary px-8 py-4 font-semibold text-lg hover:bg-primary/10 transition-colors"
+          >
+            Calculate Penalty Risk (Free)
+          </a>
+        </div>
+
+        {/* Trust badges */}
+        <div className="pt-8 flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>84,000+ Entities Monitored</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>60-Second Real-Time Alerts</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>14-Day Delivery Guarantee</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

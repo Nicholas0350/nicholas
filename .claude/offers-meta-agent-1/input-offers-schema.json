@@ -1,0 +1,105 @@
+{
+  "OFFER_INPUT_SCHEMA": {
+    "targetVertical": "",
+    "idealCustomerProfile": {
+      "roleTitles": [],
+      "firmographics": {
+        "industries": [],
+        "companySizes": [],
+        "acvBand": "",
+        "geography": []
+      },
+      "pains": [],
+      "jobsToBeDone": [],
+      "buyingTriggers": []
+    },
+    "dreamOutcome": "",
+    "constraints": {
+      "budgetBandUSD": "",
+      "timelineDaysMax": 90,
+      "complianceNotes": []
+    },
+    "valueEquation": {
+      "perceivedLikelihood": {
+        "drivers": [],
+        "proofAssets": [],
+        "confidenceScore1to10": 7
+      },
+      "timeDelay": {
+        "firstValueDays": 7,
+        "fullOutcomeDays": 90,
+        "quickWins": []
+      },
+      "effortSacrifice": {
+        "mode": "DFY",
+        "clientInputs": [],
+        "clientHoursFirst30Days": 2
+      }
+    },
+    "delivery": {
+      "attentionLevel": "1:1",
+      "support": ["email", "zoom"],
+      "consumption": ["docs", "templates"],
+      "responsiveness": {
+        "coverageHours": "9-5",
+        "slaHours": 24
+      },
+      "onboardingSteps": []
+    },
+    "pricing": {
+      "priceAnchorUSD": 0,
+      "corePriceUSD": 0,
+      "paymentTerms": "upfront",
+      "moneyModel": {
+        "mechanisms": ["attraction", "upsell", "downsell", "continuity"],
+        "specifics": {}
+      }
+    },
+    "proofAndRisk": {
+      "credibility": [],
+      "caseStudies": [],
+      "guarantees": [
+        {
+          "type": "conditional",
+          "terms": "If X not achieved in Y, then Z"
+        }
+      ]
+    },
+    "scarcityUrgency": {
+      "scarcity": ["limited-seats"],
+      "urgency": {
+        "type": "promo",
+        "deadlineISO": ""
+      }
+    },
+    "bonuses": [
+      {
+        "name": "",
+        "benefit": "",
+        "obstacleSolved": "",
+        "valueUSD": 0,
+        "scarcity": "",
+        "urgency": ""
+      }
+    ],
+    "namingMAGIC": {
+      "reasonWhy": "",
+      "avatar": "",
+      "goal": "",
+      "interval": "",
+      "container": ""
+    },
+    "operational": {
+      "capacityLimits": "",
+      "fulfillmentSteps": [],
+      "toolsNeeded": [],
+      "dataAccess": []
+    },
+    "compliance": {
+      "regulated": false,
+      "forbiddenClaims": [],
+      "piiHandling": "",
+      "brandVoice": ""
+    }
+  }
+}

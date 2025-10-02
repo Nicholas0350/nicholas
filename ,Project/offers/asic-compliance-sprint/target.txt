@@ -1,0 +1,106 @@
+# Context Sources for ASIC Compliance Sprint Offer
+
+## Target Vertical
+ASIC-Regulated Financial Services Entities (AFS/ACL licensees)
+
+## Ideal Customer Profile
+- **Role Titles:** Head of Compliance, CFO, CEO, General Counsel, Risk & Compliance Officer
+- **Firmographics:** AFS/ACL licensees, 10-500 employees, $5M-$500M revenue, Australia-wide
+- **Primary Pains:**
+  1. Fear of $3.5M+ penalties and licence cancellation
+  2. Manual ASIC monitoring (10+ hours/week wasted)
+  3. Blindness to regulatory changes until too late
+  4. No early warning system for enforcement trends
+  5. Board breathing down their neck for compliance proof
+- **Buying Triggers:** ASIC enforcement surge, internal audit findings, new compliance hire, licence renewal deadline
+
+## Existing Offer Copy to Preserve/Enhance
+
+### OFFER #1: SPEED-TO-RESULTS ("COMPLIANCE CONFIDENCE IN 14 DAYS")
+
+**Name (MAGIC Framework):**
+"The 14-Day ASIC Penalty Shield Sprint"
+- **Magnetic Reason Why:** Q4 enforcement surge creates 300% spike in licence cancellations
+- **Avatar:** AFS/ACL licensees facing audit or board deadline
+- **Goal:** Audit-ready compliance posture + penalty exposure report
+- **Interval:** 14 days (not 90 days like competitors)
+- **Container:** Sprint
+
+**Price:**
+- Anchor: $200,000/year (Tier 1 annual rate)
+- Core: $25,000 (14-day sprint)
+- Payment Terms: 100% upfront OR 50% upfront + 50% on Day 7 deliverables
+
+**Money Model (Pull Cash Forward Mechanism):**
+- **Attraction Offer:** "Win Your Service Back" - If we don't find at least 3 compliance gaps worth $100K+ in penalty exposure by Day 14, keep the dashboard access forever + get 6 months premium access at no cost
+
+**Engagement Mode:**
+- 90% Done-For-You (DFY)
+- Client gives 2 hours total over 14 days (onboarding call + gap review)
+
+**Guarantee (SERVICE/TIME ONLY - NO REFUNDS):**
+- **Type:** Conditional service extension
+- **Terms:** "If we don't deliver a board-ready compliance report identifying 3+ penalty exposure risks by Day 14, we'll work with you for 3 additional months at no cost until you're 100% confident. If you're still not satisfied, we'll assign a dedicated compliance officer for 90 days free."
+
+**Scarcity:**
+- **Type:** Limited seats (only 12 spots per quarter)
+- **Copy:** "We're capping this sprint at 12 financial services entities this quarter. Once spots are gone, the next window opens in Q2 2026."
+
+**Urgency:**
+- **Type:** Enforcement deadline urgency
+- **Deadline:** March 31, 2026 (before Q2 ASIC reporting period)
+- **Copy:** "ASIC's Q4 enforcement pattern shows 300% spike in licence cancellations. The entities who act now avoid becoming the next case study. Spots close March 31st or when all 12 are filled."
+
+**Bonus Stack:**
+- **Bonus 1:** "Real-Time ASIC Enforcement Alert System" ($15,000 value)
+  - Solves: Fear of missing critical regulatory changes
+  - What it is: 60-second notification when ASIC publishes media releases affecting your licence type
+  - Scarcity: Only available to sprint participants (not sold separately)
+
+- **Bonus 2:** "84,000-Entity Penalty Exposure Database" ($25,000 value)
+  - Solves: Competitive intelligence blindness
+  - What it is: See which competitors have compliance issues before they're public
+  - Proof: "Only automated ASIC data monopoly in Australia"
+
+- **Bonus 3:** "Board-Ready Compliance Report Template" ($5,000 value)
+  - Solves: Executive communication anxiety
+  - What it is: Copy-paste report that makes you look like a hero to your board
+  - Urgency: Delivered Day 14 (in time for Q1 board meetings)
+
+**Total Stack Value:** $25,000 core + $45,000 bonuses = $70,000 perceived value for $25,000 investment
+
+## Improvements Needed
+
+1. **Scarcity Enhancement:** Add capacity constraint reasoning (why only 12 spots?)
+2. **Urgency Mechanisms:** Add more enforcement deadline triggers
+3. **Bonus Stack Positioning:** Make obstacle-solving more explicit
+4. **Landing Page Integration:** Structure for saaas-lander.png flow
+5. **Social Proof:** Add testimonials/case studies
+6. **FAQ Content:** Address common objections
+
+## Additional Context
+
+### Our Competitive Advantage
+- **Data Monopoly:** Only automated ASIC data intelligence platform with 84,000+ entity monitoring
+- **Real-Time Alerts:** 60-second notification system (no competitor has this)
+- **Crisis Marketing Opportunity:** ASIC enforcement surges create 10x urgency multipliers
+
+### Business Model
+- **Tier 1 (DFY):** $200K/year - Full done-for-you compliance
+- **Tier 2 (DWY):** $100K/year - Done-with-you professional
+- **Tier 3 (Sprint):** $25K one-time - 14-day audit sprint
+
+### Target Revenue
+$90M across 350 customers (mix of tiers)
+
+### Key Metrics
+- 84,000+ ASIC-regulated entities in database
+- 847 active ASIC investigations
+- $3.5M average penalty exposure
+- 300% spike in Q4 enforcement actions
+
+## X Thread URLs (to fetch)
+[Add later: Hormozi offer examples]
+
+## Website URLs (to analyze)
+[Add later: Competitor compliance services]
