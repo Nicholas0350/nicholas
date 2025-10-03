@@ -41,7 +41,7 @@ export default function FAQ() {
             Address common objections before you book
           </p>
         </div>
-        
+
         <Accordion
           type="single"
           collapsible
