@@ -1,4 +1,10 @@
 // From offers-meta-agent.md Section 8: FAQ (Objection Handling)
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
   {
@@ -35,14 +41,28 @@ export default function FAQ() {
             Address common objections before you book
           </p>
         </div>
-        <dl className="space-y-4">
+        
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full space-y-4"
+          defaultValue="item-0"
+        >
           {faqs.map((faq, index) => (
-            <div key={index} className="border rounded-lg p-6 bg-card">
-              <dt className="font-semibold text-lg mb-2">{faq.q}</dt>
-              <dd className="text-sm text-muted-foreground leading-relaxed">{faq.a}</dd>
-            </div>
+            <AccordionItem
+              key={index}
+              value={`item-${index}`}
+              className="border rounded-lg bg-card px-6"
+            >
+              <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6">
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-6">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </dl>
+        </Accordion>
       </div>
     </section>
   );
