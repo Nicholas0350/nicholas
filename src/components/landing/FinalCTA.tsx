@@ -3,7 +3,7 @@
 
 export default function FinalCTA() {
   return (
-    <section id="cta" className="py-24 bg-primary text-primary-foreground">
+    <section id="cta" className="py-24 bg-primary text-primary-foreground scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-4xl mx-auto px-4 text-center space-y-6">
         <h2 className="text-3xl sm:text-5xl font-bold">
           Claim Your 14-Day Penalty Shield Before March 31st
