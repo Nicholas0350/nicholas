@@ -4,6 +4,8 @@
 // Headline: "Audit-Ready Compliance In 14 Days Or We Work For Free Until You Are"
 // Subhead: "The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time"
 
+import { TypingText } from "@/components/ui/typing-text";
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-background">
@@ -26,6 +28,20 @@ export default function Hero() {
         <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
           The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time
         </p>
+
+        {/* Typing effect: AFSL licence types */}
+        <div className="pt-1 text-base sm:text-lg text-muted-foreground">
+          <span className="text-blue-500 font-medium">AFSL Licence Types: </span>
+          <TypingText
+            words={[
+              "Wholesale Advisory",
+              "Retail Advisory",
+              "Managed Investment Scheme",
+              "Market Making",
+              "Custodial/Depository Services",
+            ]}
+          />
+        </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
