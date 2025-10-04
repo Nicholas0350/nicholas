@@ -22,7 +22,8 @@ export default function Hero() {
         {/* Headline with typing at the xxx spot */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl mx-auto">
           Audit-Ready Compliance For <span className="sr-only">AFSL Licence Type </span>
-          <span className="text-blue-500">
+          <span aria-hidden="true" className="inline-block w-3 sm:w-4 md:w-5" />
+          <span className="text-blue-500 inline-block px-2 sm:px-3 align-baseline">
             <TypingText
               words={[
                 "Wholesale Advisory",
@@ -35,7 +36,8 @@ export default function Hero() {
               deletingSpeed={60}
               pauseBetween={1600}
             />
-          </span>{" "}
+          </span>
+          <span aria-hidden="true" className="inline-block w-3 sm:w-4 md:w-5" />
           In 14 Days Or We Work For Free Until You Are
         </h1>
 
