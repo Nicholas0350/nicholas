@@ -19,9 +19,24 @@ export default function Hero() {
           <span className="font-medium">Australia's Only Automated ASIC Intelligence Platform</span>
         </div>
 
-        {/* Headline */}
+        {/* Headline with typing at the xxx spot */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl mx-auto">
-          Audit-Ready Compliance In 14 Days Or We Work For Free Until You Are
+          Audit-Ready Compliance For <span className="sr-only">AFSL Licence Type </span>
+          <span className="text-blue-500">
+            <TypingText
+              words={[
+                "Wholesale Advisory",
+                "Retail Advisory",
+                "Managed Investment Scheme",
+                "Market Making",
+                "Custodial/Depository Services",
+              ]}
+              typingSpeed={90}
+              deletingSpeed={60}
+              pauseBetween={1600}
+            />
+          </span>{" "}
+          In 14 Days Or We Work For Free Until You Are
         </h1>
 
         {/* Subhead */}
@@ -29,19 +44,7 @@ export default function Hero() {
           The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time
         </p>
 
-        {/* Typing effect: AFSL licence types */}
-        <div className="pt-1 text-base sm:text-lg text-muted-foreground">
-          <span className="text-blue-500 font-medium">AFSL Licence Types: </span>
-          <TypingText
-            words={[
-              "Wholesale Advisory",
-              "Retail Advisory",
-              "Managed Investment Scheme",
-              "Market Making",
-              "Custodial/Depository Services",
-            ]}
-          />
-        </div>
+        {/* Removed separate typing line; now part of the headline */}
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">

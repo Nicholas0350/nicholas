@@ -10,19 +10,25 @@ export interface TypingTextProps {
   pauseBetween?: number; // ms to pause on a full word
   loop?: boolean;
   className?: string;
+  reserveWidthCh?: number; // reserve width to avoid layout shift; defaults to longest word length + 1ch for caret
 }
 
 export function TypingText({
   words,
-  typingSpeed = 60,
-  deletingSpeed = 40,
-  pauseBetween = 1200,
+  typingSpeed = 90,
+  deletingSpeed = 60,
+  pauseBetween = 1600,
   loop = true,
   className,
+  reserveWidthCh,
 }: TypingTextProps) {
   const [index, setIndex] = React.useState(0);
   const [display, setDisplay] = React.useState("");
   const [deleting, setDeleting] = React.useState(false);
+  const maxLen = React.useMemo(() =>
+    Math.max(0, ...words.map((w) => w.length)), [words]
+  );
+  const reserve = Math.max(2, reserveWidthCh ?? (maxLen + 1));
 
   React.useEffect(() => {
     if (!words || words.length === 0) return;
@@ -65,12 +71,15 @@ export function TypingText({
   }, [words]);
 
   return (
-    <span className={cn("inline-flex items-baseline align-baseline", className)}>
-      <span className="whitespace-pre">{display}</span>
+    <span
+      aria-live="polite"
+      className={cn("inline-block align-baseline", className)}
+      style={{ width: `${reserve}ch` }}
+    >
+      <span className="whitespace-pre inline-block align-baseline">{display}</span>
       <span className="w-[1ch] inline-block text-current animate-caret-blink">|</span>
     </span>
   );
 }
 
 export default TypingText;
-
