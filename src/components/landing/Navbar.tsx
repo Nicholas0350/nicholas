@@ -1,3 +1,5 @@
+import { buttonClasses } from "@/components/ui/button";
+
 export default function Navbar() {
   const links = [
     { href: "#services", label: "Services" },
@@ -8,9 +10,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b bg-[--color-background]/80">
+    <nav className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-background/60 bg-[--color-background]/80">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-        <a href="#" className="font-semibold">Nicholas Gousis</a>
+        <a href="#" className="font-semibold tracking-[-0.02em]">Nicholas Gousis</a>
         <div className="hidden sm:flex items-center gap-6 text-sm">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="hover:underline underline-offset-4">
@@ -18,8 +20,8 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-        <a href="#cta" className="inline-flex items-center justify-center rounded-md bg-[--color-foreground] text-[--color-background] px-3 py-1.5 text-sm font-medium">
-          CTA
+        <a href="#cta" className={buttonClasses({ variant: "default", size: "sm" })}>
+          Get Started
         </a>
       </div>
     </nav>

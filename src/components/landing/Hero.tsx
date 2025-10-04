@@ -29,16 +29,10 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-          <a
-            href="#pricing"
-            className="inline-flex items-center justify-center rounded-md bg-primary text-primary-foreground px-8 py-4 font-semibold text-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
-          >
+          <a href="#pricing" className={buttonClasses({ variant: "default", size: "lg" })}>
             Claim Your Sprint Spot (12 Available)
           </a>
-          <a
-            href="#calculator"
-            className="inline-flex items-center justify-center rounded-md border-2 border-primary px-8 py-4 font-semibold text-lg hover:bg-primary/10 transition-colors"
-          >
+          <a href="#calculator" className={buttonClasses({ variant: "outline", size: "lg" })}>
             Calculate Penalty Risk (Free)
           </a>
         </div>
@@ -68,3 +62,4 @@ export default function Hero() {
     </section>
   );
 }
+import { buttonClasses } from "@/components/ui/button";

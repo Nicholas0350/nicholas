@@ -9,7 +9,7 @@ import {
 const faqs = [
   {
     q: "Why only 12 spots?",
-    a: "Our forensic audit process requires dedicated analyst attention. We cross-reference your operations against 280+ ASIC regulatory guides - that level of quality can't be scaled past 12 entities per quarter without sacrificing the deep analysis that finds hidden risks.",
+    a: "Our forensic audit process requires dedicated analyst attention. We cross-reference your operations against 280+ ASIC regulatory guides—this level of quality doesn’t scale beyond 12 entities per quarter without sacrificing the deep analysis that finds hidden risks.",
   },
   {
     q: "What if you don't find anything?",
@@ -42,22 +42,13 @@ export default function FAQ() {
           </p>
         </div>
 
-        <Accordion
-          type="single"
-          collapsible
-          className="w-full space-y-4"
-          defaultValue="item-0"
-        >
+        <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
           {faqs.map((faq, index) => (
-            <AccordionItem
-              key={index}
-              value={`item-${index}`}
-              className="border rounded-lg bg-card px-6"
-            >
-              <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6">
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6 px-6">
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-6">
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-6 px-6">
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
