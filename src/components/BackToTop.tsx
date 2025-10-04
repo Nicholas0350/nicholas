@@ -30,7 +30,7 @@ export default function BackToTop() {
       onClick={onClick}
       className={cn(
         buttonClasses({ variant: "secondary", size: "icon" }),
-        "fixed bottom-6 right-6 shadow-sm transition-opacity",
+        "fixed right-6 bottom-16 md:bottom-24 border border-border shadow-sm transition-opacity",
         visible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}
     >
@@ -38,4 +38,3 @@ export default function BackToTop() {
     </button>
   );
 }
-
