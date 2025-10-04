@@ -1,9 +1,15 @@
 // From offers-meta-agent.md Section 8: FAQ (Objection Handling)
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const faqs = [
   {
     q: "Why only 12 spots?",
-    a: "Our forensic audit process requires dedicated analyst attention. We cross-reference your operations against 280+ ASIC regulatory guides - that level of quality can't be scaled past 12 entities per quarter without sacrificing the deep analysis that finds hidden risks.",
+    a: "Our forensic audit process requires dedicated analyst attention. We cross-reference your operations against 280+ ASIC regulatory guides—this level of quality doesn’t scale beyond 12 entities per quarter without sacrificing the deep analysis that finds hidden risks.",
   },
   {
     q: "What if you don't find anything?",
@@ -25,7 +31,7 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-16 bg-muted/20">
+    <section id="faq" className="py-16 bg-muted/20 scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -35,14 +41,19 @@ export default function FAQ() {
             Address common objections before you book
           </p>
         </div>
-        <dl className="space-y-4">
+
+        <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
           {faqs.map((faq, index) => (
-            <div key={index} className="border rounded-lg p-6 bg-card">
-              <dt className="font-semibold text-lg mb-2">{faq.q}</dt>
-              <dd className="text-sm text-muted-foreground leading-relaxed">{faq.a}</dd>
-            </div>
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6 px-6">
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-6 px-6">
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </dl>
+        </Accordion>
       </div>
     </section>
   );
