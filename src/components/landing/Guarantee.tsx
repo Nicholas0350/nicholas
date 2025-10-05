@@ -1,21 +1,35 @@
 // From offers-meta-agent.md Section 6: Guarantee (Risk Reversal)
 // "If We Don't Find 3 Gaps Worth $100K+ By Day 14, We Work For 6 Months Free"
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error JSON import
+import offerData from "../../../,Project/offers/asic-compliance-sprint/filled-offers-data.json";
+
+const jsonGuarantee = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.guarantee
+  : undefined;
+
 const guarantees = [
   {
     title: "Primary Guarantee",
-    headline: "3+ Gaps or 3 Months Free",
-    desc: "If we don't deliver a board-ready compliance report identifying 3+ penalty exposure risks by Day 14, we'll work with you for 3 additional months at no cost until you're 100% confident.",
+    headline: jsonGuarantee?.headline || "3+ Gaps or 3 Months Free",
+    desc:
+      jsonGuarantee?.terms ||
+      "If we don't deliver a board-ready compliance report identifying 3+ penalty exposure risks by Day 14, we'll work with you for 3 additional months at no cost until you're 100% confident.",
   },
   {
-    title: "Secondary Guarantee",
-    headline: "Still Not Satisfied? 90 Days Free Support",
-    desc: "If after 3 months of free work you're still not satisfied, we'll assign a dedicated compliance officer to work with you for 90 days at no cost. That's 6 months of total support to make you successful.",
+    title: "No Refunds Policy",
+    headline: jsonGuarantee?.noRefunds ? "Service/Time Guarantees Only" : "Refund Policy",
+    desc:
+      jsonGuarantee?.noRefunds
+        ? "We don't offer cash refunds. Our service guarantees ensure you get value through extended support, dedicated resources, and tool access."
+        : "Refund terms available on request.",
   },
   {
     title: "Tool Access Guarantee",
     headline: "Keep Everything We Build",
-    desc: "Dashboard access, alert system, penalty database, board report templates - if we don't find significant risks, you keep all tools + 6 months premium access at no additional cost.",
+    desc:
+      "Dashboard access, alert system, penalty database, board report templates - if we don't find significant risks, you keep all tools + extended access at no additional cost.",
   },
 ];
 
@@ -25,10 +39,11 @@ export default function Guarantee() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            If We Don't Find 3 Gaps Worth $100K+ By Day 14, We Work For 6 Months Free
+            {jsonGuarantee?.headline || "If We Don't Find 3 Gaps Worth $100K+ By Day 14, We Work For 6 Months Free"}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We're so confident in our forensic audit process that we'll work for free until you're successful. No refunds - just results.
+            {jsonGuarantee?.terms ||
+              "We're so confident in our forensic audit process that we'll work for free until you're successful."}
           </p>
         </div>
 
