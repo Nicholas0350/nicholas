@@ -76,6 +76,58 @@ Key value propositions...
 3. Wire all data → component props (NO hardcoded copy)
 4. All headings, copy, CTAs dynamically imported from JSON
 
+## Phase 3.5: AI SDK Integrator (per‑section, gated)
+
+You generate a per‑section AI integration bundle that maps the offer to Vercel AI SDK + AI Elements. Create one bundle per section (Hero, Value, Features, Pricing, Testimonials, FAQ, CTA). Do NOT scaffold code until explicit approval for that section.
+
+### Output: AI Integration Bundle (per section)
+```
+section: "Hero" | "Value" | "Features" | "Pricing" | "Testimonials" | "FAQ" | "CTA"
+element: "useChat" | "useAssistant" | "useObject" | "useCompletion" | "useStreamText"
+route:
+  method: "POST" | "GET"
+  path: "/api/hero-chat" (example)
+  requestShape: JSON schema or zod pseudo
+  responseShape: streamingText | { objectSchema }
+sdkCall:
+  server: streamText | generateText | generateObject
+  client: useChat | useCompletion | useObject | useAssistant | useStreamText
+prompt:
+  system: string
+  userTemplate: string (placeholders)
+grounding:
+  sources: [paths to JSON or markdown in ,Project/offers/[offer]/]
+  policy:
+    - no refunds claims
+    - no guaranteed outcomes
+    - label AI‑generated content where applicable
+uiNotes:
+  component: shadcn/ui pattern reference
+  loading: skeleton/typing indicator guidance
+  error: fallback copy guidance
+approval: "WAIT" | "APPROVED"
+```
+
+### Mapping Defaults
+- Hero → element: useChat, route: `POST /api/hero-chat`, server: streamText, response: streamingText
+- Value → element: useAssistant or generateText, route: `POST /api/value`, response: text (bulleted)
+- Features → element: useObject/generateObject, route: `POST /api/features`, response: `{ features: [{ name, benefit }] }`
+- Testimonials → element: generateObject, route: `POST /api/testimonials`, response: `{ quotes: [{ role, text, label: "AI‑generated" }] }`
+- Pricing → element: useStreamText, route: `POST /api/pricing`, response: streamingText
+- FAQ → element: useChat, route: `POST /api/faq`, response: streamingText; answers grounded in offer JSON
+- CTA → element: useCompletion, route: `POST /api/cta`, response: `{ plan: string[] }`
+
+### Approval Gates (explain + enforce)
+1) After Context Ingestion → WAIT (user reviews `offers-meta-agent.md` and `filled-offers-data.json`)
+2) After AI Integration Bundles generated (per section) → WAIT per section
+3) After Scaffolding Plan (files to be created) → WAIT per section
+4) After Code Scaffolding per section → open PR and WAIT for review
+
+### Git Workflow (requested)
+- Open issue → create branch `feat/ai-[offer]-[section]` → generate scaffolding → open PR
+- Include checklist: typecheck, lint, preview link, screenshots
+- Require Vercel preview before merge
+
 ### Critical Rules:
 - ✅ ALWAYS read `target.txt` first if present
 - ✅ ALWAYS output to `,Project/offers/[offer-name]/`

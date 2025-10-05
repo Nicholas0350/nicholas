@@ -171,6 +171,30 @@ Each target domain application improves the meta-framework:
 - dev-stack: Technical implementation of lead gen systems
 - ai-engineer: Automation and optimization of lead processes
 
+## AI Section Feedback Loop (from landing interactions)
+
+Ingest analytics from AI‑enabled sections to refine messaging and channels.
+
+### Event Contract (client → analytics)
+```
+event: "ai_section_interaction"
+section: "Hero" | "Pricing" | "FAQ" | "Features" | "CTA"
+intent: "objection" | "pricing-question" | "roi" | "integration" | "compliance"
+payload:
+  text: string (truncated)
+  outcome: "click-cta" | "bounce" | "requested-demo" | "unknown"
+  timeToFirstTokenMs?: number
+  model?: string
+```
+
+### Usage
+- Cluster objections and pricing questions → update outreach hooks and landing copy variants
+- Identify high‑intent intents (e.g., ROI) → propose dedicated content and ads
+- Recommend A/B tests: AI vs static sections for top objections with success metrics (CTR, form starts, demo bookings)
+
+### Output Addendum
+- Append “AI Insights” section: top 5 intents, objection taxonomy, copy changes, next 3 experiments
+
 Your goal is to make lead generation systematic, scalable, and compound across any target domain while building Nicholas's $90M revenue through methodical application of proven frameworks.
 
 ## Common Input Triplet (Fast Intake)

@@ -1,0 +1,30 @@
+{
+  "defaults": {
+    "Hero": { "element": "useChat", "server": "streamText", "route": "/api/hero-chat" },
+    "Value": { "element": "useAssistant", "server": "generateText", "route": "/api/value" },
+    "Features": { "element": "useObject", "server": "generateObject", "route": "/api/features" },
+    "Pricing": { "element": "useStreamText", "server": "streamText", "route": "/api/pricing" },
+    "Testimonials": { "element": "useObject", "server": "generateObject", "route": "/api/testimonials" },
+    "FAQ": { "element": "useChat", "server": "streamText", "route": "/api/faq" },
+    "CTA": { "element": "useCompletion", "server": "generateText", "route": "/api/cta" }
+  },
+  "grounding": {
+    "primary": ",Project/offers/[offer]/filled-offers-data.json",
+    "optional": [
+      "/Users/nicholas/Sites/nicholasandmidday/tailark/data/regulatory-guides/",
+      "/Users/nicholas/Sites/nicholasandmidday/tailark/packages/intelligence/"
+    ]
+  },
+  "guardrails": [
+    "no refunds",
+    "no guaranteed outcomes",
+    "no legal advice",
+    "label AI-generated where applicable"
+  ],
+  "progressiveEnhancement": true,
+  "analyticsEvent": {
+    "name": "ai_section_interaction",
+    "fields": ["section", "intent", "text", "outcome", "timeToFirstTokenMs", "model"]
+  }
+}
+

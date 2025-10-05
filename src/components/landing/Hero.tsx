@@ -5,6 +5,7 @@
 // Subhead: "The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time"
 
 import { TypingText } from "@/components/ui/typing-text";
+import HeroMicroChat from "@/components/ui/hero-micro-chat";
 
 export default function Hero() {
   return (
@@ -56,6 +57,11 @@ export default function Hero() {
           <a href="#calculator" className={buttonClasses({ variant: "outline", size: "lg" })}>
             Calculate Penalty Risk (Free)
           </a>
+        </div>
+
+        {/* Micro chat (progressive enhancement; static content remains primary) */}
+        <div className="pt-6">
+          <HeroMicroChat />
         </div>
 
         {/* Trust badges */}

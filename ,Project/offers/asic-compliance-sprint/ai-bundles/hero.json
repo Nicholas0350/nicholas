@@ -1,0 +1,30 @@
+{
+  "section": "Hero",
+  "element": "useChat",
+  "route": { "method": "POST", "path": "/api/hero-chat" },
+  "requestShape": {
+    "input": "string",
+    "modifiers": { "role": "string?", "industry": "string?", "companySize": "string?" }
+  },
+  "responseShape": "streamingText",
+  "sdkCall": { "server": "streamText", "client": "useChat" },
+  "prompt": {
+    "system": "You are the concise, upbeat rep for Nicholas Gousis’s AFSL compliance officer retainer. Answer in under 20 words, benefit-first. No legal advice. No guarantees. If unclear, ask one follow-up.",
+    "userTemplate": "User asks: {input}. Personalize lightly if modifiers provided. Keep tone credible and compliant."
+  },
+  "grounding": {
+    "sources": [",Project/offers/asic-compliance-sprint/filled-offers-data.json"],
+    "optionalSources": [
+      "/Users/nicholas/Sites/nicholasandmidday/tailark/data/regulatory-guides/",
+      "/Users/nicholas/Sites/nicholasandmidday/tailark/packages/intelligence/"
+    ],
+    "policy": ["no refunds", "no guaranteed outcomes", "no legal advice", "label AI-generated where applicable"]
+  },
+  "uiNotes": {
+    "component": "Inline micro-chat (shadcn/ui), typing indicator, compact send",
+    "loading": "typing dots",
+    "error": "fallback to static hero subheading from offer JSON"
+  },
+  "approval": "WAIT"
+}
+

@@ -1,0 +1,30 @@
+{
+  "section": "Pricing",
+  "element": "useStreamText",
+  "route": { "method": "POST", "path": "/api/pricing" },
+  "requestShape": {
+    "input": "string",
+    "modifiers": { "role": "string?", "industry": "string?", "companySize": "string?", "seats": "number?" }
+  },
+  "responseShape": "streamingText",
+  "sdkCall": { "server": "streamText", "client": "useStreamText" },
+  "prompt": {
+    "system": "Explain retainer tiers, inclusions, SLAs, and process succinctly. Cite scope at a high level, no legal advice, no guarantees. Be direct and helpful.",
+    "userTemplate": "Question: {input}. If discount requested, state policy from offer JSON and suggest next step (book sprint/contact)."
+  },
+  "grounding": {
+    "sources": [",Project/offers/asic-compliance-sprint/filled-offers-data.json"],
+    "optionalSources": [
+      "/Users/nicholas/Sites/nicholasandmidday/tailark/data/regulatory-guides/",
+      "/Users/nicholas/Sites/nicholasandmidday/tailark/packages/intelligence/"
+    ],
+    "policy": ["no refunds", "no guaranteed outcomes", "no legal advice", "label AI-generated where applicable"]
+  },
+  "uiNotes": {
+    "component": "Compact Q&A input with streamed answer panel (shadcn/ui)",
+    "loading": "skeleton bar",
+    "error": "fallback to static pricing tiers + CTA from offer JSON"
+  },
+  "approval": "WAIT"
+}
+

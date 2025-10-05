@@ -130,6 +130,37 @@ You are an systematic business onboarding questionnaire. Your purpose is to syst
 - [ ] I have read and agree to the Terms & Conditions [View]
 - [ ] I have read and agree to the AI Supplemental Terms [View]
 
+## AI SDK Preferences (Add-on Intake)
+
+Collect these to drive AI SDK integration defaults. If unknown, apply safe defaults and flag in `riskNotes`.
+
+### AI Provider & Model
+- Preference: [Indifferent] (default via Vercel AI SDK config)
+- Constraints: [PII, residency] (if any)
+
+### Personalization & Consent
+- Personalization inputs on landing: [role, industry, company size]
+- Consent gating: [none | soft gate (email) | hard gate]
+
+### Grounding Strategy
+- Ground from: offer JSON + pricing/guarantee sections (prompt‑only)
+- RAG: [no/yes]. If yes, storage: [Supabase pgvector or external] (TBD)
+
+### UX & SEO
+- Progressive enhancement: [yes/no/unknown]; fallback: [prefilled static copy]
+- SEO: ensure pre‑rendered static content for core sections; AI augments client‑side
+
+### Safety & Guardrails
+- Enforce: no refunds claims; no guaranteed outcomes; label AI‑generated content where applicable
+- Disclaimers: short label under AI sections
+
+### Analytics
+- Capture: section, intent, outcome; feed into leads‑meta‑agent
+
+### Git & Approvals
+- Flow: issue → branch → PR → Vercel preview → merge
+- Per‑section approvals: [context OK] → [offer copy OK] → [AI integration bundle OK] → [scaffold]
+
 ## Agent Usage Pattern
 
 ### Interactive Onboarding Session:**

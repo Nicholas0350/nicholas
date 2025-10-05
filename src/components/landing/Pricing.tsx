@@ -12,6 +12,7 @@ type PricingTier = {
   period?: string;
   positioningAngle: string;
   description: string;
+  capacityNote?: string;
   features: string[];
   bullets: string[];
   cta: string;
@@ -31,6 +32,7 @@ const pricingTiers: PricingTier[] = [
     priceAnchor: "$17,000/month",
     positioningAngle: "EFFORTLESS",
     description: "Zero hours after setup - 100% automated monitoring",
+    capacityNote: "Capacity: 20 clients",
     features: [
       "Real-time ASIC monitoring (60-second alerts)",
       "AI Compliance Copilot",
@@ -61,6 +63,7 @@ const pricingTiers: PricingTier[] = [
     priceAnchor: "$200,000/year",
     positioningAngle: "SPEED",
     description: "Audit-ready compliance in 14 days (not 90+ days)",
+    capacityNote: "Capacity: 12 spots",
     features: [
       "Board-ready compliance report (Day 14)",
       "3+ penalty exposure gaps guaranteed",
@@ -91,6 +94,7 @@ const pricingTiers: PricingTier[] = [
     priceAnchor: "$200,000/year",
     positioningAngle: "CERTAINTY",
     description: "Find every gap or we cover remediation",
+    capacityNote: "Capacity: 8 audits",
     features: [
       "Comprehensive 21-day forensic audit",
       "Cross-referenced against 280+ ASIC Regulatory Guides",
@@ -159,6 +163,11 @@ export default function Pricing() {
                 <div className="text-sm text-primary font-semibold mb-3">
                   {tier.positioningAngle}
                 </div>
+                {tier.capacityNote && (
+                  <div className="mb-3 inline-flex items-center rounded-full border px-3 py-1 text-xs text-muted-foreground">
+                    {tier.capacityNote}
+                  </div>
+                )}
                 <p className="text-sm text-muted-foreground mb-4">
                   {tier.description}
                 </p>
