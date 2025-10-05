@@ -1,6 +1,7 @@
 "use client";
 
 import { Check, Star } from "lucide-react";
+import PricingQnA from "@/components/ui/pricing-qna";
 
 // TODO: Import from generated offer data when ready
 // import offerData from '@/,Project/offers/asic-compliance-sprint/filled-offers-data.json'
@@ -134,6 +135,10 @@ export default function Pricing() {
             <br />
             All plans include access to Australia's only automated ASIC data intelligence platform.
           </p>
+          {/* Q&A input (progressive enhancement) */}
+          <div className="mt-6">
+            <PricingQnA />
+          </div>
         </div>
 
         {/* Pricing Tiers */}
