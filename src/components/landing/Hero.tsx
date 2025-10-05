@@ -19,6 +19,10 @@ export default function Hero() {
   const ctaText = capacity
     ? `Claim Your Sprint Spot (${capacity} Available)`
     : "Claim Your Sprint Spot";
+  const subhead: string = Array.isArray((offerData as any)?.offers)
+    ? (offerData as any).offers[0]?.magicFramework?.goal ||
+      "The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time"
+    : "The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time";
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-background">
       {/* Background gradient */}
@@ -55,7 +59,7 @@ export default function Hero() {
 
         {/* Subhead */}
         <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
-          The $3.5M Penalty Shield: Australia's Only Automated ASIC Intelligence Platform Monitoring 84,000+ Entities In Real-Time
+          {subhead}
         </p>
 
         {/* Removed separate typing line; now part of the headline */}

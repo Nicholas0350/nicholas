@@ -34,6 +34,18 @@ const sprintCapacity: number | undefined = Array.isArray((offerData as any)?.off
 const sprintPrice: number | undefined = Array.isArray((offerData as any)?.offers)
   ? (offerData as any).offers[0]?.price?.coreUSD
   : undefined;
+const sprintTerms: string | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.price?.terms
+  : undefined;
+const sprintBulletsFromJson: string[] | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.bullets
+  : undefined;
+const sprintGuaranteeHeadline: string | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.guarantee?.headline
+  : undefined;
+const sprintGuaranteeTerms: string | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.guarantee?.terms
+  : undefined;
 const sprintPriceText = sprintPrice ? `$${sprintPrice.toLocaleString()}` : "$25,000";
 const sprintCapacityText = sprintCapacity ? `Capacity: ${sprintCapacity} spots` : "Capacity: 12 spots";
 
@@ -85,19 +97,22 @@ const pricingTiers: PricingTier[] = [
       "Board Report Template ($5K value)",
       "Only 2 hours of your time total",
     ],
-    bullets: [
-      "$25K one-time (vs $200K/year competitors)",
-      "90% Done-For-You - 2 hours total investment",
-      "Service guarantee: 3 months free + 90 days dedicated officer",
-      "Limited to 12 entities per quarter (analyst capacity)",
-      "$45K in crisis prevention tools included",
-    ],
+    bullets: sprintBulletsFromJson && sprintBulletsFromJson.length
+      ? (sprintTerms ? [...sprintBulletsFromJson, sprintTerms] : sprintBulletsFromJson)
+      : [
+          "$25K one-time (vs $200K/year competitors)",
+          "90% Done-For-You - 2 hours total investment",
+          "Service guarantee: 3 months free + 90 days dedicated officer",
+          "Limited to 12 entities per quarter (analyst capacity)",
+          "$45K in crisis prevention tools included",
+        ],
     cta: "Book Sprint",
     href: "#contact",
     isPopular: true, // HIGHLIGHTED - Middle tier (Hormozi best practice)
     guarantee: {
-      headline: "3+ Gaps Guaranteed",
-      terms: "If we don't deliver a board-ready report identifying 3+ penalty exposure risks by Day 14, we'll work with you for 3 additional months at no cost. Still not satisfied? We assign a dedicated compliance officer for 90 days free.",
+      headline: sprintGuaranteeHeadline || "3+ Gaps Guaranteed",
+      terms: sprintGuaranteeTerms ||
+        "If we don't deliver a board-ready report identifying 3+ penalty exposure risks by Day 14, we'll work with you for 3 additional months at no cost. Still not satisfied? We assign a dedicated compliance officer for 90 days free.",
     },
   },
   {
