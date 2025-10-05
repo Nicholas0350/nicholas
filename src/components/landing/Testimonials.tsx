@@ -1,19 +1,40 @@
-const testimonials = [
-  {
-    quote:
-      "Beta clients reduced compliance monitoring time by 80% in first 14 days.",
-    author: "Head of Compliance, AFSL",
-  },
-  {
-    quote:
-      "We identified $300K in hidden penalty exposure within two weeks.",
-    author: "CFO, $50M AFS Licensee",
-  },
-  {
-    quote: "Only automated ASIC data monopoly in Australia.",
-    author: "General Counsel, FinServ",
-  },
-];
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error JSON import
+import offerData from "../../../,Project/offers/asic-compliance-sprint/filled-offers-data.json";
+
+type Testimonial = { quote: string; author: string };
+
+const offer0: any | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]
+  : undefined;
+
+const fromSnippets: Testimonial[] = Array.isArray(offer0?.socialProofSnippets)
+  ? (offer0.socialProofSnippets as string[]).slice(0, 3).map((q) => ({ quote: q, author: "AFSL/ACL client" }))
+  : [];
+
+const socialSection: any | undefined = Array.isArray(offer0?.sections)
+  ? offer0.sections.find((s: any) => s?.id === "section-7-social-proof")
+  : undefined;
+const fromCases: Testimonial[] = Array.isArray(socialSection?.caseStudies)
+  ? (socialSection.caseStudies as any[]).map((c) => ({ quote: c?.result || "", author: c?.title || "Case Study" })).slice(0, 3)
+  : [];
+
+const testimonials: Testimonial[] = (fromSnippets.length ? fromSnippets : fromCases).length
+  ? (fromSnippets.length ? fromSnippets : fromCases)
+  : [
+      {
+        quote: "Beta clients reduced compliance monitoring time by 80% in first 14 days.",
+        author: "Head of Compliance, AFSL",
+      },
+      {
+        quote: "We identified $300K in hidden penalty exposure within two weeks.",
+        author: "CFO, $50M AFS Licensee",
+      },
+      {
+        quote: "Only automated ASIC data monopoly in Australia.",
+        author: "General Counsel, FinServ",
+      },
+    ];
 
 export default function Testimonials() {
   return (
