@@ -2,6 +2,9 @@
 
 import { Check, Star } from "lucide-react";
 import PricingQnA from "@/components/ui/pricing-qna";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error JSON import
+import offerData from "../../../,Project/offers/asic-compliance-sprint/filled-offers-data.json";
 
 // TODO: Import from generated offer data when ready
 // import offerData from '@/,Project/offers/asic-compliance-sprint/filled-offers-data.json'
@@ -24,6 +27,15 @@ type PricingTier = {
     terms: string;
   };
 };
+
+const sprintCapacity: number | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.scarcity?.capacity
+  : undefined;
+const sprintPrice: number | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]?.price?.coreUSD
+  : undefined;
+const sprintPriceText = sprintPrice ? `$${sprintPrice.toLocaleString()}` : "$25,000";
+const sprintCapacityText = sprintCapacity ? `Capacity: ${sprintCapacity} spots` : "Capacity: 12 spots";
 
 const pricingTiers: PricingTier[] = [
   {
@@ -59,12 +71,12 @@ const pricingTiers: PricingTier[] = [
   },
   {
     name: "14-Day Sprint",
-    price: "$25,000",
+    price: sprintPriceText,
     period: "one-time",
     priceAnchor: "$200,000/year",
     positioningAngle: "SPEED",
     description: "Audit-ready compliance in 14 days (not 90+ days)",
-    capacityNote: "Capacity: 12 spots",
+    capacityNote: sprintCapacityText,
     features: [
       "Board-ready compliance report (Day 14)",
       "3+ penalty exposure gaps guaranteed",

@@ -6,8 +6,19 @@
 
 import { TypingText } from "@/components/ui/typing-text";
 import HeroMicroChat from "@/components/ui/hero-micro-chat";
+// Read offer copy (for CTA capacity and phrasing)
+// Note: keep lightweight usage and provide fallbacks to avoid runtime coupling
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error JSON import
+import offerData from "../../../,Project/offers/asic-compliance-sprint/filled-offers-data.json";
 
 export default function Hero() {
+  const capacity: number | undefined = Array.isArray((offerData as any)?.offers)
+    ? (offerData as any).offers[0]?.scarcity?.capacity
+    : undefined;
+  const ctaText = capacity
+    ? `Claim Your Sprint Spot (${capacity} Available)`
+    : "Claim Your Sprint Spot";
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-background">
       {/* Background gradient */}
@@ -52,7 +63,7 @@ export default function Hero() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
           <a href="#pricing" className={buttonClasses({ variant: "default", size: "lg" })}>
-            Claim Your Sprint Spot (12 Available)
+            {ctaText}
           </a>
           <a href="#calculator" className={buttonClasses({ variant: "outline", size: "lg" })}>
             Calculate Penalty Risk (Free)
