@@ -6,7 +6,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqs = [
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error JSON import
+import offerData from "../../../,Project/offers/asic-compliance-sprint/filled-offers-data.json";
+
+type FAQItem = { q: string; a: string };
+
+const staticFaqs: FAQItem[] = [
   {
     q: "Why only 12 spots?",
     a: "Our forensic audit process requires dedicated analyst attention. We cross-reference your operations against 280+ ASIC regulatory guides—this level of quality doesn’t scale beyond 12 entities per quarter without sacrificing the deep analysis that finds hidden risks.",
@@ -29,7 +35,37 @@ const faqs = [
   },
 ];
 
+const offer0: any | undefined = Array.isArray((offerData as any)?.offers)
+  ? (offerData as any).offers[0]
+  : undefined;
+
+const faqsFromJson: FAQItem[] = (() => {
+  if (!offer0) return [];
+  const arr: FAQItem[] = [];
+  const cap = offer0?.scarcity?.capacity as number | undefined;
+  if (cap) {
+    arr.push({
+      q: `Why only ${cap} spots?`,
+      a: offer0?.scarcity?.copy ||
+        `We limit capacity to ${cap} entities per quarter to maintain quality forensic analysis without compromise.`,
+    });
+  }
+  const g = offer0?.guarantee;
+  if (g?.headline || g?.terms) {
+    arr.push({
+      q: "What happens if you don't find anything?",
+      a: g?.terms || "We extend service/time until you're successful. No cash refunds; we put in the work.",
+    });
+  }
+  const terms = offer0?.price?.terms as string | undefined;
+  if (terms) {
+    arr.push({ q: "How do payments work?", a: terms });
+  }
+  return arr;
+})();
+
 export default function FAQ() {
+  const faqs = faqsFromJson.length ? faqsFromJson : staticFaqs;
   return (
     <section id="faq" className="py-16 bg-muted/20 scroll-mt-24 md:scroll-mt-28">
       <div className="max-w-4xl mx-auto px-4">

@@ -1,7 +1,13 @@
 // From offers-meta-agent.md Section 3: Solution Overview
 // "From ASIC Fear To Board Hero In 14 Days"
 
-const benefits = [
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error JSON import
+import offerData from "../../../,Project/offers/asic-compliance-sprint/filled-offers-data.json";
+
+type Benefit = { title: string; desc: string };
+
+const staticBenefits: Benefit[] = [
   {
     title: "60-Second Real-Time Alerts",
     desc: "Get SMS/email alerts the moment ASIC publishes enforcement actions. Your competitors find out 48 hours later.",
@@ -28,7 +34,14 @@ const benefits = [
   },
 ];
 
+const benefitsFromJson: Benefit[] | null = Array.isArray((offerData as any)?.offers)
+  ? ((offerData as any).offers[0]?.bonusStack || [])
+      .filter((b: any) => b?.name && b?.benefit)
+      .map((b: any) => ({ title: String(b.name), desc: String(b.benefit) }))
+  : null;
+
 export default function Benefits() {
+  const benefits = benefitsFromJson && benefitsFromJson.length > 0 ? benefitsFromJson : staticBenefits;
   return (
     <section className="py-16 bg-muted/20">
       <div className="max-w-6xl mx-auto px-4">
