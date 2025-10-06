@@ -114,6 +114,7 @@ const baseInvoiceTemplateSchema = z.object({
 export const upsertInvoiceTemplateSchema = baseInvoiceTemplateSchema.extend({
   paymentDetails: z.any().nullable().optional(),
   fromDetails: z.any().nullable().optional(),
+  noteDetails: z.any().nullable().optional(),
 });
 
 // Template schema with TipTap validation for editor fields
@@ -124,6 +125,10 @@ export const restUpsertInvoiceTemplateSchema = baseInvoiceTemplateSchema.extend(
     }),
     fromDetails: editorFieldSchema.openapi({
       description: "Sender details in TipTap JSONContent format",
+    }),
+    noteDetails: editorFieldSchema.openapi({
+      description:
+        "Default footer notes in TipTap JSONContent format for new invoices",
     }),
   },
 );
@@ -140,6 +145,7 @@ const baseDraftLineItemSchema = z.object({
 // tRPC-compatible line item schema (uses string for name field)
 export const draftLineItemSchema = baseDraftLineItemSchema.extend({
   name: z.string().nullable().optional(),
+  productId: z.string().uuid().optional(),
 });
 
 // Line item schema with TipTap validation for name field
@@ -160,6 +166,10 @@ export const restDraftLineItemSchema = baseDraftLineItemSchema.extend({
         },
       ],
     },
+  }),
+  productId: z.string().uuid().optional().openapi({
+    description: "Optional reference to a saved product",
+    example: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
   }),
 });
 
@@ -380,6 +390,66 @@ export const lineItemSchema = z.object({
   price: z.number(),
   vat: z.number().min(0, "VAT must be at least 0").optional(),
   tax: z.number().min(0, "Tax must be at least 0").optional(),
+  // Optional product reference
+  productId: z.string().uuid().optional(),
+});
+
+// Invoice product schemas
+export const createInvoiceProductSchema = z.object({
+  name: z.string().min(1, "Product name is required"),
+  description: z.string().optional().nullable(),
+  price: z.number().safe().optional().nullable(),
+  currency: z.string().optional().nullable(),
+  unit: z.string().optional().nullable(),
+  isActive: z.boolean().optional(),
+});
+
+export const updateInvoiceProductSchema = z.object({
+  id: z.string().uuid(),
+  name: z.string().min(1, "Product name is required").optional(),
+  description: z.string().optional().nullable(),
+  price: z.number().safe().optional().nullable(),
+  currency: z.string().optional().nullable(),
+  unit: z.string().optional().nullable(),
+  isActive: z.boolean().optional(),
+});
+
+export const searchInvoiceProductsSchema = z.object({
+  query: z.string().min(1, "Search query is required"),
+  limit: z.number().min(1).max(50).default(10),
+});
+
+export const getInvoiceProductSchema = z.object({
+  id: z.string().uuid(),
+});
+
+export const getInvoiceProductsSchema = z
+  .object({
+    sortBy: z.enum(["popular", "recent"]).default("popular"),
+    limit: z.number().min(1).max(100).default(50),
+    includeInactive: z.boolean().default(false),
+    currency: z.string().optional().nullable(),
+  })
+  .optional();
+
+export const deleteInvoiceProductSchema = z.object({
+  id: z.string().uuid(),
+});
+
+export const saveLineItemAsProductSchema = z.object({
+  name: z.string().min(1, "Product name is required"),
+  price: z.number().safe().optional().nullable(),
+  unit: z.string().optional().nullable(),
+  productId: z.string().uuid().optional(),
+  currency: z.string().optional().nullable(),
+});
+
+export const upsertInvoiceProductSchema = z.object({
+  name: z.string().min(1, "Product name is required"),
+  description: z.string().optional().nullable(),
+  price: z.number().safe().optional().nullable(),
+  currency: z.string().optional().nullable(),
+  unit: z.string().optional().nullable(),
 });
 
 export const invoiceTemplateSchema = z.object({
@@ -516,12 +586,14 @@ export const searchInvoiceNumberSchema = z.object({
 
 export const invoiceSummarySchema = z
   .object({
-    status: z
-      .enum(["draft", "overdue", "paid", "unpaid", "canceled"])
+    statuses: z
+      .array(
+        z.enum(["draft", "overdue", "paid", "unpaid", "canceled", "scheduled"]),
+      )
       .optional()
       .openapi({
-        description: "Filter summary by invoice status",
-        example: "paid",
+        description: "Filter summary by invoice statuses",
+        example: ["draft", "unpaid"],
         param: { in: "query" },
       }),
   })
@@ -1290,30 +1362,79 @@ export const getPaymentStatusResponseSchema = z.object({
 });
 
 export const invoiceSummaryResponseSchema = z
-  .array(
-    z.object({
-      currency: z.string().openapi({
-        description: "Currency of the invoice",
-        example: "SEK",
-      }),
-      totalAmount: z.number().openapi({
-        description: "Total amount of the invoice",
-        example: 224171.25,
-      }),
-      invoiceCount: z.number().openapi({
-        description: "Number of invoices for this currency",
-        example: 15,
-      }),
+  .object({
+    currency: z.string().openapi({
+      description: "Base currency of the team",
+      example: "USD",
     }),
-  )
+    totalAmount: z.number().openapi({
+      description: "Total amount of all invoices converted to base currency",
+      example: 224171.25,
+    }),
+    invoiceCount: z.number().openapi({
+      description: "Total number of invoices",
+      example: 15,
+    }),
+    breakdown: z
+      .array(
+        z.object({
+          currency: z.string().openapi({
+            description: "Original currency of the invoices",
+            example: "EUR",
+          }),
+          originalAmount: z.number().openapi({
+            description: "Total amount in original currency",
+            example: 15000.5,
+          }),
+          convertedAmount: z.number().openapi({
+            description: "Amount converted to base currency",
+            example: 16250.75,
+          }),
+          count: z.number().openapi({
+            description: "Number of invoices in this currency",
+            example: 5,
+          }),
+        }),
+      )
+      .optional()
+      .openapi({
+        description: "Currency breakdown when multiple currencies are involved",
+        example: [
+          {
+            currency: "EUR",
+            originalAmount: 15000.5,
+            convertedAmount: 16250.75,
+            count: 5,
+          },
+          {
+            currency: "GBP",
+            originalAmount: 8000.25,
+            convertedAmount: 9200.5,
+            count: 3,
+          },
+        ],
+      }),
+  })
   .openapi({
     description:
-      "Array of invoice summary objects, each containing currency, total amount, and invoice count.",
-    example: [
-      {
-        currency: "SEK",
-        totalAmount: 224171.25,
-        invoiceCount: 15,
-      },
-    ],
+      "Invoice summary object containing total amount converted to team's base currency and total invoice count.",
+    example: {
+      currency: "USD",
+      totalAmount: 224171.25,
+      invoiceCount: 15,
+      breakdown: [
+        {
+          currency: "EUR",
+          originalAmount: 15000.5,
+          convertedAmount: 16250.75,
+          count: 5,
+        },
+        {
+          currency: "GBP",
+          originalAmount: 8000.25,
+          convertedAmount: 9200.5,
+          count: 3,
+        },
+      ],
+    },
   });

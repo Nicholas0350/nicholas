@@ -69,6 +69,7 @@ export type GetInboxParams = {
   teamId: string;
   cursor?: string | null;
   order?: string | null;
+  sort?: string | null;
   pageSize?: number;
   q?: string | null;
   status?:
@@ -79,11 +80,12 @@ export type GetInboxParams = {
     | "pending"
     | "analyzing"
     | "suggested_match"
+    | "no_match"
     | null;
 };
 
 export async function getInbox(db: Database, params: GetInboxParams) {
-  const { teamId, cursor, order, pageSize = 20, q, status } = params;
+  const { teamId, cursor, order, sort, pageSize = 20, q, status } = params;
 
   const whereConditions: SQL[] = [
     eq(inbox.teamId, teamId),
@@ -101,10 +103,15 @@ export async function getInbox(db: Database, params: GetInboxParams) {
     if (!Number.isNaN(Number.parseInt(q))) {
       whereConditions.push(sql`${inbox.amount}::text LIKE '%' || ${q} || '%'`);
     } else {
+      // Use both FTS and ILIKE for better special character support
       const query = buildSearchQuery(q);
-      // Search using full-text search
       whereConditions.push(
-        sql`to_tsquery('english', ${query}) @@ ${inbox.fts}`,
+        sql`(
+          to_tsquery('english', ${query}) @@ ${inbox.fts}
+          OR ${inbox.displayName} ILIKE '%' || ${q} || '%'
+          OR ${inbox.fileName} ILIKE '%' || ${q} || '%'
+          OR ${inbox.description} ILIKE '%' || ${q} || '%'
+        )`,
       );
     }
   }
@@ -145,17 +152,25 @@ export async function getInbox(db: Database, params: GetInboxParams) {
     .where(and(...whereConditions));
 
   // Apply sorting
-  if (order === "desc") {
-    query.orderBy(asc(inbox.createdAt)); // Reverse order for desc
+  if (sort === "alphabetical") {
+    if (order === "desc") {
+      query.orderBy(desc(inbox.displayName));
+    } else {
+      query.orderBy(asc(inbox.displayName));
+    }
   } else {
-    query.orderBy(desc(inbox.createdAt)); // Default is descending
+    // Default to date sorting
+    if (order === "desc") {
+      query.orderBy(asc(inbox.createdAt)); // Reverse order for desc
+    } else {
+      query.orderBy(desc(inbox.createdAt)); // Default is descending
+    }
   }
 
   // Apply pagination
   const offset = cursor ? Number.parseInt(cursor, 10) : 0;
   query.limit(pageSize).offset(offset);
 
-  // Execute query
   const data = await query;
 
   // Calculate next cursor
@@ -375,12 +390,20 @@ export async function getInboxSearch(
           sql`(
             to_tsquery('english', ${searchQuery}) @@ ${inbox.fts}
             OR ABS(COALESCE(${inbox.amount}, 0) - ${numericSearch}) <= ${tolerance}
+            OR ${inbox.displayName} ILIKE '%' || ${searchTerm} || '%'
+            OR ${inbox.fileName} ILIKE '%' || ${searchTerm} || '%'
+            OR ${inbox.description} ILIKE '%' || ${searchTerm} || '%'
           )`,
         );
       } else {
-        // Text-only search using FTS
+        // Text-only search using both FTS and ILIKE for better special character support
         whereConditions.push(
-          sql`to_tsquery('english', ${searchQuery}) @@ ${inbox.fts}`,
+          sql`(
+            to_tsquery('english', ${searchQuery}) @@ ${inbox.fts}
+            OR ${inbox.displayName} ILIKE '%' || ${searchTerm} || '%'
+            OR ${inbox.fileName} ILIKE '%' || ${searchTerm} || '%'
+            OR ${inbox.description} ILIKE '%' || ${searchTerm} || '%'
+          )`,
         );
       }
 

@@ -1,9 +1,8 @@
 "use client";
 
-import { CreateCategoriesModal } from "@/components/modals/create-categories-modal";
+import { useCategoryParams } from "@/hooks/use-category-params";
 import { useTRPC } from "@/trpc/client";
 import { cn } from "@midday/ui/cn";
-import { Dialog } from "@midday/ui/dialog";
 import {
   Table,
   TableBody,
@@ -28,13 +27,13 @@ import { columns, flattenCategories } from "./columns";
 import { Header } from "./header";
 
 export function DataTable() {
-  const [isOpen, onOpenChange] = React.useState(false);
   const [expandedCategories, setExpandedCategories] = React.useState<
     Set<string>
   >(new Set());
 
   const trpc = useTRPC();
   const queryClient = useQueryClient();
+  const { setParams } = useCategoryParams();
 
   const { data } = useSuspenseQuery(
     trpc.transactionCategories.get.queryOptions(),
@@ -75,6 +74,9 @@ export function DataTable() {
       deleteCategory: (id: string) => {
         deleteCategoryMutation.mutate({ id });
       },
+      onEdit: (id: string) => {
+        setParams({ categoryId: id });
+      },
       expandedCategories,
       setExpandedCategories,
     },
@@ -82,7 +84,7 @@ export function DataTable() {
 
   return (
     <div className="w-full">
-      <Header table={table} onOpenChange={onOpenChange} />
+      <Header table={table} />
 
       <Table>
         <TableHeader>
@@ -106,7 +108,11 @@ export function DataTable() {
 
         <TableBody>
           {table.getRowModel().rows.map((row) => (
-            <TableRow className="hover:bg-transparent" key={row.id}>
+            <TableRow
+              className="hover:bg-muted/50 cursor-pointer"
+              key={row.id}
+              onClick={() => setParams({ categoryId: row.original.id })}
+            >
               {row.getVisibleCells().map((cell, index) => (
                 <TableCell
                   key={cell.id}
@@ -119,10 +125,6 @@ export function DataTable() {
           ))}
         </TableBody>
       </Table>
-
-      <Dialog open={isOpen} onOpenChange={onOpenChange}>
-        <CreateCategoriesModal onOpenChange={onOpenChange} isOpen={isOpen} />
-      </Dialog>
     </div>
   );
 }

@@ -13,6 +13,20 @@ import {
 } from "@midday/categories";
 import { and, eq } from "drizzle-orm";
 
+export const hasTeamAccess = async (
+  db: Database,
+  teamId: string,
+  userId: string,
+): Promise<boolean> => {
+  const result = await db
+    .select({ teamId: usersOnTeam.teamId })
+    .from(usersOnTeam)
+    .where(and(eq(usersOnTeam.teamId, teamId), eq(usersOnTeam.userId, userId)))
+    .limit(1);
+
+  return result.length > 0;
+};
+
 export const getTeamById = async (db: Database, id: string) => {
   const [result] = await db
     .select({
@@ -25,6 +39,7 @@ export const getTeamById = async (db: Database, id: string) => {
       // subscriptionStatus: teams.subscriptionStatus,
       baseCurrency: teams.baseCurrency,
       countryCode: teams.countryCode,
+      exportSettings: teams.exportSettings,
     })
     .from(teams)
     .where(eq(teams.id, id));
@@ -297,6 +312,12 @@ type LeaveTeamParams = {
 };
 
 export async function leaveTeam(db: Database, params: LeaveTeamParams) {
+  // First verify the user is actually a member of this team
+  const hasAccess = await hasTeamAccess(db, params.teamId, params.userId);
+  if (!hasAccess) {
+    throw new Error("User is not a member of this team");
+  }
+
   // Set team_id to null for the user
   await db
     .update(users)
@@ -317,10 +338,24 @@ export async function leaveTeam(db: Database, params: LeaveTeamParams) {
   return deleted;
 }
 
-export async function deleteTeam(db: Database, id: string) {
-  const [result] = await db.delete(teams).where(eq(teams.id, id)).returning({
-    id: teams.id,
-  });
+type DeleteTeamParams = {
+  teamId: string;
+  userId: string;
+};
+
+export async function deleteTeam(db: Database, params: DeleteTeamParams) {
+  // First verify the user is actually a member of this team
+  const hasAccess = await hasTeamAccess(db, params.teamId, params.userId);
+  if (!hasAccess) {
+    throw new Error("User is not a member of this team");
+  }
+
+  const [result] = await db
+    .delete(teams)
+    .where(eq(teams.id, params.teamId))
+    .returning({
+      id: teams.id,
+    });
 
   return result;
 }
@@ -334,6 +369,12 @@ export async function deleteTeamMember(
   db: Database,
   params: DeleteTeamMemberParams,
 ) {
+  // First verify the user is actually a member of this team
+  const hasAccess = await hasTeamAccess(db, params.teamId, params.userId);
+  if (!hasAccess) {
+    throw new Error("User is not a member of this team");
+  }
+
   const [deleted] = await db
     .delete(usersOnTeam)
     .where(
@@ -358,6 +399,12 @@ export async function updateTeamMember(
   params: UpdateTeamMemberParams,
 ) {
   const { userId, teamId, role } = params;
+
+  // First verify the user is actually a member of this team
+  const hasAccess = await hasTeamAccess(db, teamId, userId);
+  if (!hasAccess) {
+    throw new Error("User is not a member of this team");
+  }
 
   const [updated] = await db
     .update(usersOnTeam)
