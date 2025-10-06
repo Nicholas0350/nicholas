@@ -19,7 +19,7 @@ export default function Partners() {
             containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-pink-800 to-pink-600 min-h-[500px] lg:min-h-[300px]"
             className=""
           >
-            <div className="max-w-xs">
+            <div className="max-w-xs relative z-20">
               <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                 Australia&apos;s most comprehensive financial adviser database
               </h2>
@@ -32,7 +32,7 @@ export default function Partners() {
               width={500}
               height={500}
               alt={partners[0].name}
-              className="absolute -right-4 lg:-right-[20%] filter grayscale -bottom-10 object-contain rounded-2xl"
+              className="absolute -right-4 lg:-right-[30%] grayscale filter top-1/2 -translate-y-1/2 object-contain rounded-2xl z-10 opacity-70"
             />
           </WobbleCard>
 
@@ -58,7 +58,7 @@ export default function Partners() {
 
           {/* FinPunter + Loving Home - Large bottom card */}
           <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-indigo-900 to-indigo-700 min-h-[500px] lg:min-h-[300px]">
-            <div className="max-w-sm">
+            <div className="max-w-sm relative z-20">
               <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                 Financial insights and home care compliance
               </h2>
@@ -71,7 +71,7 @@ export default function Partners() {
               width={500}
               height={500}
               alt={partners[3].name}
-              className="absolute -right-10 md:-right-[20%] lg:-right-[10%] filter grayscale -bottom-10 object-contain rounded-2xl"
+              className="absolute -right-10 md:-right-[20%] lg:-right-[15%] grayscale filter top-1/2 -translate-y-1/2 object-contain rounded-2xl z-10 opacity-70"
             />
           </WobbleCard>
         </div>
