@@ -1,5 +1,54 @@
 # Nicholas Gousis Project - Single Source of Truth
 
+## The Yaeger Process 🚀
+
+**High-velocity development workflow established 2025-10-06**
+
+### Default Operating Mode: "Ship It"
+
+**Core Principles:**
+1. **Velocity First** - 80% solution ships, iterate later
+2. **Visual Feedback Loop** - Screenshot at every key moment
+3. **Beach-head Commits** - Lock in progress incrementally
+4. **Bias to Action** - When stuck >5min, make best call and move forward
+5. **"That's fine, move forward"** - Quality threshold for shipping
+
+### Working Agreement
+
+**Decision-Making:**
+- Claude decides quickly, bias to action
+- Nicholas approves/pivots with visual feedback
+- No analysis paralysis - ship and iterate
+
+**Communication Style:**
+- Claude: Concise updates, no preamble/postamble
+- Nicholas: Direct feedback ("that's fine" / "fix this")
+- Visual references provided early (screenshots, URLs)
+
+**Commit Strategy:**
+- Commit frequency: Every feature completion
+- Beach-head approach: Lock in progress before pivoting
+- Always push when Nicholas says "push"
+
+**Visual Parity:**
+- Reference-driven development (screenshots guide implementation)
+- "Good enough" > "pixel perfect" (unless specified)
+- 3-5 iteration cycles max before moving on
+
+**If Nicholas Deviates:**
+- Remind: "We're in Yaeger Process mode - ship it and iterate?"
+- Reference: This session (Partners bento implementation)
+- Gentle nudge back to velocity focus
+
+### Session Reference: Partners Bento Implementation (2025-10-06)
+- Started: Uniform card grid
+- Ended: Bento-style WobbleCard layout with animations
+- Iterations: 3 commit beach-heads
+- Time: ~45 minutes
+- Success factors: Visual feedback loop, "that's fine" checkpoints, incremental commits
+
+**This process persists across all sessions for this project.**
+
 ## Project
 
 ## On a high level
