@@ -15,6 +15,7 @@ import {
 } from "@db/schema";
 import { buildSearchQuery } from "@midday/db/utils/search-query";
 import { logger } from "@midday/logger";
+import { resolveTaxValues } from "@midday/utils/tax";
 import {
   and,
   asc,
@@ -54,6 +55,7 @@ export type GetTransactionsParams = {
   recurring?: string[] | null;
   amount_range?: number[] | null;
   amount?: string[] | null;
+  manual?: "include" | "exclude" | null;
 };
 
 // Helper type from schema if not already exported
@@ -83,6 +85,7 @@ export async function getTransactions(
     recurring: filterRecurring,
     amount: filterAmount,
     amount_range: filterAmountRange,
+    manual: filterManual,
   } = params;
 
   // Always start with teamId filter
@@ -237,6 +240,13 @@ export async function getTransactions(
     }
   }
 
+  // Manual filter
+  if (filterManual === "include") {
+    whereConditions.push(eq(transactions.manual, true));
+  } else if (filterManual === "exclude") {
+    whereConditions.push(eq(transactions.manual, false));
+  }
+
   const finalWhereConditions = whereConditions.filter(
     (c) => c !== undefined,
   ) as SQL[];
@@ -261,6 +271,7 @@ export async function getTransactions(
       createdAt: transactions.createdAt,
       taxRate: transactions.taxRate,
       taxType: transactions.taxType,
+      taxAmount: transactions.taxAmount,
       enrichmentCompleted: transactions.enrichmentCompleted,
       isFulfilled:
         sql<boolean>`(EXISTS (SELECT 1 FROM ${transactionAttachments} WHERE ${eq(transactionAttachments.transactionId, transactions.id)} AND ${eq(transactionAttachments.teamId, teamId)}) OR ${transactions.status} = 'completed')`.as(
@@ -510,6 +521,7 @@ export async function getTransactionById(
       createdAt: transactions.createdAt,
       taxRate: transactions.taxRate,
       taxType: transactions.taxType,
+      taxAmount: transactions.taxAmount,
       enrichmentCompleted: transactions.enrichmentCompleted,
       isFulfilled:
         sql<boolean>`(EXISTS (SELECT 1 FROM ${transactionAttachments} WHERE ${eq(transactionAttachments.transactionId, transactions.id)} AND ${eq(transactionAttachments.teamId, params.teamId)})) OR ${transactions.status} = 'completed'`.as(
@@ -688,16 +700,21 @@ export async function getTransactionById(
       }
     : null;
 
-  const taxRate = rest.taxRate ?? rest.category?.taxRate ?? 0;
+  const { taxAmount, taxRate, taxType } = resolveTaxValues({
+    transactionAmount: rest.amount,
+    transactionTaxAmount: rest.taxAmount,
+    transactionTaxRate: rest.taxRate,
+    transactionTaxType: rest.taxType,
+    categoryTaxRate: rest.category?.taxRate,
+    categoryTaxType: rest.category?.taxType,
+  });
 
   return {
     ...rest,
     account: newAccount,
     taxRate,
-    taxType: rest.taxType ?? rest.category?.taxType ?? null,
-    taxAmount: Math.abs(
-      +((taxRate * rest.amount) / (100 + taxRate)).toFixed(2),
-    ),
+    taxType,
+    taxAmount,
   };
 }
 
@@ -1253,6 +1270,8 @@ type UpdateTransactionData = {
   assignedId?: string | null;
   recurring?: boolean;
   frequency?: "weekly" | "monthly" | "annually" | "irregular" | null;
+  taxRate?: number | null;
+  taxAmount?: number | null;
 };
 
 export async function updateTransaction(

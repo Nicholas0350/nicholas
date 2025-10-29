@@ -192,6 +192,18 @@ export const getTransactionsSchema = z.object({
         in: "query",
       },
     }),
+  manual: z
+    .enum(["include", "exclude"])
+    .nullable()
+    .optional()
+    .openapi({
+      description:
+        "Filter transactions based on whether they were manually imported. 'include' returns only manual transactions, 'exclude' returns only non-manual transactions",
+      example: "include",
+      param: {
+        in: "query",
+      },
+    }),
 });
 
 export const transactionResponseSchema = z
@@ -540,6 +552,14 @@ export const updateTransactionSchema = z.object({
   }),
   assignedId: z.string().nullable().optional().openapi({
     description: "Assigned user ID for the transaction.",
+  }),
+  taxRate: z.number().nullable().optional().openapi({
+    description:
+      "Tax rate as a percentage (e.g., 25 for 25% VAT). Only set when tax is calculated from a percentage.",
+  }),
+  taxAmount: z.number().nullable().optional().openapi({
+    description:
+      "Tax amount in the transaction currency. Always set when tax is present.",
   }),
 });
 
