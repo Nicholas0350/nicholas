@@ -1,0 +1,49 @@
+{
+  "workspaces": {
+    "tailark": {
+      "root": "/Users/nicholas/Sites/nicholasandmidday/tailark",
+      "agentsFile": "AGENTS.md",
+      "cursorRules": null,
+      "description": "Tailark pnpm/turbo monorepo - compliance management app"
+    },
+    "main-nicholas": {
+      "root": "/Users/nicholas/Sites/nicholas/nicholas/main-nicholas",
+      "agentsFile": "AGENTS.md",
+      "cursorRules": ".cursorrules",
+      "description": "Next.js 15 project with App Router"
+    },
+    "comp": {
+      "root": "/Users/nicholas/Sites/nicholas/comp",
+      "agentsFile": null,
+      "cursorRules": null,
+      "description": "Complimet project"
+    },
+    "greece": {
+      "root": "/Users/nicholas/Sites/nicholas/Greece",
+      "agentsFile": null,
+      "cursorRules": null,
+      "description": "Greece project"
+    },
+    "midday": {
+      "root": "/Users/nicholas/Sites/nicholas/midday",
+      "agentsFile": "AGENTS.md",
+      "cursorRules": null,
+      "description": "Midday.ai Bun + Turborepo monorepo"
+    }
+  },
+  "rules": {
+    "contextBasedDetection": true,
+    "explicitPathMapping": true,
+    "filePathValidation": true,
+    "explicitRuleLoading": true,
+    "workingDirectoryEnforcement": true,
+    "conflictPrevention": true,
+    "ruleApplicationConfirmation": true
+  }
+}
+
+
+
+
+
+

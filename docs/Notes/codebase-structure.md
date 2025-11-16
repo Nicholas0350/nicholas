@@ -13,73 +13,187 @@ midday/
 ├── apps/                           # Standalone applications
 │   ├── api/                        # tRPC/Hono API server (Bun, port 3003)
 │   │   ├── src/
+│   │   │   ├── index.ts           # Hono server entry point
+│   │   │   ├── rest/
+│   │   │   │   └── routers/       # REST endpoint handlers ([22 files])
+│   │   │   ├── schemas/           # Zod validation schemas ([30 files])
+│   │   │   │   └── transactions.ts
+│   │   │   ├── services/          # Service layer ([2 files])
 │   │   │   ├── trpc/
-│   │   │   │   ├── routers/       # tRPC procedure definitions
-│   │   │   │   └── init.ts        # tRPC context & middleware
-│   │   │   └── rest/
-│   │   │       └── routers/       # REST endpoint handlers
-│   │   └── index.ts               # Hono server entry point
+│   │   │   │   ├── routers/       # tRPC procedure definitions ([34 files])
+│   │   │   └── init.ts        # tRPC context & middleware
+│   │   │   └── utils/             # Utility functions ([10 files])
+│   │   ├── migrations/            # Database migrations
+│   │   │   ├── 0000_bumpy_chat.sql
+│   │   │   └── meta/
+│   │   ├── fly.toml               # Fly.io deployment config
+│   │   ├── fly-preview.yml
+│   │   ├── Dockerfile
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   └── README.md
 │   │
 │   ├── dashboard/                  # Main Next.js dashboard (port 3000)
+│   │   ├── public/                             # Static assets
+│   │   │   ├── appicon.png
+│   │   │   └── assets/                         # Static assets ([12 files])
 │   │   ├── src/
+│   │   │   ├── actions/                        # Server Actions ([28 files])
 │   │   │   ├── app/
-│   │   │   │   └── [locale]/
-│   │   │   │       ├── (app)/
-│   │   │   │       │   ├── (sidebar)/          # Authenticated routes with sidebar
-│   │   │   │       │   │   ├── page.tsx        # Dashboard home
-│   │   │   │       │   │   ├── transactions/
-│   │   │   │       │   │   │   ├── page.tsx
-│   │   │   │       │   │   │   └── categories/
-│   │   │   │       │   │   ├── invoices/
-│   │   │   │       │   │   │   ├── page.tsx
-│   │   │   │       │   │   │   └── products/
-│   │   │   │       │   │   ├── inbox/
-│   │   │   │       │   │   ├── vault/
-│   │   │   │       │   │   ├── tracker/        # Time tracking
-│   │   │   │       │   │   ├── customers/
-│   │   │   │       │   │   ├── apps/           # Integrations
-│   │   │   │       │   │   ├── settings/
-│   │   │   │       │   │   │   ├── accounts/   # Bank accounts
-│   │   │   │       │   │   │   ├── billing/
-│   │   │   │       │   │   │   ├── developer/  # API keys
-│   │   │   │       │   │   │   ├── members/
-│   │   │   │       │   │   │   └── notifications/
-│   │   │   │       │   │   └── account/
-│   │   │   │       │   │       ├── security/
-│   │   │   │       │   │       ├── teams/
-│   │   │   │       │   │       ├── support/
-│   │   │   │       │   │       └── date-and-locale/
-│   │   │   │       │   ├── mfa/
-│   │   │   │       │   │   ├── setup/
-│   │   │   │       │   │   └── verify/
-│   │   │   │       │   ├── oauth/
-│   │   │   │       │   │   └── authorize/
-│   │   │   │       │   ├── teams/
-│   │   │   │       │   ├── setup/              # Onboarding
-│   │   │   │       │   └── desktop/
-│   │   │   │       └── (public)/               # Unauthenticated routes
-│   │   │   ├── actions/                        # Server Actions
-│   │   │   └── components/                     # React components
-│   │   ├── middleware.ts                       # Supabase auth + i18n
-│   │   └── vercel.json                         # Deployment config with CASA rules
+│   │   │   │   ├── [locale]/
+│   │   │   │   │   ├── (app)/
+│   │   │   │   │   │   ├── (sidebar)/          # Authenticated routes with sidebar
+│   │   │   │   │   │   │   ├── page.tsx        # Dashboard home
+│   │   │   │   │   │   │   ├── transactions/
+│   │   │   │   │   │   │   │   ├── page.tsx
+│   │   │   │   │   │   │   │   └── categories/
+│   │   │   │   │   │   │   ├── invoices/
+│   │   │   │   │   │   │   │   ├── page.tsx
+│   │   │   │   │   │   │   │   └── products/
+│   │   │   │   │   │   │   ├── inbox/
+│   │   │   │   │   │   │   ├── vault/
+│   │   │   │   │   │   │   ├── tracker/        # Time tracking
+│   │   │   │   │   │   │   ├── customers/
+│   │   │   │   │   │   │   ├── apps/           # Integrations
+│   │   │   │   │   │   │   ├── settings/
+│   │   │   │   │   │   │   │   ├── accounts/   # Bank accounts
+│   │   │   │   │   │   │   │   ├── billing/
+│   │   │   │   │   │   │   │   ├── developer/  # API keys
+│   │   │   │   │   │   │   │   ├── members/
+│   │   │   │   │   │   │   │   └── notifications/
+│   │   │   │   │   │   │   └── account/
+│   │   │   │   │   │   │       ├── security/
+│   │   │   │   │   │   │       ├── teams/
+│   │   │   │   │   │   │       ├── support/
+│   │   │   │   │   │   │       └── date-and-locale/
+│   │   │   │   │   │   ├── mfa/
+│   │   │   │   │   │   │   ├── setup/
+│   │   │   │   │   │   │   └── verify/
+│   │   │   │   │   │   ├── oauth/
+│   │   │   │   │   │   │   └── authorize/
+│   │   │   │   │   │   ├── teams/
+│   │   │   │   │   │   ├── setup/              # Onboarding
+│   │   │   │   │   │   └── desktop/
+│   │   │   │   │   └── (public)/               # Unauthenticated routes
+│   │   │   │   ├── api/                        # API routes (if any)
+│   │   │   │   ├── favicon.ico
+│   │   │   │   └── global-error.tsx
+│   │   │   ├── components/                     # React components ([486 files])
+│   │   │   ├── hooks/                          # Custom React hooks ([38 files])
+│   │   │   ├── instrumentation-client.ts       # Client instrumentation
+│   │   │   ├── instrumentation.ts              # Server instrumentation
+│   │   │   ├── lib/                            # Utility libraries ([11 files])
+│   │   │   ├── locales/                        # i18n translation files ([4 files])
+│   │   │   ├── middleware.ts                   # Supabase auth + i18n
+│   │   │   ├── store/                          # State management ([8 files])
+│   │   │   ├── styles/                         # Global styles ([1 file])
+│   │   │   ├── trpc/                           # tRPC client setup ([3 files])
+│   │   │   ├── types/                          # TypeScript types ([1 file])
+│   │   │   └── utils/                          # Helper functions ([23 files])
+│   │   ├── image-loader.ts                     # Custom image loader
+│   │   ├── next.config.mjs                     # Next.js configuration
+│   │   ├── postcss.config.cjs                  # PostCSS configuration
+│   │   ├── sentry.edge.config.ts               # Sentry edge configuration
+│   │   ├── sentry.server.config.ts             # Sentry server configuration
+│   │   ├── tailwind.config.ts                  # Tailwind CSS configuration
+│   │   ├── vercel.json                         # Deployment config with CASA rules
+│   │   ├── .env-template                       # Environment variables template
+│   │   ├── Dockerfile                          # Docker configuration
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   └── README.md
 │   │
 │   ├── website/                    # Marketing website (Next.js)
-│   │   └── src/app/
-│   │       └── updates/            # Blog/changelog (was /blog/)
+│   │   ├── public/                             # Static assets ([131 files])
+│   │   ├── src/
+│   │   │   ├── actions/                        # Server Actions ([5 files])
+│   │   │   ├── app/
+│   │   │   │   ├── [59 files in subtree]
+│   │   │   │   └── updates/            # Blog/changelog (was /blog/)
+│   │   │   ├── components/                     # React components ([80 files])
+│   │   │   ├── lib/                            # Utility libraries ([4 files])
+│   │   │   ├── styles/                         # Global styles ([1 file])
+│   │   │   └── utils/                          # Helper functions ([1 file])
+│   │   ├── image-loader.ts                     # Custom image loader
+│   │   ├── next.config.mjs                     # Next.js configuration
+│   │   ├── postcss.config.cjs                  # PostCSS configuration
+│   │   ├── tailwind.config.ts                  # Tailwind CSS configuration
+│   │   ├── vercel.json                         # Deployment configuration
+│   │   ├── .env-template                       # Environment variables template
+│   │   ├── Dockerfile                          # Docker configuration
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   └── README.md
 │   │
 │   ├── engine/                     # Cloudflare Workers API (port 3002)
-│   │   └── src/
-│   │       ├── providers/          # Bank provider integrations
-│   │       │   ├── gocardless/     # EU bank connections
-│   │       │   ├── plaid/          # CA/US bank connections
-│   │       │   ├── teller/         # US bank connections
-│   │       │   └── enablebanking/  # Additional EU banks
-│   │       └── index.ts            # Hono router
+│   │   ├── src/
+│   │   │   ├── common/             # Common utilities ([2 files])
+│   │   │   ├── index.ts            # Hono router entry point
+│   │   │   ├── middleware.ts       # Middleware functions
+│   │   │   ├── providers/          # Bank provider integrations ([31 files])
+│   │   │   │   ├── gocardless/     # EU bank connections
+│   │   │   │   ├── plaid/          # CA/US bank connections
+│   │   │   │   ├── teller/         # US bank connections
+│   │   │   │   └── enablebanking/  # Additional EU banks
+│   │   │   ├── routes/             # Route handlers ([15 files])
+│   │   │   └── utils/              # Utility functions ([10 files])
+│   │   ├── tasks/                  # Background tasks
+│   │   │   ├── download-gocardless.ts
+│   │   │   ├── download-teller.ts
+│   │   │   ├── get-institutions.ts
+│   │   │   ├── import.ts
+│   │   │   └── utils.ts
+│   │   ├── wrangler.toml                    # Cloudflare Workers config
+│   │   ├── tsconfig.build.json              # Build TypeScript config
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   └── README.md
 │   │
 │   ├── desktop/                    # Tauri desktop application
-│   │   └── src-tauri/
+│   │   ├── index.html
+│   │   ├── src/
+│   │   │   ├── main.tsx
+│   │   │   └── vite-env.d.ts
+│   │   ├── src-tauri/
+│   │   │   ├── build.rs
+│   │   │   ├── capabilities/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── Cargo.lock
+│   │   │   ├── Cargo.toml
+│   │   │   ├── icons/
+│   │   │   │   ├── [22 files]
+│   │   │   ├── images/
+│   │   │   │   ├── [1 file]
+│   │   │   ├── src/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── tauri.conf.json
+│   │   │   ├── tauri.dev.conf.json
+│   │   │   ├── tauri.staging.conf.json
+│   │   ├── tsconfig.json
+│   │   ├── tsconfig.node.json
+│   │   ├── vite.config.ts
+│   │   ├── package.json
+│   │   └── README.md
 │   │
 │   └── docs/                       # Documentation site
+│       ├── api-reference/
+│       │   └── engine/
+│       │       └── [25 files in subtree]
+│       ├── examples.mdx
+│       ├── images/
+│       │   ├── engine.png
+│       │   ├── header.png
+│       │   └── logos/
+│       │       ├── favicon.png
+│       │       ├── logotype-dark.svg
+│       │       └── logotype.svg
+│       ├── mint.json
+│       ├── package.json
+│       ├── README.md
+│       ├── integrations.mdx
+│       ├── introduction.mdx
+│       ├── local-development.mdx
+│       └── self-hosting.mdx
 │
 ├── packages/                       # Shared libraries
 │   ├── @midday/db/                # Database (Drizzle ORM)
@@ -110,37 +224,184 @@ midday/
 │   ├── @midday/documents/         # Document processing
 │   ├── @midday/engine-client/     # Engine API client
 │   ├── @midday/app-store/         # Third-party integrations
-│   ├── @midday/categories/        # Transaction categorization
-│   ├── @midday/import/            # Data import utilities
-│   ├── @midday/location/          # Geolocation services
-│   ├── @midday/email/             # Email templates (Resend)
-│   ├── @midday/events/            # Analytics events (OpenPanel)
-│   ├── @midday/notifications/     # Push notifications
+│   │   ├── src/
+│   │   │   ├── cal/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── db/
+│   │   │   │   ├── [1 file]
+│   │   │   ├── fortnox/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── index.ts
+│   │   │   ├── quick-books/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── raycast/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── slack/
+│   │   │   │   ├── [12 files]
+│   │   │   ├── types.ts
+│   │   │   ├── visma/
+│   │   │   │   ├── [2 files]
+│   │   │   ├── xero/
+│   │   │   │   ├── [2 files]
+│   │   │   └── zapier/
+│   │   │       └── [2 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
 │   ├── @midday/cache/             # Caching layer
-│   ├── @midday/logger/            # Logging utilities
-│   ├── @midday/encryption/        # Data encryption
-│   ├── @midday/utils/             # Shared utilities
+│   │   ├── src/
+│   │   │   ├── [8 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/categories/        # Transaction categorization
+│   │   ├── src/
+│   │   │   ├── categories.ts
+│   │   │   ├── color-system.ts
+│   │   │   ├── embeddings.ts
+│   │   │   ├── index.ts
+│   │   │   ├── tax-rates/
+│   │   │   │   ├── [1 file]
+│   │   │   ├── types.ts
+│   │   │   └── utils.ts
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── tsconfig.json
 │   ├── @midday/desktop-client/    # Desktop app client
-│   └── @midday/tsconfig/          # Shared TypeScript configs
+│   │   ├── src/
+│   │   │   ├── [3 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/documents/         # Document processing
+│   │   ├── src/
+│   │   │   ├── [14 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/email/             # Email templates (Resend)
+│   │   ├── components/
+│   │   │   ├── [7 files]
+│   │   ├── emails/
+│   │   │   ├── [16 files]
+│   │   ├── locales/
+│   │   │   ├── [2 files]
+│   │   ├── public/...
+│   │   ├── render.ts
+│   │   ├── vercel.json
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/encryption/        # Data encryption
+│   │   ├── src/
+│   │   │   ├── [2 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/engine-client/     # Engine API client
+│   │   ├── src/
+│   │   │   ├── [1 file]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/events/            # Analytics events (OpenPanel)
+│   │   ├── src/
+│   │   │   ├── [22 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/import/            # Data import utilities
+│   │   ├── src/
+│   │   │   ├── [7 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/inbox/             # Inbox matching logic
+│   │   ├── src/
+│   │   │   ├── [9 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/invoice/           # Invoice business logic
+│   │   ├── src/
+│   │   │   ├── [37 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/jobs/              # Trigger.dev background jobs
+│   │   ├── scripts/
+│   │   │   ├── [4 files]
+│   │   ├── src/
+│   │   │   ├── [63 files]
+│   │   ├── trigger.config.ts
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/location/          # Geolocation services
+│   │   ├── src/
+│   │   │   ├── [10 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/logger/            # Logging utilities
+│   │   ├── src/
+│   │   │   ├── [1 file]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/notifications/     # Push notifications
+│   │   ├── src/
+│   │   │   ├── [22 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   ├── @midday/supabase/          # Supabase client wrappers
+│   │   └── src/
+│   │       ├── server.ts          # Server-side client
+│   │       ├── client.ts          # Client-side client
+│   │       ├── middleware.ts      # Auth middleware
+│   │       └── cached-queries.ts  # React cache wrappers
+│   ├── @midday/tsconfig/          # Shared TypeScript configs
+│   │   ├── base.json
+│   │   ├── nextjs.json
+│   │   ├── package.json
+│   │   ├── react-library.json
+│   │   └── tsconfig.json
+│   ├── @midday/ui/                # Shared UI components (Shadcn-based)
+│   │   ├── postcss.config.js
+│   │   ├── package.json
+│   │   ├── README.md
+│   │   └── src/
+│   │       └── [67 files]
+│   ├── @midday/utils/             # Shared utilities
+│   │   ├── src/
+│   │   │   ├── [6 files]
+│   │   ├── package.json
+│   │   └── tsconfig.json
 │
+├── .github/
+│   └── workflows/                  # GitHub Actions CI/CD
+│       ├── beta-dashboard.yaml
+│       ├── production-dashboard.yml
+│       ├── production-api.yaml
+│       ├── production-engine.yml
+│       ├── production-website.yml
+│       └── preview-*.yaml
+│
+├── docs/                           # Documentation notes
+│   ├── inbox-matching.md
+│   ├── Notes/
+│   │   ├── codebase-structure.md
+│   │   ├── features.md
+│   │   └── x-notes.md
+│   └── README.md
+├── types/                          # Global type definitions
+│   ├── images.d.ts
+│   └── jsx.d.ts
+├── AGENTS.md                       # Agent documentation
+├── SECURITY.md                      # Security documentation
+├── LICENSE
+├── README.md
+├── github.png
 ├── turbo.json                      # Turborepo configuration
 ├── package.json                    # Root package.json
-└── bun.lockb                       # Bun lockfile
+├── bun.lockb                       # Bun lockfile
+├── .env                            # Environment variables (gitignored)
+├── .env-template                   # Environment variables template
+├── tsconfig.json                   # Root TypeScript config
+├── biome.json                      # Biome linter/formatter config
+└── .gitignore
 ```
 
 ---
 
 ## Technology Stack
 
-### Core Technologies
-- **Runtime:** Bun
-- **Framework:** Next.js 14+ (App Router)
-- **Language:** TypeScript
-- **UI:** React + Shadcn UI + TailwindCSS
-- **Database:** PostgreSQL (Supabase)
-- **ORM:** Drizzle
-- **Desktop:** Tauri
-- **Monorepo:** Turborepo
 
 ### Hosting & Infrastructure
 - **Database, Storage, Auth:** Supabase
@@ -263,16 +524,8 @@ midday/
   - Metadata optimization
   - Content migration (/blog/ → /updates/)
 
-### Desktop Application
-- **Native Desktop Features**
-  - Search functionality
-  - Local data sync
-  - Checkout flow
-  - Cross-platform support (Tauri)
 
 ---
-
-## Development Patterns
 
 ### Database Access
 ```typescript
@@ -284,44 +537,7 @@ import { transactions } from "@midday/db/schema";
 import { getUser } from "@midday/db/queries";
 ```
 
-### Supabase Queries
-```typescript
-// Server-side
-import { createClient } from "@midday/supabase/server";
-const supabase = await createClient();
 
-// Client-side
-import { createClient } from "@midday/supabase/client";
-const supabase = createClient();
-```
-
-### Server Actions
-```typescript
-// apps/dashboard/src/actions/example-action.ts
-"use server";
-import { authActionClient } from "./safe-action";
-import { z } from "zod";
-
-export const exampleAction = authActionClient
-  .schema(z.object({ id: z.string() }))
-  .action(async ({ parsedInput, ctx }) => {
-    // Implementation
-  });
-```
-
-### tRPC Procedures
-```typescript
-// apps/api/src/trpc/routers/example.ts
-import { protectedProcedure, createTRPCRouter } from "../init";
-
-export const exampleRouter = createTRPCRouter({
-  getData: protectedProcedure
-    .input(z.object({ id: z.string() }))
-    .query(async ({ input, ctx }) => {
-      // Implementation
-    }),
-});
-```
 
 ---
 
@@ -337,18 +553,3 @@ export const exampleRouter = createTRPCRouter({
 6. **Middleware Stability** - Locale cookie handling and edge case fixes
 
 ---
-
-## Code Style & Standards
-
-- **Formatter/Linter:** Biome (not Prettier/ESLint)
-- **Indentation:** 2 spaces
-- **Naming Conventions:**
-  - Files/folders: kebab-case
-  - Components: PascalCase
-  - Functions/variables: camelCase
-  - Packages: `@midday/<name>`
-- **Testing:** Bun test runner, colocated tests as `*.test.ts`
-
----
-
-*Last updated: October 2025*
