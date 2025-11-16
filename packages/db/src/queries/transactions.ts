@@ -470,16 +470,21 @@ export async function getTransactions(
         : null,
     };
 
-    const taxRate = rest.taxRate ?? rest.category?.taxRate ?? 0;
+    const { taxAmount, taxRate, taxType } = resolveTaxValues({
+      transactionAmount: rest.amount,
+      transactionTaxAmount: rest.taxAmount,
+      transactionTaxRate: rest.taxRate,
+      transactionTaxType: rest.taxType,
+      categoryTaxRate: rest.category?.taxRate,
+      categoryTaxType: rest.category?.taxType,
+    });
 
     return {
       ...rest,
       account: newAccount,
       taxRate,
-      taxType: rest.taxType ?? rest.category?.taxType ?? null,
-      taxAmount: Math.abs(
-        +((taxRate * rest.amount) / (100 + taxRate)).toFixed(2),
-      ),
+      taxType,
+      taxAmount,
     };
   });
 
@@ -1263,6 +1268,11 @@ type UpdateTransactionData = {
   id: string;
   teamId: string;
   userId?: string;
+  name?: string;
+  amount?: number;
+  currency?: string;
+  date?: string;
+  bankAccountId?: string;
   categorySlug?: string | null;
   status?: "pending" | "archived" | "completed" | "posted" | "excluded" | null;
   internal?: boolean;
@@ -1272,6 +1282,7 @@ type UpdateTransactionData = {
   frequency?: "weekly" | "monthly" | "annually" | "irregular" | null;
   taxRate?: number | null;
   taxAmount?: number | null;
+  taxType?: string | null;
 };
 
 export async function updateTransaction(
@@ -1279,6 +1290,13 @@ export async function updateTransaction(
   params: UpdateTransactionData,
 ) {
   const { id, teamId, userId, ...dataToUpdate } = params;
+
+  // If category is being changed, clear tax fields so category's tax rate is used
+  if (dataToUpdate.categorySlug !== undefined) {
+    dataToUpdate.taxRate = null;
+    dataToUpdate.taxAmount = null;
+    dataToUpdate.taxType = null;
+  }
 
   const [result] = await db
     .update(transactions)
@@ -1337,6 +1355,9 @@ type UpdateTransactionsData = {
   tagId?: string | null;
   recurring?: boolean;
   frequency?: "weekly" | "monthly" | "annually" | "irregular" | null;
+  taxRate?: number | null;
+  taxAmount?: number | null;
+  taxType?: string | null;
 };
 
 export async function updateTransactions(
@@ -1344,6 +1365,13 @@ export async function updateTransactions(
   data: UpdateTransactionsData,
 ) {
   const { ids, tagId, teamId, userId, ...input } = data;
+
+  // If category is being changed, clear tax fields so category's tax rate is used
+  if (input.categorySlug !== undefined) {
+    input.taxRate = null;
+    input.taxAmount = null;
+    input.taxType = null;
+  }
 
   if (tagId) {
     await db

@@ -30,6 +30,8 @@ export function InboxView() {
   const { params: filter, hasFilter } = useInboxFilterParams();
 
   const allSeenIdsRef = useRef(new Set<string>());
+  const itemRefs = useRef<Map<string, HTMLButtonElement>>(new Map());
+  const scrollAreaViewportRef = useRef<HTMLDivElement | null>(null);
 
   const infiniteQueryOptions = trpc.inbox.get.infiniteQueryOptions(
     {
@@ -201,6 +203,37 @@ export function InboxView() {
     [tableData, params, setParams],
   );
 
+  // Scroll selected inbox item to center of viewport
+  useEffect(() => {
+    const inboxId = params.inboxId;
+    if (!inboxId) return;
+
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      const itemElement = itemRefs.current.get(inboxId);
+      const viewport = scrollAreaViewportRef.current;
+      if (!itemElement || !viewport) return;
+
+      // Calculate position relative to viewport
+      const viewportRect = viewport.getBoundingClientRect();
+      const itemRect = itemElement.getBoundingClientRect();
+
+      // Calculate current scroll position
+      const itemTop = itemRect.top - viewportRect.top + viewport.scrollTop;
+      const itemHeight = itemRect.height;
+      const viewportHeight = viewport.clientHeight;
+
+      // Center the item in the viewport
+      const scrollPosition = itemTop - viewportHeight / 2 + itemHeight / 2;
+
+      // Scroll the viewport directly (not the window)
+      viewport.scrollTo({
+        top: Math.max(0, scrollPosition),
+        behavior: "smooth",
+      });
+    });
+  }, [params.inboxId, tableData]);
+
   // If user is connected, and we don't have any data, we need to show a skeleton
   if (params.connected && !tableData?.length) {
     return <InboxViewSkeleton />;
@@ -214,6 +247,9 @@ export function InboxView() {
     <div className="flex flex-row space-x-8 mt-4">
       <div className="w-full h-full">
         <ScrollArea
+          ref={(node) => {
+            scrollAreaViewportRef.current = node as HTMLDivElement | null;
+          }}
           className="relative w-full h-[calc(100vh-180px)] overflow-hidden"
           hideScrollbar
         >
@@ -242,7 +278,17 @@ export function InboxView() {
                     }
                     exit="exit"
                   >
-                    <InboxItem item={item} index={index} />
+                    <InboxItem
+                      ref={(el) => {
+                        if (el) {
+                          itemRefs.current.set(item.id, el);
+                        } else {
+                          itemRefs.current.delete(item.id);
+                        }
+                      }}
+                      item={item}
+                      index={index}
+                    />
                   </motion.div>
                 );
               })}

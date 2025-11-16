@@ -8,8 +8,15 @@ declare module "@tanstack/table-core" {
     hasSorting?: boolean;
     setOpen?: (id: string) => void;
     copyUrl?: (id: string) => void;
-    updateTransaction?: (data: { id: string; status: string }) => void;
+    updateTransaction?: (data: {
+      id: string;
+      status?: string;
+      categorySlug?: string | null;
+      categoryName?: string;
+      assignedId?: string | null;
+    }) => void;
     onDeleteTransaction?: (id: string) => void;
+    editTransaction?: (id: string) => void;
 
     // Vault table meta
     handleDelete?: (id: string) => void;
