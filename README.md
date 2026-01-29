@@ -71,6 +71,231 @@ Midday is an all-in-one tool designed to help freelancers, contractors, consulta
 
 We are working on the documentation to get started with Midday for local development: https://docs.midday.ai
 
+## Local Development Setup
+
+### Prerequisites
+- [Bun](https://bun.sh/) installed
+- [Node.js](https://nodejs.org/) v22+ (for tsx)
+- A Supabase project (free tier works)
+
+### 1. Clone and Install
+
+```bash
+git clone git@github.com:Nicholas0350/nicholas.git midday
+cd midday
+bun install
+```
+
+### 2. Supabase Setup
+
+Create a new Supabase project at https://supabase.com/dashboard
+
+#### Enable Required Extensions
+Run in Supabase SQL Editor:
+```sql
+CREATE EXTENSION IF NOT EXISTS vector;
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+```
+
+#### Create Required Functions
+Run in Supabase SQL Editor:
+```sql
+-- nanoid function
+CREATE OR REPLACE FUNCTION nanoid(size int DEFAULT 21)
+RETURNS text AS $$
+DECLARE
+  id text := '';
+  i int := 0;
+  alphabet char(64) := '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_';
+  bytes bytea := gen_random_bytes(size);
+  byte int;
+BEGIN
+  WHILE i < size LOOP
+    byte := get_byte(bytes, i);
+    id := id || substr(alphabet, (byte & 63) + 1, 1);
+    i := i + 1;
+  END LOOP;
+  RETURN id;
+END
+$$ LANGUAGE plpgsql VOLATILE;
+
+-- generate_inbox function
+CREATE OR REPLACE FUNCTION generate_inbox(size int DEFAULT 10)
+RETURNS text AS $$
+BEGIN
+  RETURN nanoid(size);
+END
+$$ LANGUAGE plpgsql VOLATILE;
+
+-- extract_product_names function
+CREATE OR REPLACE FUNCTION extract_product_names(products json)
+RETURNS text AS $$
+DECLARE
+  result text := '';
+BEGIN
+  IF products IS NOT NULL THEN
+    SELECT string_agg(p->>'name', ' ') INTO result
+    FROM json_array_elements(products) AS p;
+  END IF;
+  RETURN COALESCE(result, '');
+END
+$$ LANGUAGE plpgsql IMMUTABLE;
+
+-- generate_inbox_fts function
+CREATE OR REPLACE FUNCTION generate_inbox_fts(display_name text, product_names text)
+RETURNS tsvector AS $$
+BEGIN
+  RETURN to_tsvector('english', COALESCE(display_name, '') || ' ' || COALESCE(product_names, ''));
+END
+$$ LANGUAGE plpgsql IMMUTABLE;
+
+-- Create private schema and auth function
+CREATE SCHEMA IF NOT EXISTS private;
+
+CREATE OR REPLACE FUNCTION private.get_teams_for_authenticated_user()
+RETURNS SETOF uuid AS $$
+BEGIN
+  RETURN QUERY
+  SELECT team_id FROM users_on_team WHERE user_id = auth.uid();
+END
+$$ LANGUAGE plpgsql SECURITY DEFINER STABLE;
+```
+
+#### Push Database Schema
+```bash
+cd packages/db
+DATABASE_SESSION_POOLER="postgresql://postgres:[PASSWORD]@db.[PROJECT_ID].supabase.co:5432/postgres" npx drizzle-kit push --force
+```
+
+If drizzle-kit has connection issues, run the migration SQL directly in Supabase SQL Editor:
+1. Copy contents of `apps/api/migrations/0000_bumpy_chat.sql`
+2. Remove the first 3 comment lines and `-->` markers
+3. Run in SQL Editor
+
+### 3. Environment Variables
+
+#### API (`apps/api/.env.local`)
+```bash
+# Supabase
+SUPABASE_URL=https://[PROJECT_ID].supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://[PROJECT_ID].supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=[ANON_KEY]
+SUPABASE_SERVICE_KEY=[SERVICE_ROLE_KEY]
+SUPABASE_JWT_SECRET=[JWT_SECRET]
+
+# Database
+DATABASE_PRIMARY_URL=postgresql://postgres:[PASSWORD]@db.[PROJECT_ID].supabase.co:5432/postgres
+
+# Local Development
+PORT=3003
+NEXT_PUBLIC_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3003
+ALLOWED_API_ORIGINS=http://localhost:3001,http://localhost:3000
+
+# Engine
+ENGINE_API_KEY=secret
+ENGINE_API_URL=http://localhost:3002
+
+# Invoice
+INVOICE_JWT_SECRET=secret
+
+# Webhook
+WEBHOOK_SECRET_KEY=[RANDOM_UUID]
+```
+
+#### Dashboard (`apps/dashboard/.env.local`)
+```bash
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://[PROJECT_ID].supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=[ANON_KEY]
+SUPABASE_SERVICE_KEY=[SERVICE_ROLE_KEY]
+SUPABASE_URL=https://[PROJECT_ID].supabase.co
+
+# Local Development
+NEXT_PUBLIC_URL=http://localhost:3001
+NEXT_PUBLIC_API_URL=http://localhost:3003
+
+# Engine
+ENGINE_API_KEY=secret
+ENGINE_API_URL=http://localhost:3002
+
+# Invoice
+INVOICE_JWT_SECRET=secret
+
+# Webhook
+WEBHOOK_SECRET_KEY=[RANDOM_UUID]
+```
+
+### 4. Get Supabase Credentials
+
+From Supabase Dashboard:
+- **Project URL**: Settings → General → Project URL
+- **Anon Key**: Settings → API Keys → Legacy anon, service_role API keys → anon key
+- **Service Role Key**: Settings → API Keys → Legacy anon, service_role API keys → service_role key
+- **JWT Secret**: Settings → JWT Keys → Legacy JWT Secret
+- **Database Password**: Settings → Database → Connection string (click Connect button)
+
+### 5. Configure Authentication
+
+For email/password auth (simplest):
+- Go to Authentication → Providers → Email
+- Enable email provider
+
+For Google OAuth:
+- Go to Authentication → Providers → Google
+- Add Google OAuth credentials
+- Set redirect URL to `http://localhost:3001`
+
+### 6. Run Development Servers
+
+**Option A**: Run all services
+```bash
+bun run dev
+```
+
+**Option B**: Run services separately
+
+API (uses tsx/Node.js to avoid Bun DNS issues):
+```bash
+cd apps/api
+npx tsx src/index.ts
+# Runs on http://localhost:3003
+```
+
+Dashboard:
+```bash
+cd apps/dashboard
+bun run dev
+# Runs on http://localhost:3001
+```
+
+Engine (if needed for bank connections):
+```bash
+cd apps/engine
+bun run dev
+# Runs on http://localhost:3002
+```
+
+### 7. First Run
+
+1. Go to http://localhost:3001
+2. Sign up with email/password (or Google if configured)
+3. Create a team at /teams/create
+4. Start using the dashboard
+
+### Troubleshooting
+
+**Bun DNS errors**: Use `npx tsx` instead of `bun` to run the API:
+```bash
+cd apps/api && npx tsx src/index.ts
+```
+
+**CORS errors**: Ensure `ALLOWED_API_ORIGINS` in API .env.local includes your dashboard URL.
+
+**Auth errors**: Make sure you're using the Legacy JWT-format keys from Supabase, not the new `sb_publishable_*` format.
+
+**Database schema missing**: Run the SQL functions above, then push the schema with drizzle-kit or run the migration SQL directly.
+
 ## App Architecture
 
 - Monorepo

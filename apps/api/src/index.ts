@@ -1,3 +1,4 @@
+import "./env";
 import { trpcServer } from "@hono/trpc-server";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { getConnectionPoolStats } from "@midday/db/client";
@@ -32,6 +33,7 @@ app.use(
     ],
     exposeHeaders: ["Content-Length"],
     maxAge: 86400,
+    credentials: true,
   }),
 );
 
@@ -203,6 +205,22 @@ app.get(
 
 app.route("/", routers);
 
+// Node.js-compatible server startup
+if (typeof Bun === "undefined") {
+  // Running in Node.js (tsx/node)
+  import("@hono/node-server").then(({ serve }) => {
+    const port = process.env.PORT ? Number.parseInt(process.env.PORT) : 3000;
+
+    serve({
+      fetch: app.fetch,
+      port,
+    }, (info) => {
+      console.log(`🚀 API server running on http://localhost:${info.port}`);
+    });
+  }).catch(console.error);
+}
+
+// Bun-compatible export (for Bun runtime)
 export default {
   port: process.env.PORT ? Number.parseInt(process.env.PORT) : 3000,
   fetch: app.fetch,
