@@ -1,3 +1,9 @@
+# Navigation Structure
+
+This document describes the sidebar navigation structure of the Midday dashboard. For features not in the sidebar navigation (global search, notifications, widgets, etc.), see [Features Not in Navigation](./new-findings.md).
+
+**For a complete system overview:** See [System Reconciliation](./reconciliation.md) which maps navigation, features, and architecture together.
+
 ### Overview
 - Path: `/` [1](#0-0)
 
@@ -42,6 +48,38 @@
   - Notifications (`/settings/notifications`)
   - Developer (`/settings/developer`)
 
+### Assistant (AI Chat)
+- **Not in sidebar navigation** - Accessed via floating input widget or programmatically
+- **Access Points:**
+  - Floating input at bottom of pages (`AssistantInput` component)
+  - Widget on overview/dashboard pages (`AssistantWidget` with example prompts)
+  - Programmatic trigger: `useAssistantStore().setOpen(message)` from any component
+- **UI:** Modal dialog (760px max width, 480px height)
+- **API Route:** `/api/chat` (Next.js API route handler)
+- **Features:**
+  - AI-powered financial assistant using OpenAI `gpt-4.1-mini`
+  - Streaming responses with word-level chunking
+  - Access to 10 financial tools via tRPC:
+    - `getRevenue` - Revenue calculations over date ranges
+    - `getProfit` - Profit calculations
+    - `getSpending` - Spending by category
+    - `getBurnRate` - Monthly burn rate + runway calculations
+    - `getRunway` - Months of runway remaining
+    - `getTaxSummary` - Tax paid/collected by category/type
+    - `getTransactions` - Search/filter transactions (by date, category, tags, amount, status, recurring, attachments)
+    - `getDocuments` - Find documents/receipts/invoices by name
+    - `getInbox` - Find receipts/invoices from inbox by name/amount
+    - `getForecast` - Revenue/profit forecasting
+  - Example prompts: "What's my burn rate", "Show transactions without receipts", "Find a receipt or invoice", etc.
+  - Custom UI components for tool results (tables, charts, lists)
+- **State Management:** Zustand store (`useAssistantStore`) for modal visibility and pre-filled messages
+- **Client-Side Logic:**
+  - Uses `useChat` hook from `@ai-sdk/react` (defaults to `/api/chat`)
+  - Auto-submits pre-filled messages from external triggers
+  - Streaming with `experimental_throttle: 100`
+  - Markdown rendering for assistant responses
+  - Tool invocation results rendered as custom React components
+
 ## Icon Mapping
 
 Each navigation item has an associated icon from the Icons component: [10](#0-9)
@@ -63,6 +101,17 @@ The sidebar uses a hover-to-expand pattern where it transitions from 70px (colla
 ## Notes
 
 The sidebar navigation represents the core feature set of Midday, including financial management (transactions, invoicing), document management (vault, inbox), time tracking, customer management, and administrative settings. The query parameter patterns (like `?step=connect`, `?type=create`) indicate that many sub-items trigger modal flows or specific UI states rather than navigating to separate pages.
+
+**Important:** Many features are not included in the sidebar navigation but are core to the application experience. These include:
+- **Assistant (AI Chat)** - Accessible via floating input widgets, dashboard widgets, or programmatic triggers
+- **Global Search** - Keyboard shortcut (`Cmd+K` / `Meta+K`)
+- **Notification Center** - Header bell icon
+- **Team Switcher** - Bottom of sidebar
+- **Dashboard Widgets** - Overview page carousel
+- **Global Timer Indicator** - Appears when timer is running
+- And many more contextual overlays, modals, and quick access features
+
+For a complete list of features not in navigation, see [Features Not in Navigation](./new-findings.md).
 
 Wiki pages you might want to explore:
 - [Navigation and Layout (midday-ai/midday)](/wiki/midday-ai/midday#2.1.2)
@@ -206,4 +255,80 @@ const icons = {
       )}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
+```
+
+**File:** apps/dashboard/src/store/assistant.ts (L1-13)
+```typescript
+import { create } from "zustand";
+
+interface AssistantState {
+  isOpen: boolean;
+  message?: string;
+  setOpen: (message?: string) => void;
+}
+
+export const useAssistantStore = create<AssistantState>()((set) => ({
+  isOpen: false,
+  message: undefined,
+  setOpen: (message) => set((state) => ({ isOpen: !state.isOpen, message })),
+}));
+```
+
+**File:** apps/dashboard/src/components/assistant/assistant-modal.tsx (L7-22)
+```typescript
+export function AssistantModal() {
+  const { isOpen, setOpen } = useAssistantStore();
+
+  const toggleOpen = () => setOpen();
+
+  return (
+    <Dialog open={isOpen} onOpenChange={toggleOpen}>
+      <DialogContent
+        className="overflow-hidden p-0 max-w-full w-full h-full md:max-w-[740px] md:h-[480px] m-0 select-text"
+        hideClose
+      >
+        <Assistant />
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+**File:** apps/dashboard/src/components/chat/index.tsx (L13-19)
+```typescript
+export function Chat() {
+  const { message } = useAssistantStore();
+
+  const { messages, input, handleSubmit, status, setInput, append } = useChat({
+    experimental_throttle: 100,
+    sendExtraMessageFields: true,
+  });
+```
+
+**File:** apps/dashboard/src/app/api/chat/route.ts (L14-50)
+```typescript
+export async function POST(request: Request) {
+  const { messages } = await request.json();
+
+  return createDataStreamResponse({
+    execute: (dataStream) => {
+      const result = streamText({
+        model: openai("gpt-4.1-mini"),
+        system: `...`,
+        messages,
+        maxSteps: 5,
+        experimental_transform: smoothStream({ chunking: "word" }),
+        tools: {
+          getSpending,
+          getDocuments,
+          getBurnRate,
+          getTransactions,
+          getRevenue,
+          getForecast,
+          getProfit,
+          getRunway,
+          getInbox,
+          getTaxSummary,
+        },
+      });
 ```
