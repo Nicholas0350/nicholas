@@ -1,0 +1,230 @@
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                           midday - Dependency Flow                           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ JavaScript: openai, trpc-server, zod-openapi, zod-validator, cache,          │
+│     categories, db, documents, encryption, engine, engine-client, inbox,     │
+│     invoice, jobs, location, logger, notifications, supabase, sdk,           │
+│     hono-api-reference, slugify, server, ai, camelcase-keys, date-fns,       │
+│     hono, hono-rate-limiter, jose, nanoid, pino, resend, snakecase-keys,     │
+│     superjson, uuid, zod, node-server, bun, dotenv, tsx, tz, utc,            │
+│     resolvers, api, app-store, desktop-client, events, ui, utils, react,     │
+│     nextjs, renderer, react-query, react-table, typescript-sdk,              │
+│     react-hooks, client, tanstack-react-query, change-case, file-saver,      │
+│     framer-motion, geist, little-date, lottie-react, next,                   │
+│     next-international, next-safe-action, next-themes, nuqs, papaparse,      │
+│     pdfjs-dist, react-dom, react-colorful, react-dropzone, react-hook-form,  │
+│     react-hotkeys-hook, react-intersection-observer, react-markdown,         │
+│     react-pdf, react-plaid-link, react-use-draggable-scroll, recharts,       │
+│     server-only, sharp, tus-js-client, use-places-autocomplete,              │
+│     usehooks-ts, zustand, tsconfig, node, typescript, plugin-deep-link,      │
+│     plugin-dialog, plugin-global-shortcut, plugin-opener, plugin-process,    │
+│     plugin-updater, plugin-upload, plugin-react, vite, cli, mintlify,        │
+│     plaid, typesense, workers-ai-provider, xior, workers-types, wrangler,    │
+│     usehooks, next-mdx-remote, react-hls-player, sugar-high, biome, turbo,   │
+│     bolt, web-api, redis, google, pg, drizzle-orm, drizzle-kit, mistral,     │
+│     community, core, mistralai, canvas, mammoth, officeparser, unpdf,        │
+│     components, render, tailwind, react-email, responsive-react-email,       │
+│     functions, date-fns-tz, googleapis, microsoft-graph-client, msal-node,   │
+│     qrcode, format, email, zip.js, heic-convert, trigger.dev, node-xlsx,     │
+│     pino-pretty, postgrest-js, ssr, supabase-js, react-accordion,            │
+│     react-alert-dialog, react-avatar, react-checkbox, react-collapsible,     │
+│     react-context-menu, react-dialog, react-dropdown-menu,                   │
+│     react-hover-card, react-icons, react-label, react-navigation-menu,       │
+│     react-popover, react-progress, react-radio-group, react-scroll-area,     │
+│     react-select, react-separator, react-slider, react-slot, react-switch,   │
+│     react-tabs, react-toast, react-tooltip, extension-bold, extension-link,  │
+│     extension-placeholder, extension-underline, pm, starter-kit,             │
+│     class-variance-authority, clsx, cmdk, embla-carousel-react, input-otp,   │
+│     jsonfile, lucide-react, postcss, react-day-picker, react-number-format,  │
+│     tailwind-merge, tailwindcss, tailwindcss-animate, vaul, autoprefixer     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Apps ═══════════════════════════════════════════════════════
+  tracker-entries ───▶ apps/api/src/rest/middleware/index
+  gocardless-provider ───▶ apps/engine/src/providers/interface, apps/engine/src/providers/types, apps/engine/src/providers/gocardless/gocardless-api, apps/engine/src/providers/gocardless/transform
+  use-transaction-filter-params-with-persistence ───▶ apps/dashboard/src/hooks/use-transaction-filter-params
+  get-tax-rate ───▶ apps/dashboard/src/actions/safe-action
+  mfa-verify-action ───▶ apps/dashboard/src/actions/safe-action
+  bank-accounts ───▶ apps/api/src/rest/middleware/index
+  transform ───▶ apps/engine/src/providers/types
+  index ──┬──▶ apps/engine/src/providers/enablebanking/enablebanking-provider
+          ├──▶ apps/engine/src/providers/gocardless/gocardless-provider
+          ├──▶ apps/engine/src/providers/plaid/plaid-provider
+          ├──▶ apps/engine/src/providers/teller/teller-provider
+          └──▶ apps/engine/src/providers/types
+  tags ───▶ apps/api/src/rest/middleware/index
+  verify-otp-action ───▶ apps/dashboard/src/actions/safe-action
+  enablebanking-api ───▶ apps/engine/src/providers/types, apps/engine/src/providers/enablebanking/transform
+  unenroll-mfa-action ───▶ apps/dashboard/src/actions/safe-action
+  plaid-api ───▶ apps/engine/src/providers/types, apps/engine/src/providers/plaid/types, apps/engine/src/providers/plaid/utils
+  pdf-to-img ───▶ apps/dashboard/src/utils/canvas-factory
+  robots ───▶ apps/website/src/app/sitemap
+  transform.test ───▶ apps/engine/src/providers/enablebanking/transform
+  export-transactions-action ───▶ apps/dashboard/src/actions/safe-action
+  documents ───▶ apps/api/src/rest/middleware/index
+  download-gocardless ───▶ apps/engine/tasks/utils
+  inbox ───▶ apps/api/src/rest/middleware/index
+  send-feedback-action ───▶ apps/dashboard/src/actions/safe-action
+  reports ───▶ apps/api/src/rest/middleware/index
+  reconnect-enablebanking-link ───▶ apps/dashboard/src/actions/safe-action
+  import-transactions ───▶ apps/dashboard/src/actions/safe-action
+  _app ──┬──▶ apps/api/src/trpc/init
+         ├──▶ apps/api/src/trpc/routers/api-keys
+         ├──▶ apps/api/src/trpc/routers/apps
+         ├──▶ apps/api/src/trpc/routers/bank-accounts
+         ├──▶ apps/api/src/trpc/routers/bank-connections
+         ├──▶ apps/api/src/trpc/routers/billing
+         ├──▶ apps/api/src/trpc/routers/customers
+         ├──▶ apps/api/src/trpc/routers/document-tag-assignments
+         ├──▶ apps/api/src/trpc/routers/document-tags
+         ├──▶ apps/api/src/trpc/routers/documents
+         ├──▶ apps/api/src/trpc/routers/inbox
+         ├──▶ apps/api/src/trpc/routers/inbox-accounts
+         ├──▶ apps/api/src/trpc/routers/institutions
+         ├──▶ apps/api/src/trpc/routers/invoice
+         ├──▶ apps/api/src/trpc/routers/invoice-products
+         ├──▶ apps/api/src/trpc/routers/invoice-template
+         ├──▶ apps/api/src/trpc/routers/notification-settings
+         ├──▶ apps/api/src/trpc/routers/notifications
+         ├──▶ apps/api/src/trpc/routers/oauth-applications
+         ├──▶ apps/api/src/trpc/routers/reports
+         ├──▶ apps/api/src/trpc/routers/search
+         ├──▶ apps/api/src/trpc/routers/short-links
+         ├──▶ apps/api/src/trpc/routers/tags
+         ├──▶ apps/api/src/trpc/routers/team
+         ├──▶ apps/api/src/trpc/routers/tracker-entries
+         ├──▶ apps/api/src/trpc/routers/tracker-projects
+         ├──▶ apps/api/src/trpc/routers/transaction-attachments
+         ├──▶ apps/api/src/trpc/routers/transaction-categories
+         ├──▶ apps/api/src/trpc/routers/transaction-tags
+         ├──▶ apps/api/src/trpc/routers/transactions
+         └──▶ apps/api/src/trpc/routers/user
+  get-institutions ───▶ apps/engine/tasks/utils
+  reconnect-gocardless-link ───▶ apps/dashboard/src/actions/safe-action
+  teams ───▶ apps/api/src/rest/middleware/index
+  gocardless-api ───▶ apps/engine/src/providers/types, apps/engine/src/providers/gocardless/types, apps/engine/src/providers/gocardless/utils
+  interface ───▶ apps/engine/src/providers/types
+  utils.test ───▶ apps/engine/src/providers/gocardless/utils
+  create-gocardless-link ───▶ apps/dashboard/src/actions/safe-action
+  import ───▶ apps/engine/tasks/get-institutions
+  schema ───▶ apps/engine/src/routes/institutions/schema
+  set-weekly-calendar-action ───▶ apps/dashboard/src/actions/safe-action
+  transactions ───▶ apps/api/src/rest/middleware/index
+  download-teller ───▶ apps/engine/tasks/utils
+  send-support-action ───▶ apps/website/src/actions/safe-action, apps/website/src/actions/schema
+  search ───▶ apps/api/src/rest/middleware/index
+  account.test ───▶ apps/engine/src/utils/account
+  use-latest-project-id ───▶ apps/dashboard/src/hooks/use-local-storage
+  tracking-consent-action ───▶ apps/dashboard/src/actions/safe-action
+  enablebanking-provider ───▶ apps/engine/src/providers/interface, apps/engine/src/providers/types, apps/engine/src/providers/enablebanking/enablebanking-api, apps/engine/src/providers/enablebanking/transform
+  teller-provider ───▶ apps/engine/src/providers/interface, apps/engine/src/providers/types, apps/engine/src/providers/teller/teller-api, apps/engine/src/providers/teller/transform
+  users ───▶ apps/api/src/rest/middleware/index
+  invoices ───▶ apps/api/src/rest/middleware/index
+  types ───▶ apps/engine/src/providers/types
+  hide-connect-flow-action ───▶ apps/dashboard/src/actions/safe-action
+  plaid-provider ───▶ apps/engine/src/providers/interface, apps/engine/src/providers/types, apps/engine/src/providers/plaid/plaid-api, apps/engine/src/providers/plaid/transform
+  teller-api ───▶ apps/engine/src/providers/types, apps/engine/src/providers/teller/types, apps/engine/src/providers/teller/utils
+  create-enablebanking-link ───▶ apps/dashboard/src/actions/safe-action
+  tracker-projects ───▶ apps/api/src/rest/middleware/index
+  init ───▶ apps/api/src/trpc/middleware/primary-read-after-write, apps/api/src/trpc/middleware/team-permission
+  +117 standalone files
+
+Packages ═══════════════════════════════════════════════════
+  inbox-matching ───▶ packages/db/src/queries/activities, packages/db/src/queries/inbox, packages/db/src/queries/transaction-matching
+  invoice-cancelled ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  cached-queries ───▶ packages/supabase/src/client/server
+  receipt-processor ───▶ packages/documents/src/schema, packages/documents/src/utils, packages/documents/src/utils/retry
+  index ───▶ packages/categories/src/types
+  transaction-categories ───▶ packages/db/src/utils/embeddings, packages/db/src/queries/activities
+  server ───▶ packages/supabase/src/types/index
+  tracker-entries ───▶ packages/db/src/queries/activities
+  inbox-needs-review ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  test-redis ──┬──▶ packages/cache/src/api-key-cache
+               ├──▶ packages/cache/src/redis-client
+               ├──▶ packages/cache/src/replication-cache
+               ├──▶ packages/cache/src/team-cache
+               ├──▶ packages/cache/src/team-permissions-cache
+               └──▶ packages/cache/src/user-cache
+  customers ───▶ packages/db/src/queries/activities
+  invoice-overdue ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  register-bank-schedulers ───▶ packages/jobs/src/tasks/bank/scheduler/bank-scheduler, packages/jobs/src/utils/generate-cron-tag, packages/jobs/scripts/get-eligible-teams
+  replication-cache ───▶ packages/cache/src/redis-client
+  transaction-matching.golden.test ───▶ packages/db/src/utils/transaction-matching, packages/db/src/test/golden-dataset
+  tax.test ───▶ packages/utils/src/tax
+  invoice-processor ───▶ packages/documents/src/schema, packages/documents/src/utils, packages/documents/src/utils/retry
+  initial ───▶ packages/jobs/src/tasks/bank/scheduler/bank-scheduler, packages/jobs/src/tasks/bank/sync/connection
+  document-uploaded ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  categories ───▶ packages/categories/src/color-system, packages/categories/src/types
+  tracker-projects ───▶ packages/db/src/queries/activities
+  invoice-scheduler ───▶ packages/jobs/src/tasks/invoice/operations/check-status
+  connection ───▶ packages/jobs/src/tasks/bank/notifications/transactions, packages/jobs/src/tasks/bank/sync/account
+  delete ───▶ packages/jobs/src/tasks/bank/scheduler/bank-scheduler
+  schedule-invoice ───▶ packages/jobs/src/tasks/invoice/operations/generate-invoice
+  transactions-assigned ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  user-cache ───▶ packages/cache/src/redis-client
+  import ───▶ packages/jobs/src/tasks/transactions/embed-transaction
+  loader ───▶ packages/documents/src/utils
+  embed-transaction ───▶ packages/jobs/src/tasks/transactions/enrich-transaction
+  transactions ───▶ packages/app-store/src/slack/lib/client
+  inbox-cross-currency-matched ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  notification-settings ───▶ packages/db/src/client, packages/db/src/schema
+  invoices ───▶ packages/db/src/utils/log-activity
+  utils ───▶ packages/categories/src/categories, packages/categories/src/tax-rates/index, packages/categories/src/types
+  utils.test ───▶ packages/import/src/utils
+  update-base-currency ───▶ packages/jobs/src/tasks/transactions/update-account-base-currency
+  extract-text ───▶ packages/invoice/src/utils/content
+  embeddings ───▶ packages/db/src/client, packages/db/src/queries/transaction-category-embeddings, packages/db/src/schema
+  classify-image ───▶ packages/jobs/src/tasks/document/embed-document-tags
+  health ───▶ packages/cache/src/redis-client
+  transactions-exported ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  transactions-created ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  client ───▶ packages/db/src/replicas, packages/db/src/schema
+  upsert ───▶ packages/jobs/src/tasks/transactions/embed-transaction
+  transaction-matching.integration.test ───▶ packages/db/src/utils/transaction-matching
+  base ───▶ packages/notifications/src/schemas
+  calculate.test ───▶ packages/invoice/src/utils/calculate
+  connector ───▶ packages/inbox/src/providers/gmail, packages/inbox/src/utils
+  transactions-categorized ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  bank-scheduler ───▶ packages/jobs/src/tasks/bank/sync/connection
+  process-document ───▶ packages/jobs/src/tasks/document/classify-document, packages/jobs/src/tasks/document/classify-image, packages/jobs/src/tasks/document/convert-heic
+  email-service ───▶ packages/notifications/src/base
+  reports ───▶ packages/db/src/schema
+  team-permissions-cache ───▶ packages/cache/src/redis-client
+  validate-golden-dataset ───▶ packages/db/src/utils/transaction-matching, packages/db/src/test/golden-dataset
+  account ───▶ packages/jobs/src/tasks/bank/transactions/upsert
+  log-activity ───▶ packages/db/src/queries/activities, packages/db/src/schema
+  api-key-cache ───▶ packages/cache/src/redis-client
+  sync-account ───▶ packages/jobs/src/tasks/inbox/process-attachment
+  process-attachment ───▶ packages/jobs/src/tasks/document/convert-heic, packages/jobs/src/tasks/document/process-document, packages/jobs/src/tasks/inbox/embed-inbox
+  transform ───▶ packages/import/src/utils
+  initial-setup ───▶ packages/jobs/src/tasks/inbox/provider/sheduler, packages/jobs/src/tasks/inbox/provider/sync-account
+  transaction-matching ───▶ packages/db/src/utils/transaction-matching
+  invoice-paid ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  sheduler ───▶ packages/jobs/src/tasks/inbox/provider/sync-account
+  inbox-new ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  enrichment-helpers ───▶ packages/jobs/src/utils/enrichment-schema
+  transform.test ───▶ packages/jobs/src/utils/transform
+  generate-invoice ───▶ packages/jobs/src/tasks/invoice/email/send-email
+  invoice-scheduled ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  inbox-auto-matched ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  transaction-attachments ───▶ packages/db/src/queries/activities
+  job-client ───▶ packages/db/src/client, packages/db/src/schema
+  gmail ───▶ packages/inbox/src/attachments, packages/inbox/src/generate-id
+  golden-dataset ───▶ packages/db/src/client
+  transaction-matching.test ───▶ packages/db/src/utils/transaction-matching
+  team-cache ───▶ packages/cache/src/redis-client
+  classifier ───▶ packages/documents/src/schema
+  invoice-sent ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  document-processed ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  invoice-reminder-sent ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  export ───▶ packages/jobs/src/tasks/transactions/process-export
+  index.test ───▶ packages/encryption/src/index
+  invoice-created ───▶ packages/notifications/src/base, packages/notifications/src/schemas
+  classify-document ───▶ packages/jobs/src/tasks/document/embed-document-tags
+  +68 standalone files
+
+─────────────────────────────────────────────────────────────
+HUBS: packages/notifications/src/schemas (19←), packages/notifications/src/base (19←), apps/engine/src/providers/types (15←), apps/dashboard/src/actions/safe-action (14←), apps/api/src/rest/middleware/index (13←), packages/db/src/queries/activities (8←)
+555 files · 689 functions · 338 deps
+

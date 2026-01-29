@@ -1,0 +1,1666 @@
+╭────────────────────────────────── midday ──────────────────────────────────╮
+│ Files: 1745 | Size: 76.6MB                                                 │
+│ Top Extensions: .tsx (758), .ts (594), .png (140), .json (81), .mdx (51)   │
+╰────────────────────────────────────────────────────────────────────────────╯
+[1mmidday[0m
+├── [1;34m  .Project/[0m [2m(8 files, 436.9KB)[0m
+│   ├── [1;34m  extractions/[0m [2m(6 files, 435.5KB)[0m
+│   │   └── [32mREADME.md[0m[2m[0m                             
+│   │       [37mScreenshot 2026-01-29 at 14.39.55.png[0m[2m[0m 
+│   │       [37mScreenshot 2026-01-29 at 14.40.57.png[0m[2m[0m 
+│   │       [37mScreenshot 2026-01-29 at 14.42.29.png[0m[2m[0m 
+│   │       [37mScreenshot 2026-01-29 at 14.43.12.png[0m[2m[0m 
+│   │       [32mnotes.md[0m[2m[0m                              
+│   └── [32mCODEMAP.txt[0m[2m[0m            [32mmidday-user-journey.md[0m[2m[0m 
+├── [1;34m  .claude/[0m [2m(2 files, 7.2KB)[0m
+│   └── [32mCLAUDE.md[0m[2m[0m           [31msettings.local.json[0m[2m[0m 
+├── [1;34m  .github/workflows/[0m [2m(10 files, 17.6KB)[0m
+│   └── [31mbeta-dashboard.yaml[0m[2m[0m      [31mproduction-dashboard.yml[0m[2m[0m 
+│       [31mpreview-api.yaml[0m[2m[0m         [31mproduction-desktop.yaml[0m[2m[0m  
+│       [31mpreview-engine.yml[0m[2m[0m       [31mproduction-email.yml[0m[2m[0m     
+│       [31mpreview-website.yml[0m[2m[0m      [31mproduction-engine.yml[0m[2m[0m    
+│       [31mproduction-api.yaml[0m[2m[0m      [31mproduction-website.yml[0m[2m[0m   
+├── [1;34m  apps/[0m [2m(1260 files, 71.5MB)[0m
+│   ├── [1;34m  api/[0m [2m(111 files, 632.1KB)[0m
+│   │   ├── [1;34m  migrations/[0m [2m(3 files, 196.2KB)[0m
+│   │   │   ├── [1;34m  meta/[0m [2m(2 files, 144.3KB, all .json)[0m
+│   │   │   │   └── [1m[31m⭐️ 0000_snapshot[0m[2m[0m [31m_journal[0m[2m[0m         
+│   │   │   └── [33m0000_bumpy_chat.sql[0m[2m[0m 
+│   │   ├── [1;34m  src/[0m [2m(100 files, 428.5KB, all .ts)[0m
+│   │   │   ├── [1;34m  rest/[0m [2m(22 files, 127.5KB)[0m
+│   │   │   │   ├── [1;34m  middleware/[0m [2m(5 files, 8.3KB, all .ts)[0m
+│   │   │   │   │   └── [33mauth[0m[2m[0m                     
+│   │   │   │   │       [33mdb[0m[2m[0m                       
+│   │   │   │   │       [33mindex[0m[2m[0m                    
+│   │   │   │   │       [33mprimary-read-after-write[0m[2m[0m 
+│   │   │   │   │       [33mscope[0m[2m[0m                    
+│   │   │   │   ├── [1;34m  routers/[0m [2m(16 files, 119.0KB, all .ts)[0m
+│   │   │   │   │   └── [33mbank-accounts[0m[2m[0m    [33mreports[0m[2m[0m          
+│   │   │   │   │       [33mcustomers[0m[2m[0m        [33msearch[0m[2m[0m           
+│   │   │   │   │       [33mdocuments[0m[2m[0m        [33mtags[0m[2m[0m             
+│   │   │   │   │       [33minbox[0m[2m[0m            [33mteams[0m[2m[0m            
+│   │   │   │   │       [33mindex[0m[2m[0m            [33mtracker-entries[0m[2m[0m  
+│   │   │   │   │       [33minvoices[0m[2m[0m         [33mtracker-projects[0m[2m[0m 
+│   │   │   │   │       [33mnotifications[0m[2m[0m    [33mtransactions[0m[2m[0m     
+│   │   │   │   │       [33moauth[0m[2m[0m            [33musers[0m[2m[0m            
+│   │   │   │   └── [33mtypes.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  schemas/[0m [2m(30 files, 178.6KB, all .ts)[0m
+│   │   │   │   └── [33mapi-keys[0m[2m[0m                 
+│   │   │   │       [33mapps[0m[2m[0m                     
+│   │   │   │       [33mbank-accounts[0m[2m[0m            
+│   │   │   │       [33mbank-connections[0m[2m[0m         
+│   │   │   │       [33mbilling[0m[2m[0m                  
+│   │   │   │       [33mcustomers[0m[2m[0m                
+│   │   │   │       [33mdocument-tag-assignments[0m[2m[0m 
+│   │   │   │       [33mdocument-tags[0m[2m[0m            
+│   │   │   │       [33mdocuments[0m[2m[0m                
+│   │   │   │       [33minbox-accounts[0m[2m[0m           
+│   │   │   │       [33minbox[0m[2m[0m                    
+│   │   │   │       [33minstitutions[0m[2m[0m             
+│   │   │   │       [33minvoice[0m[2m[0m                  
+│   │   │   │       [33mnotification-settings[0m[2m[0m    
+│   │   │   │       [33mnotifications[0m[2m[0m            
+│   │   │   │       [33moauth-applications[0m[2m[0m       
+│   │   │   │       [33moauth-flow[0m[2m[0m               
+│   │   │   │       [33mpolar[0m[2m[0m                    
+│   │   │   │       [33mreports[0m[2m[0m                  
+│   │   │   │       [33msearch[0m[2m[0m                   
+│   │   │   │       [33mshort-links[0m[2m[0m              
+│   │   │   │       [33mtags[0m[2m[0m                     
+│   │   │   │       [33mteam[0m[2m[0m                     
+│   │   │   │       [33mtracker-entries[0m[2m[0m          
+│   │   │   │       [33mtracker-projects[0m[2m[0m         
+│   │   │   │       [33mtransaction-attachments[0m[2m[0m  
+│   │   │   │       [33mtransaction-categories[0m[2m[0m   
+│   │   │   │       [33mtransaction-tags[0m[2m[0m         
+│   │   │   │       [33mtransactions[0m[2m[0m             
+│   │   │   │       [33musers[0m[2m[0m                    
+│   │   │   ├── [1;34m  services/[0m [2m(2 files, 1.1KB, all .ts)[0m
+│   │   │   │   └── [33mresend[0m[2m[0m   [33msupabase[0m[2m[0m 
+│   │   │   ├── [1;34m  trpc/[0m [2m(34 files, 106.0KB)[0m
+│   │   │   │   ├── [1;34m  middleware/[0m [2m(2 files, 3.9KB, all .ts)[0m
+│   │   │   │   │   └── [33mprimary-read-after-write[0m[2m[0m 
+│   │   │   │   │       [33mteam-permission[0m[2m[0m          
+│   │   │   │   ├── [1;34m  routers/[0m [2m(31 files, 100.0KB, all .ts)[0m
+│   │   │   │   │   └── [33m_app[0m[2m[0m                     
+│   │   │   │   │       [33mapi-keys[0m[2m[0m                 
+│   │   │   │   │       [33mapps[0m[2m[0m                     
+│   │   │   │   │       [33mbank-accounts[0m[2m[0m            
+│   │   │   │   │       [33mbank-connections[0m[2m[0m         
+│   │   │   │   │       [33mbilling[0m[2m[0m                  
+│   │   │   │   │       [33mcustomers[0m[2m[0m                
+│   │   │   │   │       [33mdocument-tag-assignments[0m[2m[0m 
+│   │   │   │   │       [33mdocument-tags[0m[2m[0m            
+│   │   │   │   │       [33mdocuments[0m[2m[0m                
+│   │   │   │   │       [33minbox-accounts[0m[2m[0m           
+│   │   │   │   │       [33minbox[0m[2m[0m                    
+│   │   │   │   │       [33minstitutions[0m[2m[0m             
+│   │   │   │   │       [33minvoice-products[0m[2m[0m         
+│   │   │   │   │       [33minvoice-template[0m[2m[0m         
+│   │   │   │   │       [33minvoice[0m[2m[0m                  
+│   │   │   │   │       [33mnotification-settings[0m[2m[0m    
+│   │   │   │   │       [33mnotifications[0m[2m[0m            
+│   │   │   │   │       [33moauth-applications[0m[2m[0m       
+│   │   │   │   │       [33mreports[0m[2m[0m                  
+│   │   │   │   │       [33msearch[0m[2m[0m                   
+│   │   │   │   │       [33mshort-links[0m[2m[0m              
+│   │   │   │   │       [33mtags[0m[2m[0m                     
+│   │   │   │   │       [33mteam[0m[2m[0m                     
+│   │   │   │   │       [33mtracker-entries[0m[2m[0m          
+│   │   │   │   │       [33mtracker-projects[0m[2m[0m         
+│   │   │   │   │       [33mtransaction-attachments[0m[2m[0m  
+│   │   │   │   │       [33mtransaction-categories[0m[2m[0m   
+│   │   │   │   │       [33mtransaction-tags[0m[2m[0m         
+│   │   │   │   │       [33mtransactions[0m[2m[0m             
+│   │   │   │   │       [33muser[0m[2m[0m                     
+│   │   │   │   └── [33minit.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  utils/[0m [2m(10 files, 9.4KB, all .ts)[0m
+│   │   │   │   └── [33mauth[0m[2m[0m              [33mpolar[0m[2m[0m             
+│   │   │   │       [33mgeo[0m[2m[0m               [33mscopes[0m[2m[0m            
+│   │   │   │       [33mhealth[0m[2m[0m            [33msearch-filters[0m[2m[0m    
+│   │   │   │       [33moauth[0m[2m[0m             [33msearch[0m[2m[0m            
+│   │   │   │       [33mparse[0m[2m[0m             [33mvalidate-response[0m[2m[0m 
+│   │   │   └── [33menv[0m[2m[0m   [33mindex[0m[2m[0m 
+│   │   └── [2;37m.dockerignore[0m[2m[0m   [32mREADME.md[0m[2m[0m       [31mpackage.json[0m[2m[0m    
+│   │       [37m.env-template[0m[2m[0m   [31mfly-preview.yml[0m[2m[0m [31mtsconfig.json[0m[2m[0m   
+│   │       [37mDockerfile[0m[2m[0m      [31mfly.toml[0m[2m[0m        
+│   ├── [1;34m  dashboard/[0m [2m(704 files, 3.8MB)[0m
+│   │   ├── [1;34m  public/[0m [2m(13 files, 2.0MB)[0m
+│   │   │   ├── [1;34m  assets/[0m [2m(12 files, 1.8MB)[0m
+│   │   │   │   └── [37mbg-login-dark.jpg[0m[2m[0m         
+│   │   │   │       [37mbg-login.jpg[0m[2m[0m              
+│   │   │   │       [37moverview-1-light.png[0m[2m[0m      
+│   │   │   │       [37moverview-1.png[0m[2m[0m            
+│   │   │   │       [37moverview-2-light.png[0m[2m[0m      
+│   │   │   │       [37moverview-2.png[0m[2m[0m            
+│   │   │   │       [31msetup-animation-dark.json[0m[2m[0m 
+│   │   │   │       [31msetup-animation.json[0m[2m[0m      
+│   │   │   │       [37mtransactions-1-light.png[0m[2m[0m  
+│   │   │   │       [37mtransactions-1.png[0m[2m[0m        
+│   │   │   │       [37mtransactions-2-light.png[0m[2m[0m  
+│   │   │   │       [37mtransactions-2.png[0m[2m[0m        
+│   │   │   └── [37mappicon.png[0m[2m[0m 
+│   │   ├── [1;34m  src/[0m [2m(680 files, 1.8MB, all .ts)[0m
+│   │   │   ├── [1;34m  actions/[0m [2m(28 files, 35.1KB)[0m
+│   │   │   │   ├── [1;34m  ai/[0m [2m(7 files, 11.1KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  editor/[0m [2m(1.9KB)[0m
+│   │   │   │   │   │   └── [33mgenerate-editor-content.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  filters/[0m [2m(4 files, 5.6KB, all .ts)[0m
+│   │   │   │   │   │   └── [33mgenerate-invoice-filters[0m[2m[0m      
+│   │   │   │   │   │       [33mgenerate-tracker-filters[0m[2m[0m      
+│   │   │   │   │   │       [33mgenerate-transactions-filters[0m[2m[0m 
+│   │   │   │   │   │       [33mgenerate-vault-filters[0m[2m[0m        
+│   │   │   │   │   └── [33mgenerate-csv-mapping[0m[2m[0m 
+│   │   │   │   │       [33mget-tax-rate[0m[2m[0m         
+│   │   │   │   ├── [1;34m  institutions/[0m [2m(6 files, 9.5KB, all .ts)[0m
+│   │   │   │   │   └── [33mcreate-enablebanking-link[0m[2m[0m    
+│   │   │   │   │       [33mcreate-gocardless-link[0m[2m[0m       
+│   │   │   │   │       [33mcreate-plaid-link[0m[2m[0m            
+│   │   │   │   │       [33mexchange-public-token[0m[2m[0m        
+│   │   │   │   │       [33mreconnect-enablebanking-link[0m[2m[0m 
+│   │   │   │   │       [33mreconnect-gocardless-link[0m[2m[0m    
+│   │   │   │   ├── [1;34m  transactions/[0m [2m(3 files, 3.3KB, all .ts)[0m
+│   │   │   │   │   └── [33mimport-transactions[0m[2m[0m             
+│   │   │   │   │       [33mmanual-sync-transactions-action[0m[2m[0m 
+│   │   │   │   │       [33mreconnect-connection-action[0m[2m[0m     
+│   │   │   │   └── [33mexport-transactions-action.ts[0m[2m[0m      
+│   │   │   │       [33mhide-connect-flow-action.ts[0m[2m[0m        
+│   │   │   │       [33mmfa-verify-action.ts[0m[2m[0m               
+│   │   │   │       [33mrevalidate-action.ts[0m[2m[0m               
+│   │   │   │       [33msafe-action.ts[0m[2m[0m                     
+│   │   │   │       [33msend-feedback-action.ts[0m[2m[0m            
+│   │   │   │       [33msend-support-action.tsx[0m[2m[0m            
+│   │   │   │       [33mset-weekly-calendar-action.ts[0m[2m[0m      
+│   │   │   │       [33mtracking-consent-action.ts[0m[2m[0m         
+│   │   │   │       [33munenroll-mfa-action.ts[0m[2m[0m             
+│   │   │   │       [33mupdate-column-visibility-action.ts[0m[2m[0m 
+│   │   │   │       [33mverify-otp-action.ts[0m[2m[0m               
+│   │   │   ├── [1;34m  app/[0m [2m(68 files, 113.4KB)[0m
+│   │   │   │   ├── [1;34m  [locale]/[0m [2m(46 files, 58.2KB, all .tsx)[0m
+│   │   │   │   │   ├── [1;34m  (app)/[0m [2m(34 files, 36.8KB)[0m
+│   │   │   │   │   │   ├── [1;34m  (sidebar)/[0m [2m(25 files, 26.4KB, all .tsx)[0m
+│   │   │   │   │   │   │   ├── [1;34m  account/[0m [2m(6 files, 2.7KB, all .tsx)[0m
+│   │   │   │   │   │   │   │   ├── [1;34m  date-and-locale/[0m [2m(675.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  security/[0m [2m(406.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  support/[0m [2m(338.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  teams/[0m [2m(535.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   └── [33mlayout[0m[2m[0m [33mpage[0m[2m[0m   
+│   │   │   │   │   │   │   ├── [1;34m  apps/[0m [2m(982.0B)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   ├── [1;34m  customers/[0m [2m(2.7KB)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   ├── [1;34m  inbox/[0m [2m(2 files, 2.2KB)[0m
+│   │   │   │   │   │   │   │   ├── [1;34m  settings/[0m [2m(649.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   ├── [1;34m  invoices/[0m [2m(2 files, 3.3KB)[0m
+│   │   │   │   │   │   │   │   ├── [1;34m  products/[0m [2m(659.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   ├── [1;34m  settings/[0m [2m(7 files, 5.0KB, all .tsx)[0m
+│   │   │   │   │   │   │   │   ├── [1;34m  accounts/[0m [2m(617.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  billing/[0m [2m(1.0KB)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  developer/[0m [2m(1.2KB)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  members/[0m [2m(374.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   ├── [1;34m  notifications/[0m [2m(367.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   └── [33mlayout[0m[2m[0m [33mpage[0m[2m[0m   
+│   │   │   │   │   │   │   ├── [1;34m  tracker/[0m [2m(1.7KB)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   ├── [1;34m  transactions/[0m [2m(2 files, 2.3KB)[0m
+│   │   │   │   │   │   │   │   ├── [1;34m  categories/[0m [2m(666.0B)[0m
+│   │   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   ├── [1;34m  vault/[0m [2m(979.0B)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   └── [33mlayout[0m[2m[0m [33mpage[0m[2m[0m   
+│   │   │   │   │   │   ├── [1;34m  desktop/[0m [2m(2 files, 723.0B)[0m
+│   │   │   │   │   │   │   ├── [1;34m  checkout/success/[0m [2m(310.0B)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   └── [1;34m  search/[0m [2m(413.0B)[0m
+│   │   │   │   │   │   │       └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  mfa/[0m [2m(2 files, 833.0B)[0m
+│   │   │   │   │   │   │   ├── [1;34m  setup/[0m [2m(220.0B)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   └── [1;34m  verify/[0m [2m(613.0B)[0m
+│   │   │   │   │   │   │       └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  oauth/[0m [2m(2 files, 3.1KB)[0m
+│   │   │   │   │   │   │   ├── [1;34m  authorize/[0m [2m(2.7KB)[0m
+│   │   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   │   └── [33mlayout.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  setup/[0m [2m(1.3KB)[0m
+│   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   └── [1;34m  teams/[0m [2m(2 files, 4.5KB)[0m
+│   │   │   │   │   │       ├── [1;34m  create/[0m [2m(1.4KB)[0m
+│   │   │   │   │   │       │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │       └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  (public)/[0m [2m(8 files, 16.3KB)[0m
+│   │   │   │   │   │   ├── [1;34m  all-done/[0m [2m(3 files, 1.6KB)[0m
+│   │   │   │   │   │   │   └── [33mevent-emitter.tsx[0m[2m[0m [33mschema.ts[0m[2m[0m         
+│   │   │   │   │   │   │       [33mpage.tsx[0m[2m[0m          
+│   │   │   │   │   │   ├── [1;34m  i/[token]/[0m [2m(2 files, 5.7KB, all .tsx)[0m
+│   │   │   │   │   │   │   └── [33mopengraph-image[0m[2m[0m [33mpage[0m[2m[0m            
+│   │   │   │   │   │   ├── [1;34m  login/[0m [2m(6.0KB)[0m
+│   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  s/[shortId]/[0m [2m(2.7KB)[0m
+│   │   │   │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   │   └── [1;34m  verify/[0m [2m(316.0B)[0m
+│   │   │   │   │   │       └── [33mpage.tsx[0m[2m[0m 
+│   │   │   │   │   └── [33merror[0m[2m[0m     [33mlayout[0m[2m[0m    [33mnot-found[0m[2m[0m [33mproviders[0m[2m[0m 
+│   │   │   │   ├── [1;34m  api/[0m [2m(20 files, 39.5KB)[0m
+│   │   │   │   │   ├── [1;34m  apps/slack/[0m [2m(3 files, 5.8KB)[0m
+│   │   │   │   │   │   ├── [1;34m  install-url/[0m [2m(665.0B)[0m
+│   │   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  interactive/[0m [2m(79.0B)[0m
+│   │   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   │   └── [1;34m  oauth_callback/[0m [2m(5.0KB)[0m
+│   │   │   │   │   │       └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  auth/callback/[0m [2m(2.5KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  chat/[0m [2m(2.5KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  checkout/[0m [2m(2 files, 2.3KB)[0m
+│   │   │   │   │   │   ├── [1;34m  success/[0m [2m(554.0B)[0m
+│   │   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  connector/callback/[0m [2m(1.3KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  download/[0m [2m(2 files, 2.5KB)[0m
+│   │   │   │   │   │   ├── [1;34m  file/[0m [2m(815.0B)[0m
+│   │   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   │   └── [1;34m  invoice/[0m [2m(1.7KB)[0m
+│   │   │   │   │   │       └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  enablebanking/session/[0m [2m(2.6KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  gocardless/reconnect/[0m [2m(1.0KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  portal/[0m [2m(619.0B)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  preview/[0m [2m(1.5KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  proxy/[0m [2m(1.2KB)[0m
+│   │   │   │   │   │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │   └── [1;34m  webhook/[0m [2m(5 files, 15.8KB)[0m
+│   │   │   │   │       ├── [1;34m  inbox/[0m [2m(6.2KB)[0m
+│   │   │   │   │       │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │       ├── [1;34m  plaid/[0m [2m(3.4KB)[0m
+│   │   │   │   │       │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │       ├── [1;34m  polar/[0m [2m(1.6KB)[0m
+│   │   │   │   │       │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │       ├── [1;34m  registered/[0m [2m(1.5KB)[0m
+│   │   │   │   │       │   └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   │       └── [1;34m  teller/[0m [2m(3.1KB)[0m
+│   │   │   │   │           └── [33mroute.ts[0m[2m[0m 
+│   │   │   │   └── [37mfavicon.ico[0m[2m[0m      [33mglobal-error.tsx[0m[2m[0m 
+│   │   │   ├── [1;34m  components/[0m [2m(491 files, 1.5MB, all .tsx)[0m
+│   │   │   │   ├── [1;34m  assistant/[0m [2m(4 files, 2.2KB, all .tsx)[0m
+│   │   │   │   │   └── [33massistant-modal[0m[2m[0m [33mindex[0m[2m[0m           
+│   │   │   │   │       [33mheader[0m[2m[0m          [33mtoolbar[0m[2m[0m         
+│   │   │   │   ├── [1;34m  base-currency/[0m [2m(2 files, 3.8KB, all .tsx)[0m
+│   │   │   │   │   └── [33mbase-currency[0m[2m[0m   [33mselect-currency[0m[2m[0m 
+│   │   │   │   ├── [1;34m  charts/[0m [2m(15 files, 45.8KB)[0m
+│   │   │   │   │   └── [33marea-chart.tsx[0m[2m[0m        
+│   │   │   │   │       [33mbar-chart.tsx[0m[2m[0m         
+│   │   │   │   │       [33mburn-rate-chart.tsx[0m[2m[0m   
+│   │   │   │   │       [33mchart-filters.tsx[0m[2m[0m     
+│   │   │   │   │       [33mchart-period.tsx[0m[2m[0m      
+│   │   │   │   │       [33mchart-selectors.tsx[0m[2m[0m   
+│   │   │   │   │       [33mchart-type.tsx[0m[2m[0m        
+│   │   │   │   │       [33mcharts.tsx[0m[2m[0m            
+│   │   │   │   │       [33mdata.ts[0m[2m[0m               
+│   │   │   │   │       [33mempty-state.tsx[0m[2m[0m       
+│   │   │   │   │       [33mexpense-chart.tsx[0m[2m[0m     
+│   │   │   │   │       [33mprofit-chart.tsx[0m[2m[0m      
+│   │   │   │   │       [33mrevenue-chart.tsx[0m[2m[0m     
+│   │   │   │   │       [33mstacked-bar-chart.tsx[0m[2m[0m 
+│   │   │   │   │       [33mstatus.tsx[0m[2m[0m            
+│   │   │   │   ├── [1;34m  chat/[0m [2m(19 files, 25.9KB)[0m
+│   │   │   │   │   ├── [1;34m  tools/[0m [2m(8 files, 11.1KB)[0m
+│   │   │   │   │   │   ├── [1;34m  burn-rate/[0m [2m(769.0B)[0m
+│   │   │   │   │   │   │   └── [33mburn-rate.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  documents/[0m [2m(2.1KB)[0m
+│   │   │   │   │   │   │   └── [33mdocuments.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  inbox/[0m [2m(1.7KB)[0m
+│   │   │   │   │   │   │   └── [33minbox.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  profit/[0m [2m(755.0B)[0m
+│   │   │   │   │   │   │   └── [33mprofit.tsx[0m[2m[0m 
+│   │   │   │   │   │   ├── [1;34m  revenue/[0m [2m(760.0B)[0m
+│   │   │   │   │   │   │   └── [33mrevenue.tsx[0m[2m[0m 
+│   │   │   │   │   │   └── [1;34m  transactions/[0m [2m(3 files, 5.0KB, all .tsx)[0m
+│   │   │   │   │   │       └── [33mshow-more-buttont[0m[2m[0m [33mtransactions[0m[2m[0m      
+│   │   │   │   │   │           [33mskeleton[0m[2m[0m          
+│   │   │   │   │   └── [33mchat-avatar.tsx[0m[2m[0m   [33mindex.tsx[0m[2m[0m         
+│   │   │   │   │       [33mchat-empty.tsx[0m[2m[0m    [33mmarkdown.tsx[0m[2m[0m      
+│   │   │   │   │       [33mchat-examples.tsx[0m[2m[0m [33mmessage.tsx[0m[2m[0m       
+│   │   │   │   │       [33mchat-footer.tsx[0m[2m[0m   [33mmessages.tsx[0m[2m[0m      
+│   │   │   │   │       [33mchat-input.tsx[0m[2m[0m    [33mspinner.tsx[0m[2m[0m       
+│   │   │   │   │       [33mexamples.ts[0m[2m[0m       
+│   │   │   │   ├── [1;34m  forms/[0m [2m(12 files, 156.8KB, all .tsx)[0m
+│   │   │   │   │   └── [33mapi-key-form[0m[2m[0m            
+│   │   │   │   │       [33mcategory-edit-form[0m[2m[0m      
+│   │   │   │   │       [33mcategory-form[0m[2m[0m           
+│   │   │   │   │       [33mcreate-team-form[0m[2m[0m        
+│   │   │   │   │       [33mcustomer-form[0m[2m[0m           
+│   │   │   │   │       [33minvite-form[0m[2m[0m             
+│   │   │   │   │       [33moauth-application-form[0m[2m[0m  
+│   │   │   │   │       [33mproduct-form[0m[2m[0m            
+│   │   │   │   │       [33mtracker-entries-form[0m[2m[0m    
+│   │   │   │   │       [33mtracker-project-form[0m[2m[0m    
+│   │   │   │   │       [33mtransaction-create-form[0m[2m[0m 
+│   │   │   │   │       [33mtransaction-edit-form[0m[2m[0m   
+│   │   │   │   ├── [1;34m  inbox/[0m [2m(25 files, 79.6KB, all .tsx)[0m
+│   │   │   │   │   └── [33mconnect-gmail[0m[2m[0m                     
+│   │   │   │   │       [33mdelete-inbox-account[0m[2m[0m              
+│   │   │   │   │       [33minbox-actions[0m[2m[0m                     
+│   │   │   │   │       [33minbox-connected-accounts-skeleton[0m[2m[0m 
+│   │   │   │   │       [33minbox-connected-accounts[0m[2m[0m          
+│   │   │   │   │       [33minbox-details-skeleton[0m[2m[0m            
+│   │   │   │   │       [33minbox-details[0m[2m[0m                     
+│   │   │   │   │       [33minbox-email-settings[0m[2m[0m              
+│   │   │   │   │       [33minbox-empty[0m[2m[0m                       
+│   │   │   │   │       [33minbox-get-started[0m[2m[0m                 
+│   │   │   │   │       [33minbox-header[0m[2m[0m                      
+│   │   │   │   │       [33minbox-item[0m[2m[0m                        
+│   │   │   │   │       [33minbox-list-skeleton[0m[2m[0m               
+│   │   │   │   │       [33minbox-ordering[0m[2m[0m                    
+│   │   │   │   │       [33minbox-search[0m[2m[0m                      
+│   │   │   │   │       [33minbox-skeleton[0m[2m[0m                    
+│   │   │   │   │       [33minbox-status[0m[2m[0m                      
+│   │   │   │   │       [33minbox-upload-zone[0m[2m[0m                 
+│   │   │   │   │       [33minbox-view[0m[2m[0m                        
+│   │   │   │   │       [33mindex[0m[2m[0m                             
+│   │   │   │   │       [33mmatch-transaction[0m[2m[0m                 
+│   │   │   │   │       [33msuggested-match[0m[2m[0m                   
+│   │   │   │   │       [33msync-inbox-account[0m[2m[0m                
+│   │   │   │   │       [33mtransaction-match-item[0m[2m[0m            
+│   │   │   │   │       [33mtransaction-unmatch-item[0m[2m[0m          
+│   │   │   │   ├── [1;34m  invoice/[0m [2m(29 files, 91.5KB)[0m
+│   │   │   │   │   └── [33mactivity.tsx[0m[2m[0m                   
+│   │   │   │   │       [33mamount-input.tsx[0m[2m[0m               
+│   │   │   │   │       [33mcustomer-details.tsx[0m[2m[0m           
+│   │   │   │   │       [33mdue-date.tsx[0m[2m[0m                   
+│   │   │   │   │       [33medit-block.tsx[0m[2m[0m                 
+│   │   │   │   │       [33meditor.tsx[0m[2m[0m                     
+│   │   │   │   │       [33mform-context.tsx[0m[2m[0m               
+│   │   │   │   │       [33mform.tsx[0m[2m[0m                       
+│   │   │   │   │       [33mfrom-details.tsx[0m[2m[0m               
+│   │   │   │   │       [33minput.tsx[0m[2m[0m                      
+│   │   │   │   │       [33minvoice-no.tsx[0m[2m[0m                 
+│   │   │   │   │       [33minvoice-title.tsx[0m[2m[0m              
+│   │   │   │   │       [33missue-date.tsx[0m[2m[0m                 
+│   │   │   │   │       [33mlabel-input.tsx[0m[2m[0m                
+│   │   │   │   │       [33mline-items.tsx[0m[2m[0m                 
+│   │   │   │   │       [33mlogo.tsx[0m[2m[0m                       
+│   │   │   │   │       [33mmeta.tsx[0m[2m[0m                       
+│   │   │   │   │       [33mnote-details.tsx[0m[2m[0m               
+│   │   │   │   │       [33mpayment-details.tsx[0m[2m[0m            
+│   │   │   │   │       [33mproduct-autocomplete.tsx[0m[2m[0m       
+│   │   │   │   │       [33mproduct-aware-amount-input.tsx[0m[2m[0m 
+│   │   │   │   │       [33mproduct-aware-unit-input.tsx[0m[2m[0m   
+│   │   │   │   │       [33mquantity-input.tsx[0m[2m[0m             
+│   │   │   │   │       [33msettings-menu.tsx[0m[2m[0m              
+│   │   │   │   │       [33msubmit-button.tsx[0m[2m[0m              
+│   │   │   │   │       [33msummary.tsx[0m[2m[0m                    
+│   │   │   │   │       [33mtax-input.tsx[0m[2m[0m                  
+│   │   │   │   │       [33mutils.ts[0m[2m[0m                       
+│   │   │   │   │       [33mvat-input.tsx[0m[2m[0m                  
+│   │   │   │   ├── [1;34m  modals/[0m [2m(21 files, 95.4KB, all .tsx)[0m
+│   │   │   │   │   ├── [1;34m  import-modal/[0m [2m(5 files, 23.0KB)[0m
+│   │   │   │   │   │   └── [33mcontext.tsx[0m[2m[0m       [33mselect-file.tsx[0m[2m[0m   
+│   │   │   │   │   │       [33mfield-mapping.tsx[0m[2m[0m [33mutils.ts[0m[2m[0m          
+│   │   │   │   │   │       [33mindex.tsx[0m[2m[0m         
+│   │   │   │   │   └── [33madd-new-device[0m[2m[0m                 
+│   │   │   │   │       [33mchoose-plan-modal[0m[2m[0m              
+│   │   │   │   │       [33mconnect-transactions-modal[0m[2m[0m     
+│   │   │   │   │       [33mcreate-api-key-modal[0m[2m[0m           
+│   │   │   │   │       [33mdelete-api-key-modal[0m[2m[0m           
+│   │   │   │   │       [33mdelete-oauth-application-modal[0m[2m[0m 
+│   │   │   │   │       [33medit-api-key-modal[0m[2m[0m             
+│   │   │   │   │       [33medit-bank-account-modal[0m[2m[0m        
+│   │   │   │   │       [33medit-inbox-modal[0m[2m[0m               
+│   │   │   │   │       [33mexport-transactions-modal[0m[2m[0m      
+│   │   │   │   │       [33minvite-team-members-modal[0m[2m[0m      
+│   │   │   │   │       [33moauth-secret-modal[0m[2m[0m             
+│   │   │   │   │       [33moverview-modal[0m[2m[0m                 
+│   │   │   │   │       [33mselect-bank-accounts[0m[2m[0m           
+│   │   │   │   │       [33mtransactions-modal[0m[2m[0m             
+│   │   │   │   │       [33mtrial-ended-modal[0m[2m[0m              
+│   │   │   │   ├── [1;34m  notification-center/[0m [2m(6 files, 27.6KB)[0m
+│   │   │   │   │   └── [33mempty-state.tsx[0m[2m[0m              
+│   │   │   │   │       [33mindex.ts[0m[2m[0m                     
+│   │   │   │   │       [33mnotification-center.tsx[0m[2m[0m      
+│   │   │   │   │       [33mnotification-descriptions.ts[0m[2m[0m 
+│   │   │   │   │       [33mnotification-item.tsx[0m[2m[0m        
+│   │   │   │   │       [33mnotification-link.tsx[0m[2m[0m        
+│   │   │   │   ├── [1;34m  oauth/[0m [2m(2 files, 16.7KB, all .tsx)[0m
+│   │   │   │   │   └── [33moauth-consent-screen[0m[2m[0m 
+│   │   │   │   │       [33moauth-error-message[0m[2m[0m  
+│   │   │   │   ├── [1;34m  search/[0m [2m(4 files, 28.8KB, all .tsx)[0m
+│   │   │   │   │   └── [33mopen-search-button[0m[2m[0m [33msearch-modal[0m[2m[0m       
+│   │   │   │   │       [33msearch-footer[0m[2m[0m      [33msearch[0m[2m[0m             
+│   │   │   │   ├── [1;34m  sheets/[0m [2m(19 files, 37.2KB, all .tsx)[0m
+│   │   │   │   │   └── [33mcategory-create-sheet[0m[2m[0m          
+│   │   │   │   │       [33mcategory-edit-sheet[0m[2m[0m            
+│   │   │   │   │       [33mcustomer-create-sheet[0m[2m[0m          
+│   │   │   │   │       [33mcustomer-edit-sheet[0m[2m[0m            
+│   │   │   │   │       [33mdocument-sheet[0m[2m[0m                 
+│   │   │   │   │       [33mglobal-sheets[0m[2m[0m                  
+│   │   │   │   │       [33minbox-details-sheet[0m[2m[0m            
+│   │   │   │   │       [33minvoice-details-sheet[0m[2m[0m          
+│   │   │   │   │       [33minvoice-sheet[0m[2m[0m                  
+│   │   │   │   │       [33moauth-application-create-sheet[0m[2m[0m 
+│   │   │   │   │       [33moauth-application-edit-sheet[0m[2m[0m   
+│   │   │   │   │       [33mproduct-create-sheet[0m[2m[0m           
+│   │   │   │   │       [33mproduct-edit-sheet[0m[2m[0m             
+│   │   │   │   │       [33mtracker-create-sheet[0m[2m[0m           
+│   │   │   │   │       [33mtracker-schedule-sheet[0m[2m[0m         
+│   │   │   │   │       [33mtracker-update-sheet[0m[2m[0m           
+│   │   │   │   │       [33mtransaction-create-sheet[0m[2m[0m       
+│   │   │   │   │       [33mtransaction-edit-sheet[0m[2m[0m         
+│   │   │   │   │       [33mtransaction-sheet[0m[2m[0m              
+│   │   │   │   ├── [1;34m  tables/[0m [2m(64 files, 231.2KB)[0m
+│   │   │   │   │   ├── [1;34m  api-keys/[0m [2m(3 files, 7.4KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m     [33mempty-state[0m[2m[0m [33mindex[0m[2m[0m       
+│   │   │   │   │   ├── [1;34m  categories/[0m [2m(4 files, 12.2KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m  [33mheader[0m[2m[0m   [33mskeleton[0m[2m[0m [33mtable[0m[2m[0m    
+│   │   │   │   │   ├── [1;34m  customers/[0m [2m(6 files, 17.2KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m      [33mempty-states[0m[2m[0m [33mskeleton[0m[2m[0m     
+│   │   │   │   │   │       [33mdata-table[0m[2m[0m   [33mrow[0m[2m[0m          [33mtable-header[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  invoices/[0m [2m(8 files, 39.9KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mactions-menu[0m[2m[0m [33mdata-table[0m[2m[0m   [33mskeleton[0m[2m[0m     
+│   │   │   │   │   │       [33mbottom-bar[0m[2m[0m   [33mempty-states[0m[2m[0m [33mtable-header[0m[2m[0m 
+│   │   │   │   │   │       [33mcolumns[0m[2m[0m      [33mrow[0m[2m[0m          
+│   │   │   │   │   ├── [1;34m  members/[0m [2m(2 files, 12.4KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m [33mindex[0m[2m[0m   
+│   │   │   │   │   ├── [1;34m  oauth-applications/[0m [2m(3 files, 8.9KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m     [33mempty-state[0m[2m[0m [33mindex[0m[2m[0m       
+│   │   │   │   │   ├── [1;34m  orders/[0m [2m(5 files, 10.6KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mactions-menu[0m[2m[0m [33mindex[0m[2m[0m        [33mtable-header[0m[2m[0m 
+│   │   │   │   │   │       [33mdata-table[0m[2m[0m   [33mskeleton[0m[2m[0m     
+│   │   │   │   │   ├── [1;34m  pending-invites/[0m [2m(4 files, 7.6KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m      [33mskeleton[0m[2m[0m     
+│   │   │   │   │   │       [33mindex[0m[2m[0m        [33mtable-header[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  products/[0m [2m(4 files, 10.7KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m  [33mheader[0m[2m[0m   [33mskeleton[0m[2m[0m [33mtable[0m[2m[0m    
+│   │   │   │   │   ├── [1;34m  select-team/[0m [2m(2 files, 2.8KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mtable-row[0m[2m[0m [33mtable[0m[2m[0m     
+│   │   │   │   │   ├── [1;34m  teams/[0m [2m(6 files, 14.2KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mcolumns[0m[2m[0m      [33minvites[0m[2m[0m      [33mtable-header[0m[2m[0m 
+│   │   │   │   │   │       [33mindex[0m[2m[0m        [33mskeleton[0m[2m[0m     [33mtable[0m[2m[0m        
+│   │   │   │   │   ├── [1;34m  tracker/[0m [2m(5 files, 20.7KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mdata-table-header[0m[2m[0m [33mindex[0m[2m[0m             
+│   │   │   │   │   │       [33mdata-table-row[0m[2m[0m    [33mloading[0m[2m[0m           
+│   │   │   │   │   │       [33mempty-states[0m[2m[0m      
+│   │   │   │   │   ├── [1;34m  transactions/[0m [2m(7 files, 47.3KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mbottom-bar[0m[2m[0m        [33mempty-states[0m[2m[0m      
+│   │   │   │   │   │       [33mcolumns[0m[2m[0m           [33mexport-bar[0m[2m[0m        
+│   │   │   │   │   │       [33mdata-table-header[0m[2m[0m [33mloading[0m[2m[0m           
+│   │   │   │   │   │       [33mdata-table[0m[2m[0m        
+│   │   │   │   │   └── [1;34m  vault/[0m [2m(5 files, 19.4KB, all .tsx)[0m
+│   │   │   │   │       └── [33mbottom-bar[0m[2m[0m          [33mdata-table-skeleton[0m[2m[0m 
+│   │   │   │   │           [33mcolumns[0m[2m[0m             [33mdata-table[0m[2m[0m          
+│   │   │   │   │           [33mdata-table-header[0m[2m[0m   
+│   │   │   │   ├── [1;34m  tracker/[0m [2m(6 files, 43.4KB)[0m
+│   │   │   │   │   └── [33mcalendar-day.tsx[0m[2m[0m        
+│   │   │   │   │       [33mcalendar-header.tsx[0m[2m[0m     
+│   │   │   │   │       [33mcalendar-month-view.tsx[0m[2m[0m 
+│   │   │   │   │       [33mcalendar-week-view.tsx[0m[2m[0m  
+│   │   │   │   │       [33mevents.tsx[0m[2m[0m              
+│   │   │   │   │       [33mutils.ts[0m[2m[0m                
+│   │   │   │   ├── [1;34m  vault/[0m [2m(20 files, 38.6KB, all .tsx)[0m
+│   │   │   │   │   └── [33mdelete-vault-file-dialog[0m[2m[0m     
+│   │   │   │   │       [33mempty-states[0m[2m[0m                 
+│   │   │   │   │       [33mvault-actions[0m[2m[0m                
+│   │   │   │   │       [33mvault-get-started[0m[2m[0m            
+│   │   │   │   │       [33mvault-grid-skeleton[0m[2m[0m          
+│   │   │   │   │       [33mvault-grid[0m[2m[0m                   
+│   │   │   │   │       [33mvault-header[0m[2m[0m                 
+│   │   │   │   │       [33mvault-item-actions[0m[2m[0m           
+│   │   │   │   │       [33mvault-item-skeleton[0m[2m[0m          
+│   │   │   │   │       [33mvault-item-tags[0m[2m[0m              
+│   │   │   │   │       [33mvault-item[0m[2m[0m                   
+│   │   │   │   │       [33mvault-related-files-skeleton[0m[2m[0m 
+│   │   │   │   │       [33mvault-related-files[0m[2m[0m          
+│   │   │   │   │       [33mvault-search-filter[0m[2m[0m          
+│   │   │   │   │       [33mvault-select-tags[0m[2m[0m            
+│   │   │   │   │       [33mvault-skeleton[0m[2m[0m               
+│   │   │   │   │       [33mvault-upload-button[0m[2m[0m          
+│   │   │   │   │       [33mvault-upload-zone[0m[2m[0m            
+│   │   │   │   │       [33mvault-view-switch[0m[2m[0m            
+│   │   │   │   │       [33mvault-view[0m[2m[0m                   
+│   │   │   │   ├── [1;34m  widgets/[0m [2m(45 files, 49.7KB, all .tsx)[0m
+│   │   │   │   │   ├── [1;34m  account-balance/[0m [2m(3 files, 3.9KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33maccount-balance-widget[0m[2m[0m 
+│   │   │   │   │   │       [33maccount-balance[0m[2m[0m        
+│   │   │   │   │   │       [33mindex[0m[2m[0m                  
+│   │   │   │   │   ├── [1;34m  assistant/[0m [2m(5 files, 2.6KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33massistant-input[0m[2m[0m  [33mindex[0m[2m[0m            
+│   │   │   │   │   │       [33massistant-list[0m[2m[0m   [33mskeleton[0m[2m[0m         
+│   │   │   │   │   │       [33massistant-widget[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  inbox/[0m [2m(5 files, 5.3KB)[0m
+│   │   │   │   │   │   └── [33mdata.ts[0m[2m[0m          [33minbox-widget.tsx[0m[2m[0m 
+│   │   │   │   │   │       [33minbox-header.tsx[0m[2m[0m [33mindex.tsx[0m[2m[0m        
+│   │   │   │   │   │       [33minbox-list.tsx[0m[2m[0m   
+│   │   │   │   │   ├── [1;34m  invoice/[0m [2m(7 files, 6.7KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mempty-state[0m[2m[0m    [33minvoice-widget[0m[2m[0m 
+│   │   │   │   │   │       [33mindex[0m[2m[0m          [33minvoice[0m[2m[0m        
+│   │   │   │   │   │       [33minvoice-header[0m[2m[0m [33mskeleton[0m[2m[0m       
+│   │   │   │   │   │       [33minvoice-row[0m[2m[0m    
+│   │   │   │   │   ├── [1;34m  spending/[0m [2m(7 files, 10.4KB)[0m
+│   │   │   │   │   │   └── [33mdata.ts[0m[2m[0m                    
+│   │   │   │   │   │       [33mindex.tsx[0m[2m[0m                  
+│   │   │   │   │   │       [33mskeleton.tsx[0m[2m[0m               
+│   │   │   │   │   │       [33mspending-category-item.tsx[0m[2m[0m 
+│   │   │   │   │   │       [33mspending-category-list.tsx[0m[2m[0m 
+│   │   │   │   │   │       [33mspending-list.tsx[0m[2m[0m          
+│   │   │   │   │   │       [33mspending-period.tsx[0m[2m[0m        
+│   │   │   │   │   ├── [1;34m  tracker/[0m [2m(4 files, 8.2KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mindex[0m[2m[0m             [33mtracker-indicator[0m[2m[0m 
+│   │   │   │   │   │       [33mtracker-header[0m[2m[0m    [33mtracker-widget[0m[2m[0m    
+│   │   │   │   │   ├── [1;34m  transactions/[0m [2m(8 files, 7.4KB)[0m
+│   │   │   │   │   │   └── [33mdata.ts[0m[2m[0m                     
+│   │   │   │   │   │       [33mskeleton.tsx[0m[2m[0m                
+│   │   │   │   │   │       [33mtransaction-list-header.tsx[0m[2m[0m 
+│   │   │   │   │   │       [33mtransaction-list-item.tsx[0m[2m[0m   
+│   │   │   │   │   │       [33mtransactions-item-list.tsx[0m[2m[0m  
+│   │   │   │   │   │       [33mtransactions-list.tsx[0m[2m[0m       
+│   │   │   │   │   │       [33mtransactions-period.tsx[0m[2m[0m     
+│   │   │   │   │   │       [33mtransactions.tsx[0m[2m[0m            
+│   │   │   │   │   ├── [1;34m  vault/[0m [2m(4 files, 2.9KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mindex[0m[2m[0m        [33mvault-widget[0m[2m[0m 
+│   │   │   │   │   │       [33mvault-header[0m[2m[0m [33mvault[0m[2m[0m        
+│   │   │   │   │   └── [33mindex[0m[2m[0m      [33mnavigation[0m[2m[0m 
+│   │   │   │   └── [33maccount-settings[0m[2m[0m               
+│   │   │   │       [33madd-account-button[0m[2m[0m             
+│   │   │   │       [33madd-transactions[0m[2m[0m               
+│   │   │   │       [33mamount-range[0m[2m[0m                   
+│   │   │   │       [33manimated-number[0m[2m[0m                
+│   │   │   │       [33mapp-settings[0m[2m[0m                   
+│   │   │   │       [33mapp[0m[2m[0m                            
+│   │   │   │       [33mapple-sign-in[0m[2m[0m                  
+│   │   │   │       [33mapps-header[0m[2m[0m                    
+│   │   │   │       [33mapps-tabs[0m[2m[0m                      
+│   │   │   │       [33mapps.skeleton[0m[2m[0m                  
+│   │   │   │       [33mapps[0m[2m[0m                           
+│   │   │   │       [33massign-user[0m[2m[0m                    
+│   │   │   │       [33massigned-user[0m[2m[0m                  
+│   │   │   │       [33mattachment-item[0m[2m[0m                
+│   │   │   │       [33mavatar-upload[0m[2m[0m                  
+│   │   │   │       [33maverage-days-to-payment[0m[2m[0m        
+│   │   │   │       [33maverage-invoice-size[0m[2m[0m           
+│   │   │   │       [33mbank-account-list-skeleton[0m[2m[0m     
+│   │   │   │       [33mbank-account-list[0m[2m[0m              
+│   │   │   │       [33mbank-account[0m[2m[0m                   
+│   │   │   │       [33mbank-connect-button[0m[2m[0m            
+│   │   │   │       [33mbank-connections[0m[2m[0m               
+│   │   │   │       [33mbank-logo[0m[2m[0m                      
+│   │   │   │       [33mbulk-actions[0m[2m[0m                   
+│   │   │   │       [33mcategory[0m[2m[0m                       
+│   │   │   │       [33mchange-email[0m[2m[0m                   
+│   │   │   │       [33mchange-theme[0m[2m[0m                   
+│   │   │   │       [33mchange-timezone[0m[2m[0m                
+│   │   │   │       [33mcheckout-success-desktop[0m[2m[0m       
+│   │   │   │       [33mchoose-plan-button[0m[2m[0m             
+│   │   │   │       [33mcolor-picker[0m[2m[0m                   
+│   │   │   │       [33mcompany-country[0m[2m[0m                
+│   │   │   │       [33mcompany-email[0m[2m[0m                  
+│   │   │   │       [33mcompany-logo[0m[2m[0m                   
+│   │   │   │       [33mcompany-name[0m[2m[0m                   
+│   │   │   │       [33mconnect-bank-provider[0m[2m[0m          
+│   │   │   │       [33mconnected-accounts[0m[2m[0m             
+│   │   │   │       [33mconnection-status[0m[2m[0m              
+│   │   │   │       [33mconsent-banner[0m[2m[0m                 
+│   │   │   │       [33mcopy-input[0m[2m[0m                     
+│   │   │   │       [33mcountry-selector[0m[2m[0m               
+│   │   │   │       [33mcustomer-header[0m[2m[0m                
+│   │   │   │       [33mcustomers-header[0m[2m[0m               
+│   │   │   │       [33mdate-format-settings[0m[2m[0m           
+│   │   │   │       [33mdelete-account[0m[2m[0m                 
+│   │   │   │       [33mdelete-connection[0m[2m[0m              
+│   │   │   │       [33mdelete-team[0m[2m[0m                    
+│   │   │   │       [33mdesktop-header[0m[2m[0m                 
+│   │   │   │       [33mdesktop-provider[0m[2m[0m               
+│   │   │   │       [33mdesktop-sign-in-verify-code[0m[2m[0m    
+│   │   │   │       [33mdesktop-traffic-light[0m[2m[0m          
+│   │   │   │       [33mdisplay-name[0m[2m[0m                   
+│   │   │   │       [33mdocument-actions[0m[2m[0m               
+│   │   │   │       [33mdocument-details-skeleton[0m[2m[0m      
+│   │   │   │       [33mdocument-details[0m[2m[0m               
+│   │   │   │       [33mdocument-tags[0m[2m[0m                  
+│   │   │   │       [33menablebanking-connect[0m[2m[0m          
+│   │   │   │       [33menroll-mfa[0m[2m[0m                     
+│   │   │   │       [33merror-fallback[0m[2m[0m                 
+│   │   │   │       [33mexport-status[0m[2m[0m                  
+│   │   │   │       [33mfeedback-form[0m[2m[0m                  
+│   │   │   │       [33mfile-preview-icon[0m[2m[0m              
+│   │   │   │       [33mfile-preview[0m[2m[0m                   
+│   │   │   │       [33mfile-viewer[0m[2m[0m                    
+│   │   │   │       [33mfilter-list[0m[2m[0m                    
+│   │   │   │       [33mformat-amount[0m[2m[0m                  
+│   │   │   │       [33mgithub-sign-in[0m[2m[0m                 
+│   │   │   │       [33mglobal-timer-indicator[0m[2m[0m         
+│   │   │   │       [33mglobal-timer-provider[0m[2m[0m          
+│   │   │   │       [33mgocardless-connect[0m[2m[0m             
+│   │   │   │       [33mgoogle-sign-in[0m[2m[0m                 
+│   │   │   │       [33mheader[0m[2m[0m                         
+│   │   │   │       [33mhorizontal-pagination[0m[2m[0m          
+│   │   │   │       [33mimage-viewer[0m[2m[0m                   
+│   │   │   │       [33minactive-clients[0m[2m[0m               
+│   │   │   │       [33minbox-sheet-details[0m[2m[0m            
+│   │   │   │       [33minline-assign-user[0m[2m[0m             
+│   │   │   │       [33minline-select-category[0m[2m[0m         
+│   │   │   │       [33minline-select-tags[0m[2m[0m             
+│   │   │   │       [33minput-color[0m[2m[0m                    
+│   │   │   │       [33minstitution-info[0m[2m[0m               
+│   │   │   │       [33minvoice-actions[0m[2m[0m                
+│   │   │   │       [33minvoice-column-visibility[0m[2m[0m      
+│   │   │   │       [33minvoice-content[0m[2m[0m                
+│   │   │   │       [33minvoice-details-skeleton[0m[2m[0m       
+│   │   │   │       [33minvoice-details[0m[2m[0m                
+│   │   │   │       [33minvoice-header[0m[2m[0m                 
+│   │   │   │       [33minvoice-note[0m[2m[0m                   
+│   │   │   │       [33minvoice-payment-score[0m[2m[0m          
+│   │   │   │       [33minvoice-search-filter[0m[2m[0m          
+│   │   │   │       [33minvoice-sheet-header[0m[2m[0m           
+│   │   │   │       [33minvoice-status[0m[2m[0m                 
+│   │   │   │       [33minvoice-success[0m[2m[0m                
+│   │   │   │       [33minvoice-summary[0m[2m[0m                
+│   │   │   │       [33minvoice-toolbar[0m[2m[0m                
+│   │   │   │       [33minvoices-open[0m[2m[0m                  
+│   │   │   │       [33minvoices-overdue[0m[2m[0m               
+│   │   │   │       [33minvoices-paid[0m[2m[0m                  
+│   │   │   │       [33mload-more[0m[2m[0m                      
+│   │   │   │       [33mloading-transactions-event[0m[2m[0m     
+│   │   │   │       [33mlocale-settings[0m[2m[0m                
+│   │   │   │       [33mlogo-upload[0m[2m[0m                    
+│   │   │   │       [33mmain-menu[0m[2m[0m                      
+│   │   │   │       [33mmanage-subscription[0m[2m[0m            
+│   │   │   │       [33mmanual-accounts[0m[2m[0m                
+│   │   │   │       [33mmarkdown[0m[2m[0m                       
+│   │   │   │       [33mmfa-list[0m[2m[0m                       
+│   │   │   │       [33mmfa-settings-list[0m[2m[0m              
+│   │   │   │       [33mmobile-menu[0m[2m[0m                    
+│   │   │   │       [33mmost-active-client[0m[2m[0m             
+│   │   │   │       [33mnew-customers-this-month[0m[2m[0m       
+│   │   │   │       [33mnote[0m[2m[0m                           
+│   │   │   │       [33mnotification-setting[0m[2m[0m           
+│   │   │   │       [33mnotification-settings[0m[2m[0m          
+│   │   │   │       [33mnotifications-settings-list[0m[2m[0m    
+│   │   │   │       [33moauth-application-status-badge[0m[2m[0m 
+│   │   │   │       [33mopen-customer-sheet[0m[2m[0m            
+│   │   │   │       [33mopen-invoice-sheet[0m[2m[0m             
+│   │   │   │       [33mopen-tracker-sheet[0m[2m[0m             
+│   │   │   │       [33mopen-url[0m[2m[0m                       
+│   │   │   │       [33morder-status[0m[2m[0m                   
+│   │   │   │       [33morders[0m[2m[0m                         
+│   │   │   │       [33motp-sign-in[0m[2m[0m                    
+│   │   │   │       [33mpayment-score-visualizer[0m[2m[0m       
+│   │   │   │       [33mpdf-viewer[0m[2m[0m                     
+│   │   │   │       [33mplans[0m[2m[0m                          
+│   │   │   │       [33mproject-members[0m[2m[0m                
+│   │   │   │       [33mreconnect-provider[0m[2m[0m             
+│   │   │   │       [33mremove-mfa-button[0m[2m[0m              
+│   │   │   │       [33mscope-selector[0m[2m[0m                 
+│   │   │   │       [33msearch-address-input[0m[2m[0m           
+│   │   │   │       [33msearch-customers[0m[2m[0m               
+│   │   │   │       [33msearch-field[0m[2m[0m                   
+│   │   │   │       [33msecondary-menu[0m[2m[0m                 
+│   │   │   │       [33mselect-account[0m[2m[0m                 
+│   │   │   │       [33mselect-attachment[0m[2m[0m              
+│   │   │   │       [33mselect-category[0m[2m[0m                
+│   │   │   │       [33mselect-currency[0m[2m[0m                
+│   │   │   │       [33mselect-customer[0m[2m[0m                
+│   │   │   │       [33mselect-parent-category[0m[2m[0m         
+│   │   │   │       [33mselect-tags[0m[2m[0m                    
+│   │   │   │       [33mselect-tax-type[0m[2m[0m                
+│   │   │   │       [33mselect-user[0m[2m[0m                    
+│   │   │   │       [33msetup-form[0m[2m[0m                     
+│   │   │   │       [33msetup-mfa[0m[2m[0m                      
+│   │   │   │       [33msidebar[0m[2m[0m                        
+│   │   │   │       [33msign-out-button[0m[2m[0m                
+│   │   │   │       [33msign-out[0m[2m[0m                       
+│   │   │   │       [33msuggested-match[0m[2m[0m                
+│   │   │   │       [33msupport-form[0m[2m[0m                   
+│   │   │   │       [33msync-transactions[0m[2m[0m              
+│   │   │   │       [33msystem-banner[0m[2m[0m                  
+│   │   │   │       [33mtax-amount[0m[2m[0m                     
+│   │   │   │       [33mtax-rate-assistant[0m[2m[0m             
+│   │   │   │       [33mtax-rate-input[0m[2m[0m                 
+│   │   │   │       [33mteam-dropdown[0m[2m[0m                  
+│   │   │   │       [33mteam-invite[0m[2m[0m                    
+│   │   │   │       [33mteam-invites[0m[2m[0m                   
+│   │   │   │       [33mteam-members[0m[2m[0m                   
+│   │   │   │       [33mteller-connect[0m[2m[0m                 
+│   │   │   │       [33mtheme-provider[0m[2m[0m                 
+│   │   │   │       [33mtheme-switch[0m[2m[0m                   
+│   │   │   │       [33mtime-format-settings[0m[2m[0m           
+│   │   │   │       [33mtimezone-detector[0m[2m[0m              
+│   │   │   │       [33mtop-revenue-client[0m[2m[0m             
+│   │   │   │       [33mtotal-earnings[0m[2m[0m                 
+│   │   │   │       [33mtracker-calendar-type[0m[2m[0m          
+│   │   │   │       [33mtracker-calendar[0m[2m[0m               
+│   │   │   │       [33mtracker-create-invoice[0m[2m[0m         
+│   │   │   │       [33mtracker-day-select[0m[2m[0m             
+│   │   │   │       [33mtracker-export-csv[0m[2m[0m             
+│   │   │   │       [33mtracker-pagination[0m[2m[0m             
+│   │   │   │       [33mtracker-period-select[0m[2m[0m          
+│   │   │   │       [33mtracker-schedule[0m[2m[0m               
+│   │   │   │       [33mtracker-search-filter[0m[2m[0m          
+│   │   │   │       [33mtracker-select-project[0m[2m[0m         
+│   │   │   │       [33mtracker-settings[0m[2m[0m               
+│   │   │   │       [33mtracker-status[0m[2m[0m                 
+│   │   │   │       [33mtracker-timer[0m[2m[0m                  
+│   │   │   │       [33mtransaction-attachments[0m[2m[0m        
+│   │   │   │       [33mtransaction-bank-account[0m[2m[0m       
+│   │   │   │       [33mtransaction-details[0m[2m[0m            
+│   │   │   │       [33mtransaction-method[0m[2m[0m             
+│   │   │   │       [33mtransaction-shortcuts[0m[2m[0m          
+│   │   │   │       [33mtransaction-status[0m[2m[0m             
+│   │   │   │       [33mtransactions-actions[0m[2m[0m           
+│   │   │   │       [33mtransactions-column-visibility[0m[2m[0m 
+│   │   │   │       [33mtransactions-search-filter[0m[2m[0m     
+│   │   │   │       [33mtrial[0m[2m[0m                          
+│   │   │   │       [33munenroll-mfa[0m[2m[0m                   
+│   │   │   │       [33munified-app[0m[2m[0m                    
+│   │   │   │       [33musage[0m[2m[0m                          
+│   │   │   │       [33muser-avatar[0m[2m[0m                    
+│   │   │   │       [33muser-menu[0m[2m[0m                      
+│   │   │   │       [33mvat-number-input[0m[2m[0m               
+│   │   │   │       [33mverify-mfa[0m[2m[0m                     
+│   │   │   │       [33mweek-settings[0m[2m[0m                  
+│   │   │   ├── [1;34m  hooks/[0m [2m(39 files, 61.5KB)[0m
+│   │   │   │   └── [33muse-calendar-dates.ts[0m[2m[0m                             
+│   │   │   │       [33muse-category-params.ts[0m[2m[0m                            
+│   │   │   │       [33muse-connect-params.ts[0m[2m[0m                             
+│   │   │   │       [33muse-customer-filter-params.ts[0m[2m[0m                     
+│   │   │   │       [33muse-customer-params.ts[0m[2m[0m                            
+│   │   │   │       [33muse-document-filter-params.ts[0m[2m[0m                     
+│   │   │   │       [33muse-document-params.ts[0m[2m[0m                            
+│   │   │   │       [33muse-download-zip.ts[0m[2m[0m                               
+│   │   │   │       [33muse-export-status.ts[0m[2m[0m                              
+│   │   │   │       [33muse-global-timer-status.ts[0m[2m[0m                        
+│   │   │   │       [33muse-inbox-filter-params.ts[0m[2m[0m                        
+│   │   │   │       [33muse-inbox-params.ts[0m[2m[0m                               
+│   │   │   │       [33muse-initial-connection-status.ts[0m[2m[0m                  
+│   │   │   │       [33muse-invoice-filter-params.ts[0m[2m[0m                      
+│   │   │   │       [33muse-invoice-params.ts[0m[2m[0m                             
+│   │   │   │       [33muse-latest-project-id.ts[0m[2m[0m                          
+│   │   │   │       [33muse-local-storage.ts[0m[2m[0m                              
+│   │   │   │       [33muse-notifications.ts[0m[2m[0m                              
+│   │   │   │       [33muse-oauth-application-params.ts[0m[2m[0m                   
+│   │   │   │       [33muse-oauth-params.ts[0m[2m[0m                               
+│   │   │   │       [33muse-product-params.ts[0m[2m[0m                             
+│   │   │   │       [33muse-realtime.ts[0m[2m[0m                                   
+│   │   │   │       [33muse-reports-params.ts[0m[2m[0m                             
+│   │   │   │       [33muse-scroll-to-bottom.ts[0m[2m[0m                           
+│   │   │   │       [33muse-slider-with-input.ts[0m[2m[0m                          
+│   │   │   │       [33muse-sort-params.ts[0m[2m[0m                                
+│   │   │   │       [33muse-sticky-columns.ts[0m[2m[0m                             
+│   │   │   │       [33muse-sync-status.ts[0m[2m[0m                                
+│   │   │   │       [33muse-table-scroll.ts[0m[2m[0m                               
+│   │   │   │       [33muse-team.ts[0m[2m[0m                                       
+│   │   │   │       [33muse-tracker-filter-params.ts[0m[2m[0m                      
+│   │   │   │       [33muse-tracker-params.ts[0m[2m[0m                             
+│   │   │   │       [33muse-transaction-filter-params-with-persistence.ts[0m[2m[0m 
+│   │   │   │       [33muse-transaction-filter-params.ts[0m[2m[0m                  
+│   │   │   │       [33muse-transaction-params.ts[0m[2m[0m                         
+│   │   │   │       [33muse-update-transaction-category.tsx[0m[2m[0m               
+│   │   │   │       [33muse-upload.ts[0m[2m[0m                                     
+│   │   │   │       [33muse-user.ts[0m[2m[0m                                       
+│   │   │   │       [33muse-zod-form.ts[0m[2m[0m                                   
+│   │   │   ├── [1;34m  lib/[0m [2m(11 files, 16.5KB)[0m
+│   │   │   │   ├── [1;34m  tools/[0m [2m(10 files, 15.5KB)[0m
+│   │   │   │   │   └── [33mget-burn-rate.ts[0m[2m[0m    [33mget-revenue.ts[0m[2m[0m      
+│   │   │   │   │       [33mget-documents.tsx[0m[2m[0m   [33mget-runway.ts[0m[2m[0m       
+│   │   │   │   │       [33mget-forecast.ts[0m[2m[0m     [33mget-spending.ts[0m[2m[0m     
+│   │   │   │   │       [33mget-inbox.tsx[0m[2m[0m       [33mget-tax-summary.ts[0m[2m[0m  
+│   │   │   │   │       [33mget-profit.ts[0m[2m[0m       [33mget-transactions.ts[0m[2m[0m 
+│   │   │   │   └── [33mdownload.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  locales/[0m [2m(4 files, 26.9KB, all .ts)[0m
+│   │   │   │   └── [33mclient[0m[2m[0m [33men[0m[2m[0m     [33mserver[0m[2m[0m [33msv[0m[2m[0m     
+│   │   │   ├── [1;34m  store/[0m [2m(8 files, 4.5KB, all .ts)[0m
+│   │   │   │   └── [33massistant[0m[2m[0m          [33msearch[0m[2m[0m             
+│   │   │   │       [33mexport[0m[2m[0m             [33mtoken-modal[0m[2m[0m        
+│   │   │   │       [33minvoice[0m[2m[0m            [33mtransactions[0m[2m[0m       
+│   │   │   │       [33moauth-secret-modal[0m[2m[0m [33mvault[0m[2m[0m              
+│   │   │   ├── [1;34m  styles/[0m [2m(4.7KB)[0m
+│   │   │   │   └── [35mglobals.css[0m[2m[0m 
+│   │   │   ├── [1;34m  trpc/[0m [2m(3 files, 5.7KB)[0m
+│   │   │   │   └── [33mclient.tsx[0m[2m[0m      [33mserver.tsx[0m[2m[0m      
+│   │   │   │       [33mquery-client.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  types/[0m [2m(1.2KB)[0m
+│   │   │   │   └── [33mreact-table.d.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  utils/[0m [2m(23 files, 46.8KB, all .ts)[0m
+│   │   │   │   └── [33mcanvas-factory[0m[2m[0m           
+│   │   │   │       [33mcategories[0m[2m[0m               
+│   │   │   │       [33mcheck-team-eligibility[0m[2m[0m   
+│   │   │   │       [33mcolumns[0m[2m[0m                  
+│   │   │   │       [33mconnection-status[0m[2m[0m        
+│   │   │   │       [33mconstants[0m[2m[0m                
+│   │   │   │       [33mdesktop[0m[2m[0m                  
+│   │   │   │       [33menvironment[0m[2m[0m              
+│   │   │   │       [33mformat[0m[2m[0m                   
+│   │   │   │       [33mlogger[0m[2m[0m                   
+│   │   │   │       [33mlogos[0m[2m[0m                    
+│   │   │   │       [33mnotification-definitions[0m[2m[0m 
+│   │   │   │       [33moauth-utils[0m[2m[0m              
+│   │   │   │       [33mpdf-to-img[0m[2m[0m               
+│   │   │   │       [33mplans[0m[2m[0m                    
+│   │   │   │       [33mpolar[0m[2m[0m                    
+│   │   │   │       [33mprocess[0m[2m[0m                  
+│   │   │   │       [33mresend[0m[2m[0m                   
+│   │   │   │       [33mscopes[0m[2m[0m                   
+│   │   │   │       [33mteller[0m[2m[0m                   
+│   │   │   │       [33mtracker[0m[2m[0m                  
+│   │   │   │       [33mtransaction-filters[0m[2m[0m      
+│   │   │   │       [33mupload[0m[2m[0m                   
+│   │   │   └── [33minstrumentation-client[0m[2m[0m [33mmiddleware[0m[2m[0m             
+│   │   │       [33minstrumentation[0m[2m[0m        
+│   │   └── [37m.env-example[0m[2m[0m            [33msentry.edge.config.ts[0m[2m[0m   
+│   │       [32mREADME.md[0m[2m[0m               [33msentry.server.config.ts[0m[2m[0m 
+│   │       [33mimage-loader.ts[0m[2m[0m         [33mtailwind.config.ts[0m[2m[0m      
+│   │       [33mnext.config.mjs[0m[2m[0m         [31mtsconfig.json[0m[2m[0m           
+│   │       [31mpackage.json[0m[2m[0m            [31mvercel.json[0m[2m[0m             
+│   │       [33mpostcss.config.cjs[0m[2m[0m      
+│   ├── [1;34m  desktop/[0m [2m(42 files, 5.1MB)[0m
+│   │   ├── [1;34m  src/[0m [2m(2 files, 257.0B)[0m
+│   │   │   └── [33mmain.tsx[0m[2m[0m      [33mvite-env.d.ts[0m[2m[0m 
+│   │   ├── [1;34m  src-tauri/[0m [2m(34 files, 5.1MB)[0m
+│   │   │   ├── [1;34m  capabilities/[0m [2m(2 files, 1.4KB, all .json)[0m
+│   │   │   │   └── [31mdefault[0m[2m[0m [31mdesktop[0m[2m[0m 
+│   │   │   ├── [1;34m  icons/[0m [2m(22 files, 4.9MB)[0m
+│   │   │   │   ├── [1;34m  dev/[0m [2m(7 files, 2.2MB)[0m
+│   │   │   │   │   └── [37m128x128.png[0m[2m[0m    [1m[37m⭐️ icon.icns[0m[2m[0m   
+│   │   │   │   │       [37m128x128@2x.png[0m[2m[0m [37micon.ico[0m[2m[0m       
+│   │   │   │   │       [37m32x32.png[0m[2m[0m      [37micon.png[0m[2m[0m       
+│   │   │   │   │       [37m64x64.png[0m[2m[0m      
+│   │   │   │   ├── [1;34m  production/[0m [2m(7 files, 1.3MB)[0m
+│   │   │   │   │   └── [37m128x128.png[0m[2m[0m    [1m[37m⭐️ icon.icns[0m[2m[0m   
+│   │   │   │   │       [37m128x128@2x.png[0m[2m[0m [37micon.ico[0m[2m[0m       
+│   │   │   │   │       [37m32x32.png[0m[2m[0m      [37micon.png[0m[2m[0m       
+│   │   │   │   │       [37m64x64.png[0m[2m[0m      
+│   │   │   │   ├── [1;34m  staging/[0m [2m(7 files, 1.4MB)[0m
+│   │   │   │   │   └── [37m128x128.png[0m[2m[0m    [1m[37m⭐️ icon.icns[0m[2m[0m   
+│   │   │   │   │       [37m128x128@2x.png[0m[2m[0m [37micon.ico[0m[2m[0m       
+│   │   │   │   │       [37m32x32.png[0m[2m[0m      [37micon.png[0m[2m[0m       
+│   │   │   │   │       [37m64x64.png[0m[2m[0m      
+│   │   │   │   └── [37mtray-icon.png[0m[2m[0m 
+│   │   │   ├── [1;34m  images/[0m [2m(38.9KB)[0m
+│   │   │   │   └── [37minstaller.png[0m[2m[0m 
+│   │   │   ├── [1;34m  src/[0m [2m(2 files, 25.9KB, all .rs)[0m
+│   │   │   │   └── [1;31mlib[0m[2m[0m  [1;31mmain[0m[2m[0m 
+│   │   │   └── [2;37m.gitignore[0m[2m[0m              [31mtauri.conf.json[0m[2m[0m         
+│   │   │       [37mCargo.lock[0m[2m[0m              [31mtauri.dev.conf.json[0m[2m[0m     
+│   │   │       [31mCargo.toml[0m[2m[0m              [31mtauri.staging.conf.json[0m[2m[0m 
+│   │   │       [1;31mbuild.rs[0m[2m[0m                
+│   │   └── [32mREADME.md[0m[2m[0m          [31mpackage.json[0m[2m[0m       [31mtsconfig.node.json[0m[2m[0m 
+│   │       [35mindex.html[0m[2m[0m         [31mtsconfig.json[0m[2m[0m      [33mvite.config.ts[0m[2m[0m     
+│   ├── [1;34m  docs/[0m [2m(38 files, 2.0MB)[0m
+│   │   ├── [1;34m  api-reference/engine/[0m [2m(25 files, 1.9KB)[0m
+│   │   │   ├── [1;34m  endpoint/[0m [2m(24 files, 958.0B, all .mdx)[0m
+│   │   │   │   └── [37mauth-link-gocardless[0m[2m[0m        
+│   │   │   │       [37mauth-link-plaid[0m[2m[0m             
+│   │   │   │       [37mexchange-token-1[0m[2m[0m            
+│   │   │   │       [37mexchange-token-gocardless[0m[2m[0m   
+│   │   │   │       [37mexchange-token-plaid[0m[2m[0m        
+│   │   │   │       [37mexchange-token[0m[2m[0m              
+│   │   │   │       [37mget-account-balance[0m[2m[0m         
+│   │   │   │       [37mget-accounts[0m[2m[0m                
+│   │   │   │       [37mget-accountsbalance[0m[2m[0m         
+│   │   │   │       [37mget-auth-link[0m[2m[0m               
+│   │   │   │       [37mget-health[0m[2m[0m                  
+│   │   │   │       [37mget-institutionssearch[0m[2m[0m      
+│   │   │   │       [37mget-link[0m[2m[0m                    
+│   │   │   │       [37mget-transactions[0m[2m[0m            
+│   │   │   │       [37mgocardless-auth-link[0m[2m[0m        
+│   │   │   │       [37mgocardless-exchange-token[0m[2m[0m   
+│   │   │   │       [37mhealth[0m[2m[0m                      
+│   │   │   │       [37mplaid-auth-link[0m[2m[0m             
+│   │   │   │       [37mplaid-exchange-token[0m[2m[0m        
+│   │   │   │       [37mpost-authgocardlessexchange[0m[2m[0m 
+│   │   │   │       [37mpost-authgocardlesslink[0m[2m[0m     
+│   │   │   │       [37mpost-authplaidexchange[0m[2m[0m      
+│   │   │   │       [37mpost-authplaidlink[0m[2m[0m          
+│   │   │   │       [37msearch-institutions[0m[2m[0m         
+│   │   │   └── [37mintroduction.mdx[0m[2m[0m 
+│   │   ├── [1;34m  images/[0m [2m(2 files, 2.0MB, all .png)[0m
+│   │   │   └── [37mengine[0m[2m[0m [37mheader[0m[2m[0m 
+│   │   ├── [1;34m  logos/[0m [2m(3 files, 19.7KB)[0m
+│   │   │   └── [37mfavicon.png[0m[2m[0m       [37mlogotype.svg[0m[2m[0m      
+│   │   │       [37mlogotype-dark.svg[0m[2m[0m 
+│   │   └── [32mREADME.md[0m[2m[0m             [37mlocal-development.mdx[0m[2m[0m 
+│   │       [37mexamples.mdx[0m[2m[0m          [31mmint.json[0m[2m[0m             
+│   │       [37mintegrations.mdx[0m[2m[0m      [31mpackage.json[0m[2m[0m          
+│   │       [37mintroduction.mdx[0m[2m[0m      [37mself-hosting.mdx[0m[2m[0m      
+│   ├── [1;34m  engine/[0m [2m(73 files, 203.8KB)[0m
+│   │   ├── [1;34m  src/[0m [2m(60 files, 189.9KB, all .ts)[0m
+│   │   │   ├── [1;34m  common/[0m [2m(2 files, 1.4KB, all .ts)[0m
+│   │   │   │   └── [33mbindings[0m[2m[0m [33mschema[0m[2m[0m   
+│   │   │   ├── [1;34m  providers/[0m [2m(31 files, 129.1KB, all .ts)[0m
+│   │   │   │   ├── [1;34m  enablebanking/[0m [2m(6 files, 36.3KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  __snapshots__/[0m [2m(1.4KB)[0m
+│   │   │   │   │   │   └── [37mtransform.test.ts.snap[0m[2m[0m 
+│   │   │   │   │   └── [33menablebanking-api[0m[2m[0m      
+│   │   │   │   │       [33menablebanking-provider[0m[2m[0m 
+│   │   │   │   │       [33mtransform.test[0m[2m[0m         
+│   │   │   │   │       [33mtransform[0m[2m[0m              
+│   │   │   │   │       [33mtypes[0m[2m[0m                  
+│   │   │   │   ├── [1;34m  gocardless/[0m [2m(8 files, 33.1KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  __snapshots__/[0m [2m(1.0KB)[0m
+│   │   │   │   │   │   └── [37mtransform.test.ts.snap[0m[2m[0m 
+│   │   │   │   │   └── [33mgocardless-api[0m[2m[0m      [33mtypes[0m[2m[0m               
+│   │   │   │   │       [33mgocardless-provider[0m[2m[0m [33mutils.test[0m[2m[0m          
+│   │   │   │   │       [33mtransform.test[0m[2m[0m      [33mutils[0m[2m[0m               
+│   │   │   │   │       [33mtransform[0m[2m[0m           
+│   │   │   │   ├── [1;34m  plaid/[0m [2m(7 files, 28.9KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  __snapshots__/[0m [2m(1.9KB)[0m
+│   │   │   │   │   │   └── [37mtransform.test.ts.snap[0m[2m[0m 
+│   │   │   │   │   └── [33mplaid-api[0m[2m[0m      [33mtransform[0m[2m[0m      
+│   │   │   │   │       [33mplaid-provider[0m[2m[0m [33mtypes[0m[2m[0m          
+│   │   │   │   │       [33mtransform.test[0m[2m[0m [33mutils[0m[2m[0m          
+│   │   │   │   ├── [1;34m  teller/[0m [2m(7 files, 23.2KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  __snapshots__/[0m [2m(2.6KB)[0m
+│   │   │   │   │   │   └── [37mtransform.test.ts.snap[0m[2m[0m 
+│   │   │   │   │   └── [33mteller-api[0m[2m[0m      [33mtransform[0m[2m[0m       
+│   │   │   │   │       [33mteller-provider[0m[2m[0m [33mtypes[0m[2m[0m           
+│   │   │   │   │       [33mtransform.test[0m[2m[0m  [33mutils[0m[2m[0m           
+│   │   │   │   └── [33mindex[0m[2m[0m     [33minterface[0m[2m[0m [33mtypes[0m[2m[0m     
+│   │   │   ├── [1;34m  routes/[0m [2m(15 files, 49.9KB)[0m
+│   │   │   │   ├── [1;34m  accounts/[0m [2m(2 files, 8.0KB, all .ts)[0m
+│   │   │   │   │   └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m 
+│   │   │   │   ├── [1;34m  auth/[0m [2m(2 files, 15.3KB, all .ts)[0m
+│   │   │   │   │   └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m 
+│   │   │   │   ├── [1;34m  connections/[0m [2m(2 files, 8.3KB, all .ts)[0m
+│   │   │   │   │   └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m 
+│   │   │   │   ├── [1;34m  health/[0m [2m(2 files, 1.9KB, all .ts)[0m
+│   │   │   │   │   └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m 
+│   │   │   │   ├── [1;34m  institutions/[0m [2m(3 files, 10.8KB, all .ts)[0m
+│   │   │   │   │   └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m [33mutils[0m[2m[0m  
+│   │   │   │   ├── [1;34m  rates/[0m [2m(2 files, 1.6KB, all .ts)[0m
+│   │   │   │   │   └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m 
+│   │   │   │   └── [1;34m  transactions/[0m [2m(2 files, 4.0KB, all .ts)[0m
+│   │   │   │       └── [33mindex[0m[2m[0m  [33mschema[0m[2m[0m 
+│   │   │   ├── [1;34m  utils/[0m [2m(10 files, 7.6KB, all .ts)[0m
+│   │   │   │   └── [33maccount.test[0m[2m[0m [33mlogger[0m[2m[0m       [33mretry[0m[2m[0m        
+│   │   │   │       [33maccount[0m[2m[0m      [33mlogo[0m[2m[0m         [33msearch[0m[2m[0m       
+│   │   │   │       [33mcountries[0m[2m[0m    [33mpaginate[0m[2m[0m     
+│   │   │   │       [33merror[0m[2m[0m        [33mrates[0m[2m[0m        
+│   │   │   └── [33mindex[0m[2m[0m      [33mmiddleware[0m[2m[0m 
+│   │   ├── [1;34m  tasks/[0m [2m(6 files, 10.3KB)[0m
+│   │   │   └── [37m.env-example[0m[2m[0m           [33mget-institutions.ts[0m[2m[0m    
+│   │   │       [33mdownload-gocardless.ts[0m[2m[0m [33mimport.ts[0m[2m[0m              
+│   │   │       [33mdownload-teller.ts[0m[2m[0m     [33mutils.ts[0m[2m[0m               
+│   │   └── [37m.dev.vars-example[0m[2m[0m   [31mtsconfig.build.json[0m[2m[0m 
+│   │       [2;37m.gitignore[0m[2m[0m          [31mtsconfig.json[0m[2m[0m       
+│   │       [32mREADME.md[0m[2m[0m           [31mwrangler.toml[0m[2m[0m       
+│   │       [31mpackage.json[0m[2m[0m        
+│   └── [1;34m  website/[0m [2m(292 files, 59.7MB)[0m
+│       ├── [1;34m  public/[0m [2m(133 files, 56.9MB)[0m
+│       │   ├── [1;34m  .well-known/[0m [2m(2 files, 283.0B)[0m
+│       │   │   └── [31mmicrosoft-identity-association.json[0m[2m[0m 
+│       │   │       [32msecurity.txt[0m[2m[0m                        
+│       │   ├── [1;34m  branding/[0m [2m(10 files, 7.0MB, all .png)[0m
+│       │   │   └── [37m1[0m[2m[0m  [37m10[0m[2m[0m [37m11[0m[2m[0m [37m2[0m[2m[0m  [37m3[0m[2m[0m  [37m4[0m[2m[0m  [37m5[0m[2m[0m  [37m7[0m[2m[0m  [37m8[0m[2m[0m  [37m9[0m[2m[0m  
+│       │   ├── [1;34m  email/[0m [2m(11 files, 734.6KB)[0m
+│       │   │   └── [37mdiscord.png[0m[2m[0m        [37mmidday-ai.png[0m[2m[0m      
+│       │   │       [37mfounders.jpeg[0m[2m[0m      [37mproducthunt.png[0m[2m[0m    
+│       │   │       [37mgithub.png[0m[2m[0m         [37msignature-dark.png[0m[2m[0m 
+│       │   │       [37mlinkedin.png[0m[2m[0m       [37msignature.png[0m[2m[0m      
+│       │   │       [37mlogo-footer.png[0m[2m[0m    [37mx.png[0m[2m[0m              
+│       │   │       [37mlogo.png[0m[2m[0m           
+│       │   ├── [1;34m  images/[0m [2m(39 files, 27.1MB)[0m
+│       │   │   ├── [1;34m  update/[0m [2m(23 files, 12.5MB)[0m
+│       │   │   │   ├── [1;34m  apps/[0m [2m(4 files, 1.7MB)[0m
+│       │   │   │   │   └── [37mapps-1.png[0m[2m[0m [37mapps.jpg[0m[2m[0m   
+│       │   │   │   │       [37mapps-2.png[0m[2m[0m [37mslack.png[0m[2m[0m  
+│       │   │   │   ├── [1;34m  august-product-updates/[0m [2m(5 files, 2.8MB, all .jpg)[0m
+│       │   │   │   │   └── [37mfilters[0m[2m[0m [37mimport[0m[2m[0m  [37minvoice[0m[2m[0m [37mtracker[0m[2m[0m [37mvault[0m[2m[0m   
+│       │   │   │   ├── [1;34m  invoice-pdf/[0m [2m(4 files, 2.6MB, all .jpg)[0m
+│       │   │   │   │   └── [37minvoice[0m[2m[0m     [37mpdf[0m[2m[0m         
+│       │   │   │   │       [37mpdf-invoice[0m[2m[0m [37mweb-invoice[0m[2m[0m 
+│       │   │   │   ├── [1;34m  january/[0m [2m(4 files, 2.4MB, all .png)[0m
+│       │   │   │   │   └── [37mapi[0m[2m[0m   [37mapp[0m[2m[0m   [37mbanks[0m[2m[0m [37minbox[0m[2m[0m 
+│       │   │   │   ├── [1;34m  july-product-updates/[0m [2m(3 files, 720.1KB, all .png)[0m
+│       │   │   │   │   └── [37massistant[0m[2m[0m [37mengine[0m[2m[0m    [37minbox[0m[2m[0m     
+│       │   │   │   └── [1;34m  october-product-updates/[0m [2m(3 files, 2.2MB)[0m
+│       │   │   │       └── [37minvoice-status.png[0m[2m[0m [37mweb-invoice.jpg[0m[2m[0m    
+│       │   │   │           [37minvoicing.jpg[0m[2m[0m      
+│       │   │   └── [37massistant.png[0m[2m[0m             
+│       │   │       [37mdub.png[0m[2m[0m                   
+│       │   │       [37mengine.png[0m[2m[0m                
+│       │   │       [37mgraph.png[0m[2m[0m                 
+│       │   │       [37mlogsnag.png[0m[2m[0m               
+│       │   │       [37mnotification-center.gif[0m[2m[0m   
+│       │   │       [37mnotification-settings.gif[0m[2m[0m 
+│       │   │       [37mnovu.png[0m[2m[0m                  
+│       │   │       [37moverview.png[0m[2m[0m              
+│       │   │       [37mplan.png[0m[2m[0m                  
+│       │   │       [37mproviders.png[0m[2m[0m             
+│       │   │       [37mpublic-beta.jpg[0m[2m[0m           
+│       │   │       [37mresend.png[0m[2m[0m                
+│       │   │       [37msignin.png[0m[2m[0m                
+│       │   │       [37mtrigger.png[0m[2m[0m               
+│       │   │       [37mvariables.png[0m[2m[0m             
+│       │   ├── [1;34m  stories/[0m [2m(5 files, 957.8KB)[0m
+│       │   │   └── [37mfacu.jpeg[0m[2m[0m     [37mguy.jpeg[0m[2m[0m      [37mrichard.jpeg[0m[2m[0m  
+│       │   │       [37mguy-cover.png[0m[2m[0m [37mpawel.jpeg[0m[2m[0m    
+│       │   └── [37massistant-bg-light.png[0m[2m[0m     [37mph.png[0m[2m[0m                     
+│       │       [37massistant-bg.png[0m[2m[0m           [37mproduct-bulk-light.png[0m[2m[0m     
+│       │       [37mbreakdown-light.png[0m[2m[0m        [37mproduct-bulk.png[0m[2m[0m           
+│       │       [37mbreakdown.png[0m[2m[0m              [37mproduct-files-light.png[0m[2m[0m    
+│       │       [37mcomputer-light.png[0m[2m[0m         [37mproduct-files.png[0m[2m[0m          
+│       │       [37mcomputer.png[0m[2m[0m               [37mproduct-inbox-light.jpg[0m[2m[0m    
+│       │       [37mdock-dark.png[0m[2m[0m              [37mproduct-inbox.jpg[0m[2m[0m          
+│       │       [37mdock.png[0m[2m[0m                   [37mproduct-invoice-light.jpg[0m[2m[0m  
+│       │       [37mengine-sdk.png[0m[2m[0m             [37mproduct-invoice.jpg[0m[2m[0m        
+│       │       [37mengine-ui-light.png[0m[2m[0m        [37mproduct-match-light.png[0m[2m[0m    
+│       │       [37mengine-ui.png[0m[2m[0m              [37mproduct-match.png[0m[2m[0m          
+│       │       [37mexporting.png[0m[2m[0m              [37mproduct-overview-light.jpg[0m[2m[0m 
+│       │       [37mfounders.png[0m[2m[0m               [37mproduct-overview.jpg[0m[2m[0m       
+│       │       [37mhero-light.png[0m[2m[0m             [37mproduct-pdf-light.png[0m[2m[0m      
+│       │       [37mhero.png[0m[2m[0m                   [37mproduct-pdf.png[0m[2m[0m            
+│       │       [37minbox-actions-light.png[0m[2m[0m    [37mproduct-projects-light.png[0m[2m[0m 
+│       │       [37minbox-actions.png[0m[2m[0m          [37mproduct-projects.png[0m[2m[0m       
+│       │       [37minbox-suggested-light.png[0m[2m[0m  [37mproduct-slot-light.png[0m[2m[0m     
+│       │       [37minbox-suggested.png[0m[2m[0m        [37mproduct-slot.png[0m[2m[0m           
+│       │       [37minbox.png[0m[2m[0m                  [37mproduct-spending-light.png[0m[2m[0m 
+│       │       [37minvoice-comments-light.png[0m[2m[0m [37mproduct-spending.png[0m[2m[0m       
+│       │       [37minvoice-comments.png[0m[2m[0m       [37mproduct-status-light.png[0m[2m[0m   
+│       │       [37minvoice-toolbar-light.png[0m[2m[0m  [37mproduct-status.png[0m[2m[0m         
+│       │       [37minvoice-toolbar.png[0m[2m[0m        [37mproduct-tracker-light.jpg[0m[2m[0m  
+│       │       [37minvoicing-light.png[0m[2m[0m        [37mproduct-tracker.jpg[0m[2m[0m        
+│       │       [37minvoicing.png[0m[2m[0m              [37mproduct-vault-light.jpg[0m[2m[0m    
+│       │       [37mkeyboard-light.png[0m[2m[0m         [37mproduct-vault.jpg[0m[2m[0m          
+│       │       [37mkeyboard.png[0m[2m[0m               [37mtime-format-light.png[0m[2m[0m      
+│       │       [37mmenu-assistant-light.jpg[0m[2m[0m   [37mtime-format.png[0m[2m[0m            
+│       │       [37mmenu-assistant.jpg[0m[2m[0m         [37mtime-tracker-light.png[0m[2m[0m     
+│       │       [37mmenu-engine-light.png[0m[2m[0m      [37mtime-tracker.png[0m[2m[0m           
+│       │       [37mmenu-engine.png[0m[2m[0m            [37mvault-light.png[0m[2m[0m            
+│       │       [37moverview.png[0m[2m[0m               [37mvault.png[0m[2m[0m                  
+│       ├── [1;34m  src/[0m [2m(150 files, 2.9MB)[0m
+│       │   ├── [1;34m  actions/[0m [2m(5 files, 2.6KB, all .ts)[0m
+│       │   │   └── [33mfetch-status[0m[2m[0m        [33msend-support-action[0m[2m[0m 
+│       │   │       [33msafe-action[0m[2m[0m         [33msubscribe-action[0m[2m[0m    
+│       │   │       [33mschema[0m[2m[0m              
+│       │   ├── [1;34m  app/[0m [2m(59 files, 2.7MB)[0m
+│       │   │   ├── [1;34m  api/download/[0m [2m(4.7KB)[0m
+│       │   │   │   └── [33mroute.ts[0m[2m[0m 
+│       │   │   ├── [1;34m  branding/[0m [2m(290.0B)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  components/[0m [2m(13 files, 2.5MB)[0m
+│       │   │   │   ├── [1;34m  editor/[0m [2m(2.7KB)[0m
+│       │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   │   ├── [1;34m  invoice/[0m [2m(1.4KB)[0m
+│       │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   │   ├── [1;34m  invoice-og/[0m [2m(1.4KB)[0m
+│       │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   │   ├── [1;34m  invoice-react/[0m [2m(2 files, 2.1MB)[0m
+│       │   │   │   │   └── [37minvoice-react.jpg[0m[2m[0m [33mpage.tsx[0m[2m[0m          
+│       │   │   │   ├── [1;34m  invoice-toolbar/[0m [2m(1.5KB)[0m
+│       │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   │   └── [37meditor.png[0m[2m[0m          [37minvoice.png[0m[2m[0m         
+│       │   │   │       [37minvoice-og.png[0m[2m[0m      [33mpage.tsx[0m[2m[0m            
+│       │   │   │       [37minvoice-react.png[0m[2m[0m   [37mpdf.png[0m[2m[0m             
+│       │   │   │       [37minvoice-toolbar.png[0m[2m[0m 
+│       │   │   ├── [1;34m  download/[0m [2m(1.7KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  engine/[0m [2m(2.4KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  inbox/[0m [2m(3.2KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  invoice/[0m [2m(3.1KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  open-startup/[0m [2m(5.7KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  oss-friends/[0m [2m(2.3KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  overview/[0m [2m(3.2KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  policy/[0m [2m(26.0KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  pricing/[0m [2m(14.3KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  story/[0m [2m(2.6KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  support/[0m [2m(432.0B)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  terms/[0m [2m(13.6KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  tracker/[0m [2m(2.8KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  updates/[0m [2m(23 files, 84.5KB)[0m
+│       │   │   │   ├── [1;34m  [slug]/[0m [2m(2.7KB)[0m
+│       │   │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   │   ├── [1;34m  posts/[0m [2m(21 files, 80.8KB, all .mdx)[0m
+│       │   │   │   │   └── [37mapps[0m[2m[0m                             
+│       │   │   │   │       [37mapril-product-update[0m[2m[0m             
+│       │   │   │   │       [37massistant[0m[2m[0m                        
+│       │   │   │   │       [37maugust-product-updates[0m[2m[0m           
+│       │   │   │   │       [37mautomatic-reconciliation-engine[0m[2m[0m  
+│       │   │   │   │       [37mdub[0m[2m[0m                              
+│       │   │   │   │       [37mearly-adopter[0m[2m[0m                    
+│       │   │   │   │       [37melevenlabs-x-midday[0m[2m[0m              
+│       │   │   │   │       [37mengine[0m[2m[0m                           
+│       │   │   │   │       [37mincident-report-for-june-22-2024[0m[2m[0m 
+│       │   │   │   │       [37minvoice-pdf[0m[2m[0m                      
+│       │   │   │   │       [37mjanuary-product-update[0m[2m[0m           
+│       │   │   │   │       [37mjuly-product-updates[0m[2m[0m             
+│       │   │   │   │       [37mlognsag[0m[2m[0m                          
+│       │   │   │   │       [37mmidday-resend[0m[2m[0m                    
+│       │   │   │   │       [37mmidday-v1-1[0m[2m[0m                      
+│       │   │   │   │       [37mnovu[0m[2m[0m                             
+│       │   │   │   │       [37moctober-product-updates[0m[2m[0m          
+│       │   │   │   │       [37mpublic-beta[0m[2m[0m                      
+│       │   │   │   │       [37mslack-assistant[0m[2m[0m                  
+│       │   │   │   │       [37mtrigger-dev[0m[2m[0m                      
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  vault/[0m [2m(2.9KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   ├── [1;34m  white-label/[0m [2m(4.1KB)[0m
+│       │   │   │   └── [33mpage.tsx[0m[2m[0m 
+│       │   │   └── [37mfavicon.ico[0m[2m[0m   [33mnot-found.tsx[0m[2m[0m [33mrobots.ts[0m[2m[0m     
+│       │   │       [33mlayout.tsx[0m[2m[0m    [33mpage.tsx[0m[2m[0m      [33msitemap.ts[0m[2m[0m    
+│       │   ├── [1;34m  components/[0m [2m(80 files, 190.7KB, all .tsx)[0m
+│       │   │   ├── [1;34m  assistant/[0m [2m(16 files, 20.3KB, all .tsx)[0m
+│       │   │   │   └── [33mchat-avatar[0m[2m[0m   [33mfooter[0m[2m[0m        [33msidebar-items[0m[2m[0m 
+│       │   │   │       [33mchat-empty[0m[2m[0m    [33mheader[0m[2m[0m        [33msidebar[0m[2m[0m       
+│       │   │   │       [33mchat-examples[0m[2m[0m [33mindex[0m[2m[0m         [33mspinner[0m[2m[0m       
+│       │   │   │       [33mchat-list[0m[2m[0m     [33mmessage-uis[0m[2m[0m   [33mtoolbar[0m[2m[0m       
+│       │   │   │       [33mchat[0m[2m[0m          [33mmessages[0m[2m[0m      
+│       │   │   │       [33mexamples[0m[2m[0m      [33msidebar-item[0m[2m[0m  
+│       │   │   ├── [1;34m  charts/[0m [2m(12 files, 12.2KB, all .tsx)[0m
+│       │   │   │   └── [33mbank-accounts-chart[0m[2m[0m           
+│       │   │   │       [33mbank-connections-chart[0m[2m[0m        
+│       │   │   │       [33minbox-chart[0m[2m[0m                   
+│       │   │   │       [33minvoice-customers[0m[2m[0m             
+│       │   │   │       [33minvoices-chart[0m[2m[0m                
+│       │   │   │       [33mreports-chart[0m[2m[0m                 
+│       │   │   │       [33mtracker-entries-chart[0m[2m[0m         
+│       │   │   │       [33mtracker-projects-chart[0m[2m[0m        
+│       │   │   │       [33mtransaction-enrichments-chart[0m[2m[0m 
+│       │   │   │       [33mtransactions-chart[0m[2m[0m            
+│       │   │   │       [33musers-chart[0m[2m[0m                   
+│       │   │   │       [33mvault-chart[0m[2m[0m                   
+│       │   │   └── [33m3d-card[0m[2m[0m               [33mpost-author[0m[2m[0m           
+│       │   │       [33marticle-in-view[0m[2m[0m       [33mpost-copy-url[0m[2m[0m         
+│       │   │       [33marticle[0m[2m[0m               [33mpost-status[0m[2m[0m           
+│       │   │       [33mbrand-canvas[0m[2m[0m          [33msection-five[0m[2m[0m          
+│       │   │       [33mcard-stack[0m[2m[0m            [33msection-four[0m[2m[0m          
+│       │   │       [33mcopy-input[0m[2m[0m            [33msection-one[0m[2m[0m           
+│       │   │       [33mcta-button[0m[2m[0m            [33msection-seven[0m[2m[0m         
+│       │   │       [33mcta-link[0m[2m[0m              [33msection-six[0m[2m[0m           
+│       │   │       [33mdev-message[0m[2m[0m           [33msection-stories[0m[2m[0m       
+│       │   │       [33mdynamic-image[0m[2m[0m         [33msection-three[0m[2m[0m         
+│       │   │       [33merror-fallback[0m[2m[0m        [33msection-two[0m[2m[0m           
+│       │   │       [33mexport-toast[0m[2m[0m          [33msection-video[0m[2m[0m         
+│       │   │       [33mfollowing-pointer[0m[2m[0m     [33msocial-links[0m[2m[0m          
+│       │   │       [33mfooter-cta[0m[2m[0m            [33mstartpage[0m[2m[0m             
+│       │   │       [33mfooter[0m[2m[0m                [33mstatus-widget[0m[2m[0m         
+│       │   │       [33mgithub-stars[0m[2m[0m          [33mstory-card[0m[2m[0m            
+│       │   │       [33mheader[0m[2m[0m                [33msubscribe-input[0m[2m[0m       
+│       │   │       [33mhero-image[0m[2m[0m            [33msupport-form[0m[2m[0m          
+│       │   │       [33mhero[0m[2m[0m                  [33mtestimonials[0m[2m[0m          
+│       │   │       [33minfinite-moving-cards[0m[2m[0m [33mtext-generate-effect[0m[2m[0m  
+│       │   │       [33mlogo-icon[0m[2m[0m             [33mtheme-provider[0m[2m[0m        
+│       │   │       [33mlogo-large[0m[2m[0m            [33mticker[0m[2m[0m                
+│       │   │       [33mmdx[0m[2m[0m                   [33mtray[0m[2m[0m                  
+│       │   │       [33mmetrics[0m[2m[0m               [33mupdates-toolbar[0m[2m[0m       
+│       │   │       [33mnot-found-statuses[0m[2m[0m    [33mwhite-label-plans[0m[2m[0m     
+│       │   │       [33mnot-found-terminal[0m[2m[0m    [33mword-animation[0m[2m[0m        
+│       │   ├── [1;34m  lib/[0m [2m(4 files, 7.2KB, all .ts)[0m
+│       │   │   └── [33mblog[0m[2m[0m               [33mfetch-github[0m[2m[0m       
+│       │   │       [33mfetch-github-stars[0m[2m[0m [33mfetch-stats[0m[2m[0m        
+│       │   ├── [1;34m  styles/[0m [2m(2.9KB)[0m
+│       │   │   └── [35mglobals.css[0m[2m[0m 
+│       │   └── [1;34m  utils/[0m [2m(97.0B)[0m
+│       │       └── [33mresend.ts[0m[2m[0m 
+│       └── [37m.env-template[0m[2m[0m      [33mnext.config.mjs[0m[2m[0m    [33mtailwind.config.ts[0m[2m[0m 
+│           [32mREADME.md[0m[2m[0m          [31mpackage.json[0m[2m[0m       [31mtsconfig.json[0m[2m[0m      
+│           [33mimage-loader.ts[0m[2m[0m    [33mpostcss.config.cjs[0m[2m[0m [31mvercel.json[0m[2m[0m        
+├── [1;34m  docs/[0m [2m(11 files, 139.0KB, all .md)[0m
+│   ├── [1;34m  Notes/[0m [2m(3 files, 30.0KB, all .md)[0m
+│   │   └── [32mcodebase-structure[0m[2m[0m [32mfeatures[0m[2m[0m           [32mx-notes[0m[2m[0m            
+│   ├── [1;34m  feature-port/[0m [2m(17.4KB)[0m
+│   │   └── [32mfeature-port.md[0m[2m[0m 
+│   └── [32mREADME[0m[2m[0m                        [32mnav[0m[2m[0m                           
+│       [32mbusiness-to-code-traceability[0m[2m[0m [32mnew-findings[0m[2m[0m                  
+│       [32minbox-matching[0m[2m[0m                [32mreconciliation[0m[2m[0m                
+│       [32mincoming-features[0m[2m[0m             
+├── [1;34m  packages/[0m [2m(439 files, 2.3MB)[0m
+│   ├── [1;34m  app-store/[0m [2m(31 files, 336.6KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(29 files, 335.6KB, all .ts)[0m
+│   │   │   ├── [1;34m  cal/[0m [2m(2 files, 3.7KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(3.3KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  db/[0m [2m(339.0B)[0m
+│   │   │   │   └── [33mindex.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  fortnox/[0m [2m(2 files, 4.2KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(3.8KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  quick-books/[0m [2m(2 files, 2.3KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(1.9KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  raycast/[0m [2m(2 files, 6.2KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(5.9KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  slack/[0m [2m(12 files, 305.2KB, all .ts)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(2 files, 296.2KB)[0m
+│   │   │   │   │   └── [37mimage.png[0m[2m[0m [33mlogo.tsx[0m[2m[0m  
+│   │   │   │   ├── [1;34m  lib/[0m [2m(7 files, 6.3KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  events/file/[0m [2m(2 files, 999.0B, all .ts)[0m
+│   │   │   │   │   │   └── [33mindex[0m[2m[0m [33mshare[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  notifications/[0m [2m(2 files, 2.1KB, all .ts)[0m
+│   │   │   │   │   │   └── [33mindex[0m[2m[0m        [33mtransactions[0m[2m[0m 
+│   │   │   │   │   └── [33mclient[0m[2m[0m [33mindex[0m[2m[0m  [33mverify[0m[2m[0m 
+│   │   │   │   └── [33mconfig[0m[2m[0m     [33mindex[0m[2m[0m      [33minitialize[0m[2m[0m 
+│   │   │   ├── [1;34m  visma/[0m [2m(2 files, 2.7KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(2.2KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  xero/[0m [2m(2 files, 4.7KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(4.3KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  zapier/[0m [2m(2 files, 5.1KB)[0m
+│   │   │   │   ├── [1;34m  assets/[0m [2m(4.8KB)[0m
+│   │   │   │   │   └── [33mlogo.tsx[0m[2m[0m 
+│   │   │   │   └── [33mconfig.ts[0m[2m[0m 
+│   │   │   └── [33mindex[0m[2m[0m [33mtypes[0m[2m[0m 
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  cache/[0m [2m(10 files, 10.5KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(8 files, 9.9KB, all .ts)[0m
+│   │   │   └── [33mapi-key-cache[0m[2m[0m          [33mteam-cache[0m[2m[0m             
+│   │   │       [33mhealth[0m[2m[0m                 [33mteam-permissions-cache[0m[2m[0m 
+│   │   │       [33mredis-client[0m[2m[0m           [33mtest-redis[0m[2m[0m             
+│   │   │       [33mreplication-cache[0m[2m[0m      [33muser-cache[0m[2m[0m             
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  categories/[0m [2m(10 files, 68.6KB)[0m
+│   │   ├── [1;34m  src/[0m [2m(7 files, 64.1KB, all .ts)[0m
+│   │   │   ├── [1;34m  tax-rates/[0m [2m(44.0KB)[0m
+│   │   │   │   └── [33mindex.ts[0m[2m[0m 
+│   │   │   └── [33mcategories[0m[2m[0m   [33membeddings[0m[2m[0m   [33mtypes[0m[2m[0m        
+│   │   │       [33mcolor-system[0m[2m[0m [33mindex[0m[2m[0m        [33mutils[0m[2m[0m        
+│   │   └── [32mREADME.md[0m[2m[0m     [31mpackage.json[0m[2m[0m  [31mtsconfig.json[0m[2m[0m 
+│   ├── [1;34m  db/[0m [2m(61 files, 830.0KB)[0m
+│   │   ├── [1;34m  migrations/meta/[0m [2m(2 files, 224.9KB, all .json)[0m
+│   │   │   └── [1m[31m⭐️ 0000_snapshot[0m[2m[0m [31m_journal[0m[2m[0m         
+│   │   ├── [1;34m  src/[0m [2m(56 files, 603.2KB, all .ts)[0m
+│   │   │   ├── [1;34m  queries/[0m [2m(41 files, 405.5KB, all .ts)[0m
+│   │   │   │   └── [33mactivities[0m[2m[0m                      
+│   │   │   │       [33mapi-keys[0m[2m[0m                        
+│   │   │   │       [33mapps[0m[2m[0m                            
+│   │   │   │       [33mbank-accounts[0m[2m[0m                   
+│   │   │   │       [33mbank-connections[0m[2m[0m                
+│   │   │   │       [33mcustomer-analytics[0m[2m[0m              
+│   │   │   │       [33mcustomers[0m[2m[0m                       
+│   │   │   │       [33mdocument-tag-assignments[0m[2m[0m        
+│   │   │   │       [33mdocument-tag-embedings[0m[2m[0m          
+│   │   │   │       [33mdocument-tags[0m[2m[0m                   
+│   │   │   │       [33mdocuments[0m[2m[0m                       
+│   │   │   │       [33mexhange-rates[0m[2m[0m                   
+│   │   │   │       [33minbox-accounts[0m[2m[0m                  
+│   │   │   │       [33minbox-embeddings[0m[2m[0m                
+│   │   │   │       [33minbox-matching[0m[2m[0m                  
+│   │   │   │       [33minbox[0m[2m[0m                           
+│   │   │   │       [33mindex[0m[2m[0m                           
+│   │   │   │       [33minvoice-products[0m[2m[0m                
+│   │   │   │       [33minvoice-templates[0m[2m[0m               
+│   │   │   │       [33minvoices[0m[2m[0m                        
+│   │   │   │       [33mnotification-settings[0m[2m[0m           
+│   │   │   │       [33moauth-applications[0m[2m[0m              
+│   │   │   │       [33moauth-flow[0m[2m[0m                      
+│   │   │   │       [33mreports[0m[2m[0m                         
+│   │   │   │       [33msearch[0m[2m[0m                          
+│   │   │   │       [33mshort-links[0m[2m[0m                     
+│   │   │   │       [33mtags[0m[2m[0m                            
+│   │   │   │       [33mteams[0m[2m[0m                           
+│   │   │   │       [33mtracker-entries[0m[2m[0m                 
+│   │   │   │       [33mtracker-projects[0m[2m[0m                
+│   │   │   │       [33mtransaction-attachments[0m[2m[0m         
+│   │   │   │       [33mtransaction-categories[0m[2m[0m          
+│   │   │   │       [33mtransaction-category-embeddings[0m[2m[0m 
+│   │   │   │       [33mtransaction-embeddings[0m[2m[0m          
+│   │   │   │       [33mtransaction-enrichment[0m[2m[0m          
+│   │   │   │       [33mtransaction-matching[0m[2m[0m            
+│   │   │   │       [33mtransaction-tags[0m[2m[0m                
+│   │   │   │       [33mtransactions[0m[2m[0m                    
+│   │   │   │       [33muser-invites[0m[2m[0m                    
+│   │   │   │       [33musers-on-team[0m[2m[0m                   
+│   │   │   │       [33musers[0m[2m[0m                           
+│   │   │   ├── [1;34m  test/[0m [2m(5 files, 69.4KB, all .ts)[0m
+│   │   │   │   └── [33mgolden-dataset[0m[2m[0m                        
+│   │   │   │       [33mtransaction-matching.golden.test[0m[2m[0m      
+│   │   │   │       [33mtransaction-matching.integration.test[0m[2m[0m 
+│   │   │   │       [33mtransaction-matching.test[0m[2m[0m             
+│   │   │   │       [33mvalidate-golden-dataset[0m[2m[0m               
+│   │   │   ├── [1;34m  utils/[0m [2m(6 files, 21.5KB, all .ts)[0m
+│   │   │   │   └── [33mapi-keys[0m[2m[0m             [33mlog-activity[0m[2m[0m         
+│   │   │   │       [33membeddings[0m[2m[0m           [33msearch-query[0m[2m[0m         
+│   │   │   │       [33mhealth[0m[2m[0m               [33mtransaction-matching[0m[2m[0m 
+│   │   │   └── [33mclient[0m[2m[0m     [33mjob-client[0m[2m[0m [33mreplicas[0m[2m[0m   [33mschema[0m[2m[0m     
+│   │   └── [33mdrizzle.config.ts[0m[2m[0m [31mpackage.json[0m[2m[0m      [31mtsconfig.json[0m[2m[0m     
+│   ├── [1;34m  desktop-client/[0m [2m(4 files, 3.4KB)[0m
+│   │   ├── [1;34m  src/[0m [2m(3 files, 3.1KB, all .ts)[0m
+│   │   │   └── [33mcore[0m[2m[0m             [33mdesktop-variants[0m[2m[0m [33mplatform[0m[2m[0m         
+│   │   └── [31mpackage.json[0m[2m[0m 
+│   ├── [1;34m  documents/[0m [2m(16 files, 40.8KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(14 files, 39.8KB, all .ts)[0m
+│   │   │   ├── [1;34m  classifier/[0m [2m(1.6KB)[0m
+│   │   │   │   └── [33mclassifier.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  embed/[0m [2m(1.2KB)[0m
+│   │   │   │   └── [33membed.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  loaders/[0m [2m(3.4KB)[0m
+│   │   │   │   └── [33mloader.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  processors/[0m [2m(2 files, 8.8KB)[0m
+│   │   │   │   ├── [1;34m  invoice/[0m [2m(6.6KB)[0m
+│   │   │   │   │   └── [33minvoice-processor.ts[0m[2m[0m 
+│   │   │   │   └── [1;34m  receipt/[0m [2m(2.2KB)[0m
+│   │   │   │       └── [33mreceipt-processor.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  utils/[0m [2m(1.3KB)[0m
+│   │   │   │   └── [33mretry.ts[0m[2m[0m 
+│   │   │   └── [33mclient[0m[2m[0m     [33minterface[0m[2m[0m  [33mschema[0m[2m[0m     [33mutils.test[0m[2m[0m 
+│   │   │       [33mindex[0m[2m[0m      [33mprompt[0m[2m[0m     [33mtypes[0m[2m[0m      [33mutils[0m[2m[0m      
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  email/[0m [2m(29 files, 85.6KB)[0m
+│   │   ├── [1;34m  components/[0m [2m(7 files, 20.8KB, all .tsx)[0m
+│   │   │   └── [33mbutton[0m[2m[0m      [33mfooter[0m[2m[0m      [33mlogo-footer[0m[2m[0m [33mtheme[0m[2m[0m       
+│   │   │       [33mcolumn[0m[2m[0m      [33mget-started[0m[2m[0m [33mlogo[0m[2m[0m        
+│   │   ├── [1;34m  emails/[0m [2m(16 files, 55.7KB, all .tsx)[0m
+│   │   │   └── [33mapi-key-created[0m[2m[0m       [33minvoice-paid[0m[2m[0m          
+│   │   │       [33mapp-installed[0m[2m[0m         [33minvoice-reminder[0m[2m[0m      
+│   │   │       [33mapp-review-request[0m[2m[0m    [33minvoice[0m[2m[0m               
+│   │   │       [33mconnection-expire[0m[2m[0m     [33mtransactions-exported[0m[2m[0m 
+│   │   │       [33mconnection-issue[0m[2m[0m      [33mtransactions[0m[2m[0m          
+│   │   │       [33mget-started[0m[2m[0m           [33mtrial-ended[0m[2m[0m           
+│   │   │       [33minvite[0m[2m[0m                [33mtrial-expiring[0m[2m[0m        
+│   │   │       [33minvoice-overdue[0m[2m[0m       [33mwelcome[0m[2m[0m               
+│   │   ├── [1;34m  locales/[0m [2m(2 files, 7.7KB, all .ts)[0m
+│   │   │   └── [33mindex[0m[2m[0m        [33mtranslations[0m[2m[0m 
+│   │   └── [31mpackage.json[0m[2m[0m  [33mrender.ts[0m[2m[0m     [31mtsconfig.json[0m[2m[0m [31mvercel.json[0m[2m[0m   
+│   ├── [1;34m  encryption/[0m [2m(4 files, 3.7KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(2 files, 3.3KB, all .ts)[0m
+│   │   │   └── [33mindex.test[0m[2m[0m [33mindex[0m[2m[0m      
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  engine-client/[0m [2m(3 files, 588.0B, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(233.0B)[0m
+│   │   │   └── [33mindex.ts[0m[2m[0m 
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  events/[0m [2m(5 files, 5.1KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(3 files, 4.4KB)[0m
+│   │   │   └── [33mclient.tsx[0m[2m[0m [33mevents.ts[0m[2m[0m  [33mserver.ts[0m[2m[0m  
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  import/[0m [2m(9 files, 8.5KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(7 files, 7.8KB, all .ts)[0m
+│   │   │   └── [33mindex[0m[2m[0m      [33mtransform[0m[2m[0m  [33mutils.test[0m[2m[0m [33mvalidate[0m[2m[0m   
+│   │   │       [33mmappings[0m[2m[0m   [33mtypes[0m[2m[0m      [33mutils[0m[2m[0m      
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  inbox/[0m [2m(11 files, 27.4KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(9 files, 26.6KB, all .ts)[0m
+│   │   │   ├── [1;34m  providers/[0m [2m(2 files, 16.6KB, all .ts)[0m
+│   │   │   │   └── [33mgmail[0m[2m[0m [33mtypes[0m[2m[0m 
+│   │   │   └── [33mattachments[0m[2m[0m [33mgenerate-id[0m[2m[0m [33mschema[0m[2m[0m      [33mutils[0m[2m[0m       
+│   │   │       [33mconnector[0m[2m[0m   [33mindex[0m[2m[0m       [33mutils.test[0m[2m[0m  
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  invoice/[0m [2m(39 files, 57.9KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(37 files, 56.5KB)[0m
+│   │   │   ├── [1;34m  editor/[0m [2m(44.0B)[0m
+│   │   │   │   └── [33mindex.tsx[0m[2m[0m 
+│   │   │   ├── [1;34m  templates/[0m [2m(26 files, 44.3KB)[0m
+│   │   │   │   ├── [1;34m  html/[0m [2m(8 files, 16.1KB, all .tsx)[0m
+│   │   │   │   │   ├── [1;34m  components/[0m [2m(6 files, 9.7KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mdescription[0m[2m[0m    [33mlogo[0m[2m[0m           
+│   │   │   │   │   │       [33meditor-content[0m[2m[0m [33mmeta[0m[2m[0m           
+│   │   │   │   │   │       [33mline-items[0m[2m[0m     [33msummary[0m[2m[0m        
+│   │   │   │   │   └── [33mformat[0m[2m[0m [33mindex[0m[2m[0m  
+│   │   │   │   ├── [1;34m  og/[0m [2m(8 files, 7.2KB, all .tsx)[0m
+│   │   │   │   │   ├── [1;34m  components/[0m [2m(6 files, 3.9KB, all .tsx)[0m
+│   │   │   │   │   │   └── [33mavatar[0m[2m[0m         [33mlogo[0m[2m[0m           
+│   │   │   │   │   │       [33meditor-content[0m[2m[0m [33mmeta[0m[2m[0m           
+│   │   │   │   │   │       [33mheader[0m[2m[0m         [33mstatus[0m[2m[0m         
+│   │   │   │   │   └── [33mformat[0m[2m[0m [33mindex[0m[2m[0m  
+│   │   │   │   └── [1;34m  pdf/[0m [2m(10 files, 21.0KB, all .tsx)[0m
+│   │   │   │       ├── [1;34m  components/[0m [2m(8 files, 10.9KB, all .tsx)[0m
+│   │   │   │       │   └── [33mdescription[0m[2m[0m     [33mnote[0m[2m[0m            
+│   │   │   │       │       [33meditor-content[0m[2m[0m  [33mpayment-details[0m[2m[0m 
+│   │   │   │       │       [33mline-items[0m[2m[0m      [33mqr-code[0m[2m[0m         
+│   │   │   │       │       [33mmeta[0m[2m[0m            [33msummary[0m[2m[0m         
+│   │   │   │       └── [33mformat[0m[2m[0m [33mindex[0m[2m[0m  
+│   │   │   ├── [1;34m  token/[0m [2m(485.0B)[0m
+│   │   │   │   └── [33mindex.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  utils/[0m [2m(7 files, 8.5KB, all .ts)[0m
+│   │   │   │   └── [33mcalculate.test[0m[2m[0m [33mextract-text[0m[2m[0m   [33mtransform[0m[2m[0m      
+│   │   │   │       [33mcalculate[0m[2m[0m      [33mlogo[0m[2m[0m           
+│   │   │   │       [33mcontent[0m[2m[0m        [33mpdf-format[0m[2m[0m     
+│   │   │   └── [33mindex.tsx[0m[2m[0m [33mtypes.ts[0m[2m[0m  
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  jobs/[0m [2m(72 files, 182.5KB)[0m
+│   │   ├── [1;34m  scripts/[0m [2m(5 files, 22.0KB)[0m
+│   │   │   └── [37m.env-template[0m[2m[0m               
+│   │   │       [33mdelete-bank-schedulers.ts[0m[2m[0m   
+│   │   │       [33mget-eligible-teams.ts[0m[2m[0m       
+│   │   │       [33mlist-bank-schedulers.ts[0m[2m[0m     
+│   │   │       [33mregister-bank-schedulers.ts[0m[2m[0m 
+│   │   ├── [1;34m  src/[0m [2m(63 files, 158.9KB, all .ts)[0m
+│   │   │   ├── [1;34m  tasks/[0m [2m(42 files, 119.7KB)[0m
+│   │   │   │   ├── [1;34m  bank/[0m [2m(7 files, 18.2KB)[0m
+│   │   │   │   │   ├── [1;34m  delete/[0m [2m(590.0B)[0m
+│   │   │   │   │   │   └── [33mdelete-connection.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  notifications/[0m [2m(2.0KB)[0m
+│   │   │   │   │   │   └── [33mtransactions.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  scheduler/[0m [2m(1.5KB)[0m
+│   │   │   │   │   │   └── [33mbank-scheduler.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  setup/[0m [2m(1.7KB)[0m
+│   │   │   │   │   │   └── [33minitial.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  sync/[0m [2m(2 files, 9.7KB, all .ts)[0m
+│   │   │   │   │   │   └── [33maccount[0m[2m[0m    [33mconnection[0m[2m[0m 
+│   │   │   │   │   └── [1;34m  transactions/[0m [2m(2.8KB)[0m
+│   │   │   │   │       └── [33mupsert.ts[0m[2m[0m 
+│   │   │   │   ├── [1;34m  document/[0m [2m(5 files, 10.5KB, all .ts)[0m
+│   │   │   │   │   └── [33mclassify-document[0m[2m[0m   [33membed-document-tags[0m[2m[0m 
+│   │   │   │   │       [33mclassify-image[0m[2m[0m      [33mprocess-document[0m[2m[0m    
+│   │   │   │   │       [33mconvert-heic[0m[2m[0m        
+│   │   │   │   ├── [1;34m  inbox/[0m [2m(9 files, 36.5KB, all .ts)[0m
+│   │   │   │   │   ├── [1;34m  provider/[0m [2m(3 files, 9.2KB, all .ts)[0m
+│   │   │   │   │   │   └── [33minitial-setup[0m[2m[0m [33msync-account[0m[2m[0m  
+│   │   │   │   │   │       [33msheduler[0m[2m[0m      
+│   │   │   │   │   └── [33mbatch-process-matching[0m[2m[0m           
+│   │   │   │   │       [33membed-inbox[0m[2m[0m                      
+│   │   │   │   │       [33mmatch-transactions-bidirectional[0m[2m[0m 
+│   │   │   │   │       [33mno-match-scheduler[0m[2m[0m               
+│   │   │   │   │       [33mprocess-attachment[0m[2m[0m               
+│   │   │   │   │       [33mslack-upload[0m[2m[0m                     
+│   │   │   │   ├── [1;34m  invoice/[0m [2m(7 files, 12.9KB)[0m
+│   │   │   │   │   ├── [1;34m  email/[0m [2m(2 files, 4.6KB, all .ts)[0m
+│   │   │   │   │   │   └── [33msend-email[0m[2m[0m    [33msend-reminder[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  notifications/[0m [2m(1.2KB)[0m
+│   │   │   │   │   │   └── [33msend-notifications.ts[0m[2m[0m 
+│   │   │   │   │   ├── [1;34m  operations/[0m [2m(3 files, 6.2KB, all .ts)[0m
+│   │   │   │   │   │   └── [33mcheck-status[0m[2m[0m     [33mschedule-invoice[0m[2m[0m 
+│   │   │   │   │   │       [33mgenerate-invoice[0m[2m[0m 
+│   │   │   │   │   └── [1;34m  scheduler/[0m [2m(938.0B)[0m
+│   │   │   │   │       └── [33minvoice-scheduler.ts[0m[2m[0m 
+│   │   │   │   ├── [1;34m  notifications/[0m [2m(601.0B)[0m
+│   │   │   │   │   └── [33mnotifications.ts[0m[2m[0m 
+│   │   │   │   ├── [1;34m  rates/[0m [2m(1.2KB)[0m
+│   │   │   │   │   └── [33mrates-scheduler.ts[0m[2m[0m 
+│   │   │   │   ├── [1;34m  reconnect/[0m [2m(2.1KB)[0m
+│   │   │   │   │   └── [33mconnection.ts[0m[2m[0m 
+│   │   │   │   ├── [1;34m  team/[0m [2m(3 files, 5.1KB, all .ts)[0m
+│   │   │   │   │   └── [33mdelete[0m[2m[0m     [33minvite[0m[2m[0m     [33monboarding[0m[2m[0m 
+│   │   │   │   └── [1;34m  transactions/[0m [2m(8 files, 32.8KB, all .ts)[0m
+│   │   │   │       └── [33membed-transaction[0m[2m[0m            
+│   │   │   │           [33menrich-transaction[0m[2m[0m           
+│   │   │   │           [33mexport[0m[2m[0m                       
+│   │   │   │           [33mimport[0m[2m[0m                       
+│   │   │   │           [33mprocess-attachment[0m[2m[0m           
+│   │   │   │           [33mprocess-export[0m[2m[0m               
+│   │   │   │           [33mupdate-account-base-currency[0m[2m[0m 
+│   │   │   │           [33mupdate-base-currency[0m[2m[0m         
+│   │   │   ├── [1;34m  utils/[0m [2m(19 files, 29.8KB)[0m
+│   │   │   │   └── [33mbase-currency.ts[0m[2m[0m                
+│   │   │   │       [33mblob.ts[0m[2m[0m                         
+│   │   │   │       [33mcheck-team-plan.ts[0m[2m[0m              
+│   │   │   │       [33membeddings.ts[0m[2m[0m                   
+│   │   │   │       [33menrichment-helpers.ts[0m[2m[0m           
+│   │   │   │       [33menrichment-schema.ts[0m[2m[0m            
+│   │   │   │       [33mgenerate-cron-tag.ts[0m[2m[0m            
+│   │   │   │       [33minbox-matching-notifications.ts[0m[2m[0m 
+│   │   │   │       [33mparse-error.ts[0m[2m[0m                  
+│   │   │   │       [33mprocess-batch.ts[0m[2m[0m                
+│   │   │   │       [33mresend.ts[0m[2m[0m                       
+│   │   │   │       [33msmart-matching.ts[0m[2m[0m               
+│   │   │   │       [33mtext-preparation.ts[0m[2m[0m             
+│   │   │   │       [33mtransaction-notifications.tsx[0m[2m[0m   
+│   │   │   │       [33mtransform.test.ts[0m[2m[0m               
+│   │   │   │       [33mtransform.ts[0m[2m[0m                    
+│   │   │   │       [33mtrigger-batch.ts[0m[2m[0m                
+│   │   │   │       [33mtrigger-sequence.ts[0m[2m[0m             
+│   │   │   │       [33mupdate-invocie.ts[0m[2m[0m               
+│   │   │   └── [33minit[0m[2m[0m   [33mschema[0m[2m[0m 
+│   │   └── [37m.env-template[0m[2m[0m     [33mtrigger.config.ts[0m[2m[0m 
+│   │       [31mpackage.json[0m[2m[0m      [31mtsconfig.json[0m[2m[0m     
+│   ├── [1;34m  location/[0m [2m(12 files, 275.8KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(10 files, 275.1KB)[0m
+│   │   │   └── [31mcountries-intl.json[0m[2m[0m [33mcurrencies.ts[0m[2m[0m       
+│   │   │       [33mcountries-intl.ts[0m[2m[0m   [33meu-countries.ts[0m[2m[0m     
+│   │   │       [31mcountries.json[0m[2m[0m      [33mindex.ts[0m[2m[0m            
+│   │   │       [33mcountries.ts[0m[2m[0m        [31mtimezones.json[0m[2m[0m      
+│   │   │       [33mcountry-flags.ts[0m[2m[0m    [33mtimezones.ts[0m[2m[0m        
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  logger/[0m [2m(3 files, 915.0B, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(483.0B)[0m
+│   │   │   └── [33mindex.ts[0m[2m[0m 
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  notifications/[0m [2m(24 files, 45.9KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(22 files, 45.0KB, all .ts)[0m
+│   │   │   ├── [1;34m  services/[0m [2m(5.2KB)[0m
+│   │   │   │   └── [33memail-service.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  types/[0m [2m(17 files, 14.0KB, all .ts)[0m
+│   │   │   │   └── [33mdocument-processed[0m[2m[0m           
+│   │   │   │       [33mdocument-uploaded[0m[2m[0m            
+│   │   │   │       [33minbox-auto-matched[0m[2m[0m           
+│   │   │   │       [33minbox-cross-currency-matched[0m[2m[0m 
+│   │   │   │       [33minbox-needs-review[0m[2m[0m           
+│   │   │   │       [33minbox-new[0m[2m[0m                    
+│   │   │   │       [33minvoice-cancelled[0m[2m[0m            
+│   │   │   │       [33minvoice-created[0m[2m[0m              
+│   │   │   │       [33minvoice-overdue[0m[2m[0m              
+│   │   │   │       [33minvoice-paid[0m[2m[0m                 
+│   │   │   │       [33minvoice-reminder-sent[0m[2m[0m        
+│   │   │   │       [33minvoice-scheduled[0m[2m[0m            
+│   │   │   │       [33minvoice-sent[0m[2m[0m                 
+│   │   │   │       [33mtransactions-assigned[0m[2m[0m        
+│   │   │   │       [33mtransactions-categorized[0m[2m[0m     
+│   │   │   │       [33mtransactions-created[0m[2m[0m         
+│   │   │   │       [33mtransactions-exported[0m[2m[0m        
+│   │   │   └── [33mbase[0m[2m[0m               [33mnotification-types[0m[2m[0m 
+│   │   │       [33mindex[0m[2m[0m              [33mschemas[0m[2m[0m            
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  supabase/[0m [2m(12 files, 135.5KB, all .json)[0m
+│   │   ├── [1;34m  src/[0m [2m(10 files, 134.3KB)[0m
+│   │   │   ├── [1;34m  client/[0m [2m(4 files, 4.2KB, all .ts)[0m
+│   │   │   │   └── [33mclient[0m[2m[0m     [33mjob[0m[2m[0m        [33mmiddleware[0m[2m[0m [33mserver[0m[2m[0m     
+│   │   │   ├── [1;34m  mutations/[0m [2m(1.6KB)[0m
+│   │   │   │   └── [33mindex.ts[0m[2m[0m 
+│   │   │   ├── [1;34m  queries/[0m [2m(2 files, 1.2KB, all .ts)[0m
+│   │   │   │   └── [33mcached-queries[0m[2m[0m [33mindex[0m[2m[0m          
+│   │   │   ├── [1;34m  types/[0m [2m(2 files, 126.0KB, all .ts)[0m
+│   │   │   │   └── [33mdb[0m[2m[0m    [33mindex[0m[2m[0m 
+│   │   │   └── [1;34m  utils/[0m [2m(1.4KB)[0m
+│   │   │       └── [33mstorage.ts[0m[2m[0m 
+│   │   └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+│   ├── [1;34m  tsconfig/[0m [2m(4 files, 1.1KB, all .json)[0m
+│   │   └── [31mbase[0m[2m[0m          [31mnextjs[0m[2m[0m        [31mpackage[0m[2m[0m       [31mreact-library[0m[2m[0m 
+│   ├── [1;34m  ui/[0m [2m(72 files, 214.4KB)[0m
+│   │   ├── [1;34m  src/[0m [2m(67 files, 204.6KB)[0m
+│   │   │   ├── [1;34m  components/[0m [2m(59 files, 199.5KB, all .tsx)[0m
+│   │   │   │   ├── [1;34m  editor/[0m [2m(8 files, 8.5KB)[0m
+│   │   │   │   │   ├── [1;34m  extentions/[0m [2m(5 files, 6.6KB)[0m
+│   │   │   │   │   │   ├── [1;34m  bubble-menu/[0m [2m(4 files, 5.9KB, all .tsx)[0m
+│   │   │   │   │   │   │   └── [33mbubble-item[0m[2m[0m        [33mindex[0m[2m[0m              
+│   │   │   │   │   │   │       [33mbubble-menu-button[0m[2m[0m [33mlink-item[0m[2m[0m          
+│   │   │   │   │   │   └── [33mregister.ts[0m[2m[0m 
+│   │   │   │   │   └── [33mindex.tsx[0m[2m[0m  [35mstyles.css[0m[2m[0m [33mutils.ts[0m[2m[0m   
+│   │   │   │   └── [33maccordion[0m[2m[0m               
+│   │   │   │       [33malert-dialog[0m[2m[0m            
+│   │   │   │       [33malert[0m[2m[0m                   
+│   │   │   │       [33manimated-size-container[0m[2m[0m 
+│   │   │   │       [33mavatar[0m[2m[0m                  
+│   │   │   │       [33mbadge[0m[2m[0m                   
+│   │   │   │       [33mbutton[0m[2m[0m                  
+│   │   │   │       [33mcalendar[0m[2m[0m                
+│   │   │   │       [33mcard[0m[2m[0m                    
+│   │   │   │       [33mcarousel[0m[2m[0m                
+│   │   │   │       [33mchart[0m[2m[0m                   
+│   │   │   │       [33mcheckbox[0m[2m[0m                
+│   │   │   │       [33mcollapsible[0m[2m[0m             
+│   │   │   │       [33mcombobox-dropdown[0m[2m[0m       
+│   │   │   │       [33mcombobox[0m[2m[0m                
+│   │   │   │       [33mcommand[0m[2m[0m                 
+│   │   │   │       [33mcontext-menu[0m[2m[0m            
+│   │   │   │       [33mcurrency-input[0m[2m[0m          
+│   │   │   │       [33mdate-range-picker[0m[2m[0m       
+│   │   │   │       [33mdialog[0m[2m[0m                  
+│   │   │   │       [33mdrawer[0m[2m[0m                  
+│   │   │   │       [33mdropdown-menu[0m[2m[0m           
+│   │   │   │       [33mform[0m[2m[0m                    
+│   │   │   │       [33mhover-card[0m[2m[0m              
+│   │   │   │       [33micons[0m[2m[0m                   
+│   │   │   │       [33minput-otp[0m[2m[0m               
+│   │   │   │       [33minput[0m[2m[0m                   
+│   │   │   │       [33mlabel[0m[2m[0m                   
+│   │   │   │       [33mmultiple-selector[0m[2m[0m       
+│   │   │   │       [33mnavigation-menu[0m[2m[0m         
+│   │   │   │       [33mpopover[0m[2m[0m                 
+│   │   │   │       [33mprogress[0m[2m[0m                
+│   │   │   │       [33mquantity-input[0m[2m[0m          
+│   │   │   │       [33mradio-group[0m[2m[0m             
+│   │   │   │       [33mscroll-area[0m[2m[0m             
+│   │   │   │       [33mselect[0m[2m[0m                  
+│   │   │   │       [33mseparator[0m[2m[0m               
+│   │   │   │       [33msheet[0m[2m[0m                   
+│   │   │   │       [33mskeleton[0m[2m[0m                
+│   │   │   │       [33mslider[0m[2m[0m                  
+│   │   │   │       [33mspinner[0m[2m[0m                 
+│   │   │   │       [33msubmit-button[0m[2m[0m           
+│   │   │   │       [33mswitch[0m[2m[0m                  
+│   │   │   │       [33mtable[0m[2m[0m                   
+│   │   │   │       [33mtabs[0m[2m[0m                    
+│   │   │   │       [33mtextarea[0m[2m[0m                
+│   │   │   │       [33mtime-range-input[0m[2m[0m        
+│   │   │   │       [33mtoast[0m[2m[0m                   
+│   │   │   │       [33mtoaster[0m[2m[0m                 
+│   │   │   │       [33mtooltip[0m[2m[0m                 
+│   │   │   │       [33muse-toast[0m[2m[0m               
+│   │   │   ├── [1;34m  hooks/[0m [2m(4 files, 1.7KB, all .ts)[0m
+│   │   │   │   └── [33mindex[0m[2m[0m               [33muse-media-query[0m[2m[0m     
+│   │   │   │       [33muse-enter-submit[0m[2m[0m    [33muse-resize-observer[0m[2m[0m 
+│   │   │   ├── [1;34m  utils/[0m [2m(3 files, 421.0B, all .ts)[0m
+│   │   │   │   └── [33mcn[0m[2m[0m       [33mindex[0m[2m[0m    [33mtruncate[0m[2m[0m 
+│   │   │   └── [35mglobals.css[0m[2m[0m 
+│   │   └── [32mREADME.md[0m[2m[0m          [33mpostcss.config.js[0m[2m[0m  [31mtsconfig.json[0m[2m[0m      
+│   │       [31mpackage.json[0m[2m[0m       [33mtailwind.config.ts[0m[2m[0m 
+│   └── [1;34m  utils/[0m [2m(8 files, 22.2KB, all .json)[0m
+│       ├── [1;34m  src/[0m [2m(6 files, 21.6KB, all .ts)[0m
+│       │   └── [33menvs[0m[2m[0m              [33mindex[0m[2m[0m             [33mtax.test[0m[2m[0m          
+│       │       [33mformat[0m[2m[0m            [33mmime-to-extension[0m[2m[0m [33mtax[0m[2m[0m               
+│       └── [31mpackage[0m[2m[0m  [31mtsconfig[0m[2m[0m 
+├── [1;34m  types/[0m [2m(2 files, 363.0B, all .ts)[0m
+│   └── [33mimages.d[0m[2m[0m [33mjsx.d[0m[2m[0m    
+└── [2;37m.gitignore[0m[2m[0m         [31mbiome.json[0m[2m[0m         [31mtsconfig.json[0m[2m[0m      
+    [32mAGENTS.md[0m[2m[0m          [37mbun.lock[0m[2m[0m           [31mturbo.json[0m[2m[0m         
+    [37mLICENSE[0m[2m[0m            [37mgithub.png[0m[2m[0m         [31mworkspace-map.json[0m[2m[0m 
+    [32mREADME.md[0m[2m[0m          [31mpackage.json[0m[2m[0m       
+    [32mSECURITY.md[0m[2m[0m        [32mskills.md[0m[2m[0m          
