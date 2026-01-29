@@ -13,30 +13,38 @@ const connectionConfig = {
   allowExitOnIdle: true,
 };
 
-const primaryPool = new Pool({
-  connectionString: process.env.DATABASE_PRIMARY_URL!,
-  ...connectionConfig,
-});
+// Only create primary pool if URL is provided
+const primaryPool = process.env.DATABASE_PRIMARY_URL
+  ? new Pool({
+      connectionString: process.env.DATABASE_PRIMARY_URL,
+      ...connectionConfig,
+    })
+  : null;
 
-const fraPool = new Pool({
-  connectionString: process.env.DATABASE_FRA_URL!,
-  ...connectionConfig,
-});
+// Only create replica pools if URLs are provided
+const fraPool = process.env.DATABASE_FRA_URL
+  ? new Pool({
+      connectionString: process.env.DATABASE_FRA_URL,
+      ...connectionConfig,
+    })
+  : null;
 
-const sjcPool = new Pool({
-  connectionString: process.env.DATABASE_SJC_URL!,
-  ...connectionConfig,
-});
+const sjcPool = process.env.DATABASE_SJC_URL
+  ? new Pool({
+      connectionString: process.env.DATABASE_SJC_URL,
+      ...connectionConfig,
+    })
+  : null;
 
-const iadPool = new Pool({
-  connectionString: process.env.DATABASE_IAD_URL!,
-  ...connectionConfig,
-});
+const iadPool = process.env.DATABASE_IAD_URL
+  ? new Pool({
+      connectionString: process.env.DATABASE_IAD_URL,
+      ...connectionConfig,
+    })
+  : null;
 
 const hasReplicas = Boolean(
-  process.env.DATABASE_FRA_URL &&
-    process.env.DATABASE_SJC_URL &&
-    process.env.DATABASE_IAD_URL,
+  fraPool && sjcPool && iadPool,
 );
 
 // Connection pool monitoring function
@@ -65,15 +73,17 @@ export const getConnectionPoolStats = () => {
   };
 
   // Only include pools that are actually being used
-  const pools: Record<string, any> = {
-    primary: getPoolStats(primaryPool, "primary"),
-  };
+  const pools: Record<string, any> = {};
+
+  if (primaryPool) {
+    pools.primary = getPoolStats(primaryPool, "primary");
+  }
 
   // Only add replica pools if they're configured
   if (hasReplicas) {
-    pools.fra = getPoolStats(fraPool, "fra");
-    pools.sjc = getPoolStats(sjcPool, "sjc");
-    pools.iad = getPoolStats(iadPool, "iad");
+    if (fraPool) pools.fra = getPoolStats(fraPool, "fra");
+    if (sjcPool) pools.sjc = getPoolStats(sjcPool, "sjc");
+    if (iadPool) pools.iad = getPoolStats(iadPool, "iad");
   }
 
   const poolArray = Object.values(pools);
@@ -110,6 +120,12 @@ export const getConnectionPoolStats = () => {
   };
 };
 
+if (!primaryPool) {
+  throw new Error(
+    "DATABASE_PRIMARY_URL is required but not set. Please configure your database connection.",
+  );
+}
+
 export const primaryDb = drizzle(primaryPool, {
   schema,
   casing: "snake_case",
@@ -131,25 +147,28 @@ const getReplicaIndexForRegion = () => {
 // Create the database instance once and export it
 const replicaIndex = getReplicaIndexForRegion();
 
-export const db = withReplicas(
-  primaryDb,
-  [
-    // Order of replicas is important
-    drizzle(fraPool, {
-      schema,
-      casing: "snake_case",
-    }),
-    drizzle(iadPool, {
-      schema,
-      casing: "snake_case",
-    }),
-    drizzle(sjcPool, {
-      schema,
-      casing: "snake_case",
-    }),
-  ],
-  (replicas) => replicas[replicaIndex]!,
-);
+// Only use replicas if all are configured
+export const db = hasReplicas && fraPool && sjcPool && iadPool
+  ? withReplicas(
+      primaryDb,
+      [
+        // Order of replicas is important
+        drizzle(fraPool, {
+          schema,
+          casing: "snake_case",
+        }),
+        drizzle(iadPool, {
+          schema,
+          casing: "snake_case",
+        }),
+        drizzle(sjcPool, {
+          schema,
+          casing: "snake_case",
+        }),
+      ],
+      (replicas) => replicas[replicaIndex]!,
+    )
+  : primaryDb;
 
 // Keep connectDb for backward compatibility, but just return the singleton
 export const connectDb = async () => {

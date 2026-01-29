@@ -52,6 +52,17 @@ export function TRPCReactProvider(
               Authorization: `Bearer ${session?.access_token}`,
             };
           },
+          fetch(url, options) {
+            return fetch(url, {
+              ...options,
+              credentials: "include",
+            }).catch((error) => {
+              console.error("tRPC fetch error:", error);
+              throw new Error(
+                `Failed to connect to API server at ${process.env.NEXT_PUBLIC_API_URL}. Make sure the API server is running.`,
+              );
+            });
+          },
         }),
         loggerLink({
           enabled: (opts) =>

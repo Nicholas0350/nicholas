@@ -93,9 +93,11 @@ export function SearchAddressInput({
   const [selected, setSelected] = useState<Option | null>(null);
   const [inputValue, setInputValue] = useState<string>(defaultValue || "");
 
+  const googleApiKey = process.env.NEXT_PUBLIC_GOOGLE_API_KEY;
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API_KEY as string,
+    googleMapsApiKey: googleApiKey || "",
     libraries,
+    ...(googleApiKey ? {} : { disableGoogleMapsApiJs: true }),
   });
 
   const {

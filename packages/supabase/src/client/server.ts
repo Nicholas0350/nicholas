@@ -52,8 +52,16 @@ export async function createClient(options?: CreateClientOptions) {
       }
     : {};
 
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+
+  if (!supabaseUrl) {
+    throw new Error(
+      "NEXT_PUBLIC_SUPABASE_URL is required but not set. Please configure it in your .env.local file."
+    );
+  }
+
   return createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    supabaseUrl,
     key,
     {
       ...rest,
