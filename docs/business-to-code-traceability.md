@@ -70,41 +70,7 @@ Complete flow from business problems to code implementation, showing how busines
 17. **Resilient job processing** - Background jobs with retry logic and error handling
 18. **Type-safe data access** - TypeScript types generated from database schema
 
-## System Canonicals Summary
 
-1. **Idempotency through unique identifiers** - `internal_id` prevents duplicate transactions
-2. **OAuth state management** - Secure token exchange and storage
-3. **Team scoping everywhere** - `teamId` required in all queries
-4. **Row Level Security (RLS)** - Database-level access control policies
-5. **Primary read-after-write** - Use primary DB for mutations and recent queries
-6. **Replication lag handling** - Cache-based timestamp tracking
-7. **Confidence scoring and calibration** - Adaptive thresholds based on user feedback
-8. **Semantic merchant learning** - Pattern recognition for auto-matching
-9. **Bidirectional processing** - Matches both directions (transaction→inbox, inbox→transaction)
-10. **Background job orchestration** - Async processing pipeline with Trigger.dev
-11. **Shared data models** - Products stored once, referenced many times
-12. **Type-safe queries** - Drizzle ORM ensures data integrity
-13. **Real-time updates** - Supabase realtime subscriptions
-14. **Secure file storage** - Supabase Storage with signed URLs
-15. **Document processing** - OCR and classification pipeline
-16. **Relational data integrity** - Foreign keys ensure data consistency
-17. **Full-text search** - Fast customer and transaction lookup
-18. **Enrichment pipeline** - Background job for AI categorization
-19. **Confidence thresholds** - Only assign categories with high confidence
-20. **Background job processing** - Async export generation
-21. **Email delivery** - Automated email to accountants
-22. **Exchange rate tracking** - Real-time rate updates
-23. **Base amount calculation** - Consistent currency handling
-24. **PDF generation** - React-based PDF templates
-25. **Webhook verification** - Secure webhook handling
-26. **Optimistic updates** - UI updates before server confirmation
-27. **Timestamp tracking** - `created_at`, `updated_at` on all tables
-28. **User attribution** - Track who made changes
-29. **Database indexing** - Strategic indexes on frequently queried fields
-30. **Query result caching** - Team and user permission caching
-31. **Job retry logic** - Trigger.dev retry configuration
-32. **Error logging** - Structured error logging
-33. **Zod validation** - Runtime schema validation
 
 ## Feature-to-Code Mapping
 
@@ -155,32 +121,3 @@ Complete flow from business problems to code implementation, showing how busines
 - **Business Logic**: `packages/categories/src/`
 - **Queries**: `packages/db/src/queries/transaction-categories.ts`
 - **UI**: `apps/dashboard/src/components/tables/categories/`
-
-## System Architecture Patterns
-
-### Multi-Tenancy
-- **Schema**: `packages/db/src/schema.ts` - All tables include `teamId`
-- **RLS Policies**: Database-level policies in schema definitions
-- **Middleware**: `apps/api/src/trpc/middleware/team-permission.ts`
-- **Cache**: `packages/cache/team-cache.ts`, `packages/cache/team-permissions-cache.ts`
-
-### Idempotency
-- **Transactions**: `onConflict: "internal_id"` in upsert operations
-- **Inbox Matching**: Dismissed match prevention, duplicate suggestion filtering
-- **Job Processing**: Trigger.dev idempotency keys
-
-### Read-After-Write Consistency
-- **Middleware**: `apps/api/src/trpc/middleware/primary-read-after-write.ts`
-- **REST Middleware**: `apps/api/src/rest/middleware/primary-read-after-write.ts`
-- **Cache**: `packages/cache/replication-cache.ts`
-
-### Background Job Orchestration
-- **Framework**: Trigger.dev (`packages/jobs/src/tasks/`)
-- **Job Types**: `schemaTask` for type-safe job definitions
-- **Orchestration**: Sequential job chaining (e.g., `embed-transaction` → `match-transactions-bidirectional`)
-
-### Type Safety
-- **Database**: Drizzle ORM with TypeScript types
-- **API**: tRPC for end-to-end type safety
-- **Validation**: Zod schemas for runtime validation
-- **Server Actions**: `next-safe-action` for type-safe server actions

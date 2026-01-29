@@ -168,7 +168,16 @@ export const db = hasReplicas && fraPool && sjcPool && iadPool
       ],
       (replicas) => replicas[replicaIndex]!,
     )
-  : primaryDb;
+  : Object.assign(primaryDb, {
+      // Add executeOnReplica as alias for execute when no replicas
+      executeOnReplica: async <T = unknown>(query: any): Promise<T[]> => {
+        const result = await primaryDb.execute(query);
+        if (Array.isArray(result)) return result as T[];
+        return (result as any).rows as T[];
+      },
+      $primary: primaryDb,
+      usePrimaryOnly: () => primaryDb,
+    });
 
 // Keep connectDb for backward compatibility, but just return the singleton
 export const connectDb = async () => {

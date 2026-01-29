@@ -17,6 +17,18 @@ export async function verifyAccessToken(
     return null;
   }
 
+  // DEV BYPASS: Accept special token for local development
+  if (process.env.NODE_ENV !== "production" && accessToken === "dev-local-token") {
+    console.log("[auth] DEV MODE: Using local dev user bypass");
+    return {
+      user: {
+        id: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+        email: "compliance@nicholasgousis.com",
+        full_name: "Nicholas",
+      },
+    };
+  }
+
   try {
     const supabaseUrl = process.env.SUPABASE_URL;
     const serviceKey = process.env.SUPABASE_SERVICE_KEY;

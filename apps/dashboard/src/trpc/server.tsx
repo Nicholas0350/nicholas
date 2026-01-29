@@ -26,6 +26,16 @@ export const trpc = createTRPCOptionsProxy<AppRouter>({
         url: `${process.env.NEXT_PUBLIC_API_URL}/trpc`,
         transformer: superjson,
         async headers() {
+          // DEV BYPASS: Use dev token for local development
+          if (process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === "true") {
+            return {
+              Authorization: "Bearer dev-local-token",
+              "x-user-timezone": await getTimezone(),
+              "x-user-locale": await getLocale(),
+              "x-user-country": await getCountryCode(),
+            };
+          }
+
           const supabase = await createClient();
 
           const {

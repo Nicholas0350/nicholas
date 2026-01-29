@@ -42,6 +42,14 @@ export function TRPCReactProvider(
           url: `${process.env.NEXT_PUBLIC_API_URL}/trpc`,
           transformer: superjson,
           async headers() {
+            // DEV BYPASS: Use dev token for local development
+            if (process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === "true") {
+              console.log("[trpc] Using dev auth bypass");
+              return {
+                Authorization: "Bearer dev-local-token",
+              };
+            }
+
             const supabase = createClient();
 
             const {

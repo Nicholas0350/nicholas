@@ -1,9 +1,3 @@
-# Navigation Structure
-
-This document describes the sidebar navigation structure of the Midday dashboard. For features not in the sidebar navigation (global search, notifications, widgets, etc.), see [Features Not in Navigation](./new-findings.md).
-
-**For a complete system overview:** See [System Reconciliation](./reconciliation.md) which maps navigation, features, and architecture together.
-
 ### Overview
 - Path: `/` [1](#0-0)
 
@@ -102,16 +96,7 @@ The sidebar uses a hover-to-expand pattern where it transitions from 70px (colla
 
 The sidebar navigation represents the core feature set of Midday, including financial management (transactions, invoicing), document management (vault, inbox), time tracking, customer management, and administrative settings. The query parameter patterns (like `?step=connect`, `?type=create`) indicate that many sub-items trigger modal flows or specific UI states rather than navigating to separate pages.
 
-**Important:** Many features are not included in the sidebar navigation but are core to the application experience. These include:
-- **Assistant (AI Chat)** - Accessible via floating input widgets, dashboard widgets, or programmatic triggers
-- **Global Search** - Keyboard shortcut (`Cmd+K` / `Meta+K`)
-- **Notification Center** - Header bell icon
-- **Team Switcher** - Bottom of sidebar
-- **Dashboard Widgets** - Overview page carousel
-- **Global Timer Indicator** - Appears when timer is running
-- And many more contextual overlays, modals, and quick access features
-
-For a complete list of features not in navigation, see [Features Not in Navigation](./new-findings.md).
+**Important:** The Assistant (AI Chat) feature is not included in the sidebar navigation but is a core feature accessible through floating input widgets, dashboard widgets, or programmatic triggers. It provides AI-powered financial analysis and data access across all business data.
 
 Wiki pages you might want to explore:
 - [Navigation and Layout (midday-ai/midday)](/wiki/midday-ai/midday#2.1.2)

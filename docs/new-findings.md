@@ -1,284 +1,206 @@
-# Features Not in Navigation
+# Features Not in Navigation but Adding Value
 
-This document catalogs features that are not part of the sidebar navigation but are actively used and add significant value to the Midday application. These features are accessed through various UI patterns including keyboard shortcuts, header buttons, floating elements, contextual overlays, and dashboard widgets.
+Findings from codebase review: features that are used and add value but are **not** part of the sidebar navigation. Documented to avoid confusion (e.g. Assistant/Chat tripping up discovery).
 
-**Related Documents:**
-- [Navigation Structure](./nav.md) - Sidebar navigation items and routes
-- [System Reconciliation](./reconciliation.md) - Complete system overview mapping navigation, features, and architecture
+---
 
-## Global Features
+## 1. Global Search (`SearchModal`)
 
-### 1. Global Search (`SearchModal`)
 - **Access:** `Cmd+K` (Mac) / `Meta+K` keyboard shortcut
 - **Location:** Modal dialog (740px width, 535px height)
 - **Features:**
   - Unified search across transactions, invoices, customers, documents, tracker entries
-  - Keyboard navigation and quick actions
-  - Real-time search results
-- **State Management:** Zustand store (`useSearchStore`)
-- **File:** `apps/dashboard/src/components/search/search-modal.tsx`
+  - Keyboard navigation
+  - Quick actions from search results
+- **State:** Zustand store (`useSearchStore`)
+- **Files:** `apps/dashboard/src/components/search/search-modal.tsx`, `search.tsx`, `open-search-button.tsx`, `apps/dashboard/src/store/search.ts`
 
-### 2. Notification Center
-- **Access:** Bell icon in header (top-right corner)
-- **UI:** Popover (400px width, 535px height)
+---
+
+## 2. Notification Center
+
+- **Access:** Bell icon in header (top-right)
 - **Features:**
   - Inbox/Archive tabs
-  - Unread indicator (yellow dot badge)
-  - Auto-mark as seen when opened
-  - Archive all functionality
-  - Direct link to notification settings
-- **File:** `apps/dashboard/src/components/notification-center/notification-center.tsx`
+  - Unread indicator (yellow dot)
+  - Auto-mark as seen on open
+  - Archive all
+  - Links to notification settings (`/settings/notifications`)
+- **UI:** Popover (400px width, 535px height)
+- **Files:** `apps/dashboard/src/components/notification-center/notification-center.tsx`
 
-### 3. Team Switcher (`TeamDropdown`)
-- **Access:** Bottom of sidebar (team avatar stack)
+---
+
+## 3. Team Switcher (`TeamDropdown`)
+
+- **Access:** Bottom of sidebar (team avatar)
 - **Features:**
-  - Multi-team support with animated avatar stack
+  - Multi-team support
+  - Animated stack of team avatars
   - Quick team switching
   - Create new team link (`/teams/create`)
   - Shows team name when sidebar expanded
-  - Animated transitions
-- **File:** `apps/dashboard/src/components/team-dropdown.tsx`
+- **Files:** `apps/dashboard/src/components/team-dropdown.tsx`
 
-### 4. Global Timer Indicator (`GlobalTimerIndicator`)
-- **Access:** Appears globally in header when timer is running
+---
+
+## 4. Global Timer Indicator (`GlobalTimerIndicator`)
+
+- **Access:** Renders globally when a tracker timer is running
 - **Features:**
   - Shows elapsed time and current project name
-  - Updates document title with timer (e.g., "01:23:45 • Project Name | Midday")
-  - Green indicator badge with pulsing animation
-  - Real-time updates every second
+  - Updates document title with timer (e.g. `00:15:32 • Project Name | Midday`)
+  - Green indicator badge
+  - Real-time updates via `useGlobalTimerStatus`
   - Persists across page navigation
-- **File:** `apps/dashboard/src/components/global-timer-indicator.tsx`
-- **Hook:** `apps/dashboard/src/hooks/use-global-timer-status.ts`
+- **Files:** `apps/dashboard/src/components/global-timer-indicator.tsx`, `apps/dashboard/src/hooks/use-global-timer-status.ts`
 
-## Dashboard Widgets
+---
 
-Available on the Overview page (`/`) in a horizontal carousel:
+## 5. Overview Dashboard Widgets (Carousel on `/`)
 
-### 5. Assistant Widget
-- AI chat interface with example prompts
-- Quick access to financial assistant
-- **File:** `apps/dashboard/src/components/widgets/assistant/`
+- **Location:** Overview page only; horizontal carousel with navigation
+- **Widgets:**
+  - **Assistant Widget** – AI chat entry with example prompts
+  - **Spending Widget** – Category spending breakdown
+  - **Invoice Widget** – Recent invoices with status
+  - **Transactions Widget** – Recent transactions list
+  - **Tracker Widget** – Active time entries
+  - **Inbox Widget** – Recent inbox items
+  - **Account Balance Widget** – Bank account balances
+  - **Vault Widget** – Recent documents
+- **Files:** `apps/dashboard/src/components/widgets/index.tsx`, `apps/dashboard/src/app/[locale]/(app)/(sidebar)/page.tsx`
 
-### 6. Spending Widget
-- Category spending breakdown
-- Period selector
-- **File:** `apps/dashboard/src/components/widgets/spending/`
+---
 
-### 7. Invoice Widget
-- Recent invoices with payment status
-- Quick invoice actions
-- **File:** `apps/dashboard/src/components/widgets/invoice/`
+## 6. Charts / Reports (Overview page)
 
-### 8. Transactions Widget
-- Recent transactions list
-- Quick transaction actions
-- **File:** `apps/dashboard/src/components/widgets/transactions/`
-
-### 9. Tracker Widget
-- Active time entries
-- Timer status
-- **File:** `apps/dashboard/src/components/widgets/tracker/`
-
-### 10. Inbox Widget
-- Recent inbox items (receipts/invoices)
-- Processing status
-- **File:** `apps/dashboard/src/components/widgets/inbox/`
-
-### 11. Account Balance Widget
-- Bank account balances
-- Multi-account overview
-- **File:** `apps/dashboard/src/components/widgets/account-balance/`
-
-### 12. Vault Widget
-- Recent documents
-- Quick document access
-- **File:** `apps/dashboard/src/components/widgets/vault/`
-
-**Widget Container:** `apps/dashboard/src/components/widgets/index.tsx`
-
-## Charts & Reports
-
-### 13. Financial Charts (Overview Page)
-- **Location:** Top section of Overview page (`/`)
+- **Location:** Top of Overview page
 - **Features:**
-  - Revenue chart
-  - Profit chart
-  - Expense chart
-  - Burn Rate chart
+  - Revenue, Profit, Expense, Burn Rate charts
   - Date range selectors
   - Currency filtering
   - Empty states when no data
-- **File:** `apps/dashboard/src/components/charts/charts.tsx`
+- **Files:** `apps/dashboard/src/components/charts/`, `chart-selectors.tsx`
 
-## Contextual Overlays
+---
 
-### 14. Global Sheets (Side Panels)
-Contextual side panels for viewing/editing entities:
+## 7. Mobile Menu (`MobileMenu`)
 
-- **Transaction Sheets:**
-  - `TransactionSheet` - View transaction details
-  - `TransactionCreateSheet` - Create new transaction
-  - `TransactionEditSheet` - Edit existing transaction
-
-- **Invoice Sheets:**
-  - `InvoiceSheet` - Create/edit invoice
-  - `InvoiceDetailsSheet` - View invoice details
-
-- **Customer Sheets:**
-  - `CustomerCreateSheet` - Create customer
-  - `CustomerEditSheet` - Edit customer
-
-- **Tracker Sheets:**
-  - `TrackerCreateSheet` - Create tracker entry
-  - `TrackerUpdateSheet` - Update tracker entry
-  - `TrackerScheduleSheet` - Schedule tracker entry
-
-- **Category Sheets:**
-  - `CategoryCreateSheet` - Create category
-  - `CategoryEditSheet` - Edit category
-
-- **Product Sheets:**
-  - `ProductCreateSheet` - Create product
-  - `ProductEditSheet` - Edit product
-
-- **Document Sheet:**
-  - `DocumentSheet` - View document details
-
-- **Inbox Details Sheet:**
-  - `InboxDetailsSheet` - View inbox item details
-
-**Container:** `apps/dashboard/src/components/sheets/global-sheets.tsx`
-
-### 15. Global Modals (Dialog Overlays)
-Contextual modal dialogs:
-
-- **Assistant Modal** - AI chat interface (see [Navigation Structure - Assistant](./nav.md#assistant-ai-chat))
-- **Search Modal** - Global search (see [Global Search](#1-global-search-searchmodal))
-- **Connect Transactions Modal** - Bank connection flow
-- **Import Modal** - Import transactions from CSV/other formats
-- **Select Bank Accounts Modal** - Account selection interface
-- **Trial Ended Modal** - Subscription trial expiration
-- **Overview Modal** - Onboarding/connection flow for new users
-
-**Container:** `apps/dashboard/src/components/sheets/global-sheets.tsx`
-
-## Mobile Features
-
-### 16. Mobile Menu (`MobileMenu`)
-- **Access:** Hamburger menu button (mobile only)
+- **Access:** Hamburger menu (mobile only, `md:hidden`)
 - **Features:**
-  - Full navigation menu in sheet overlay
-  - Mobile-optimized layout
-  - Same navigation structure as desktop sidebar
-- **File:** `apps/dashboard/src/components/mobile-menu.tsx`
+  - Full navigation menu in a sheet
+  - Same nav items as sidebar
+- **Files:** `apps/dashboard/src/components/mobile-menu.tsx`
 
-## Quick Access Features
+---
 
-### 17. Floating Assistant Input (`AssistantInput`)
-- **Access:** Floating input field at bottom of pages
+## 8. Global Sheets / Modals (Contextual overlays)
+
+Rendered via `GlobalSheets` in app layout; opened by user actions, not nav links.
+
+**Sheets:**
+
+- Transaction sheets (view / create / edit)
+- Invoice sheets (view / create / edit)
+- Customer sheets (create / edit)
+- Tracker sheets (create / update / schedule)
+- Category sheets (create / edit)
+- Product sheets (create / edit)
+- Document sheet (view)
+- Inbox details sheet
+- OAuth application create / edit sheets
+
+**Modals:**
+
+- Connect Transactions Modal
+- Import Modal
+- Select Bank Accounts Modal
+- Trial Ended Modal
+- Overview Modal (onboarding when no accounts connected)
+
+- **Files:** `apps/dashboard/src/components/sheets/global-sheets.tsx`, `apps/dashboard/src/components/sheets/`, `apps/dashboard/src/components/modals/`
+
+---
+
+## 9. Floating Assistant Input (`AssistantInput`)
+
+- **Access:** Floating input at bottom of pages (e.g. Overview)
 - **Features:**
   - Quick access to AI assistant
-  - Opens assistant modal on focus
+  - Opens Assistant modal on focus
   - Gradient overlay for visibility
-  - Midday logo indicator
-- **File:** `apps/dashboard/src/components/widgets/assistant/assistant-input.tsx`
+- **Files:** `apps/dashboard/src/components/widgets/assistant/assistant-input.tsx`
 
-## Data Management
+---
 
-### 18. Export Features
-- **Export Transactions Modal** - Export transaction data in various formats
-- **Export Bar** - Quick export actions in transaction tables
-- **File:** `apps/dashboard/src/components/modals/export-transactions-modal.tsx`
+## 10. Export / Import
 
-### 19. Import Features
-- **Import Modal** - Import transactions from CSV and other formats
-- Currency selection
-- **File:** `apps/dashboard/src/components/modals/import-modal/`
+- **Export Transactions Modal** – Export transaction data
+- **Import Modal** – Import transactions (e.g. CSV)
+- **Export Bar** – Quick export actions in transaction tables
+- **Files:** `apps/dashboard/src/components/modals/export-transactions-modal.tsx`, `import-modal/`, `apps/dashboard/src/components/tables/transactions/export-bar.tsx`
 
-## Connection Management
+---
 
-### 20. Bank Connection Features
-- **Connect Transactions Modal** - Bank connection onboarding flow
-- **Select Bank Accounts Modal** - Account selection interface
-- **Delete Connection** - Remove bank connections
-- **Edit Bank Account Modal** - Modify account details
-- **Files:** `apps/dashboard/src/components/modals/connect-transactions-modal.tsx`, `apps/dashboard/src/components/modals/select-bank-accounts.tsx`
+## 11. Connection Management
 
-## Developer Features
+- Connect Transactions Modal – Bank connection flow
+- Select Bank Accounts Modal – Account selection
+- Delete Connection – Remove bank connections
+- Edit Bank Account Modal – Modify account details
+- **Files:** `apps/dashboard/src/components/modals/connect-transactions-modal.tsx`, `select-bank-accounts.tsx`, `delete-connection.tsx`, `edit-bank-account-modal.tsx`
 
-Available in Settings → Developer (see [Navigation Structure - Settings](./nav.md#settings)):
+---
 
-### 21. API Keys Management
-- Create/edit/delete API keys
-- API key form with permissions
-- **Files:** `apps/dashboard/src/components/modals/create-api-key-modal.tsx`, `apps/dashboard/src/components/modals/edit-api-key-modal.tsx`, `apps/dashboard/src/components/modals/delete-api-key-modal.tsx`
+## 12. Developer Features (Settings sub-features)
 
-### 22. OAuth Applications
-- Manage OAuth applications
-- Create/edit/delete OAuth apps
-- View OAuth secrets
-- **Files:** `apps/dashboard/src/components/sheets/oauth-application-create-sheet.tsx`, `apps/dashboard/src/components/sheets/oauth-application-edit-sheet.tsx`, `apps/dashboard/src/components/modals/delete-oauth-application-modal.tsx`, `apps/dashboard/src/components/modals/oauth-secret-modal.tsx`
+- API Keys – Create / edit / delete API keys
+- OAuth Applications – Manage OAuth apps
+- OAuth Secret Modal – View OAuth secrets
+- **Access:** Under `/settings/developer` (in nav) but modals/sheets are not listed in nav
+- **Files:** `apps/dashboard/src/components/modals/create-api-key-modal.tsx`, `edit-api-key-modal.tsx`, `delete-api-key-modal.tsx`, `oauth-secret-modal.tsx`, `delete-oauth-application-modal.tsx`, OAuth application sheets
 
-## Team Management
+---
 
-Available in Settings → Members (see [Navigation Structure - Settings](./nav.md#settings)):
+## 13. Team Management (Settings sub-features)
 
-### 23. Team Member Management
-- **Invite Team Members Modal** - Invite users to team
-- **Team Members Table** - Manage team members and roles
-- **Delete Team** - Remove team (with confirmation)
-- **Team Invites** - View and manage pending invitations
-- **Files:** `apps/dashboard/src/components/modals/invite-team-members-modal.tsx`, `apps/dashboard/src/components/tables/members/`
+- Invite Team Members Modal
+- Team Members Table
+- Delete Team
+- Team Invites (pending invitations)
+- **Access:** Under `/settings/members` (in nav); modals/tables are contextual
+- **Files:** `apps/dashboard/src/components/modals/invite-team-members-modal.tsx`, `delete-team.tsx`, `team-invites.tsx`, `tables/members/`
 
-## Onboarding & Setup
+---
 
-### 24. Onboarding Features
-- **Overview Modal** - First-time connection flow for new users
-- **Consent Banner** - Privacy/terms consent
-- **Base Currency Selector** - Initial currency setup
-- **Files:** `apps/dashboard/src/components/modals/overview-modal.tsx`, `apps/dashboard/src/components/consent-banner.tsx`, `apps/dashboard/src/components/base-currency/`
+## 14. Onboarding / Setup
 
-## Security Features
+- **Overview Modal** – First-time connection flow when no bank accounts
+- **Consent Banner** – Privacy / terms consent
+- **Base Currency Selector** – Initial or default currency
+- **Files:** `apps/dashboard/src/components/modals/overview-modal.tsx`, `consent-banner.tsx`, `apps/dashboard/src/components/base-currency/`
 
-### 25. Multi-Factor Authentication (MFA)
-- **Enroll MFA** - Multi-factor authentication setup
-- **Setup MFA** - MFA configuration
-- **Account Settings** - Security settings management
-- **Files:** `apps/dashboard/src/components/enroll-mfa.tsx`, `apps/dashboard/src/components/setup-mfa.tsx`, `apps/dashboard/src/components/account-settings.tsx`
+---
 
-## Access Patterns Summary
+## 15. MFA / Security
 
-These features are accessed through:
+- Enroll MFA – Multi-factor authentication setup
+- Setup MFA – MFA configuration
+- Account Settings – Security-related settings
+- **Files:** `apps/dashboard/src/components/enroll-mfa.tsx`, `setup-mfa.tsx`, `account-settings.tsx`
 
-1. **Keyboard Shortcuts:**
-   - Global Search: `Cmd+K` / `Meta+K`
-   - Assistant: `Cmd+J` / `Meta+J` (from some contexts)
+---
 
-2. **Header Elements:**
-   - Notification Center (bell icon)
-   - Mobile Menu (hamburger icon)
-   - Global Timer Indicator (when active)
+## Summary: How These Are Accessed
 
-3. **Sidebar Elements:**
-   - Team Switcher (bottom of sidebar)
+| Mechanism            | Features                                      |
+|----------------------|-----------------------------------------------|
+| Keyboard shortcut    | Global Search (`Cmd+K`)                       |
+| Header buttons       | Notifications, Mobile Menu                    |
+| Sidebar (non-nav)    | Team Switcher (bottom)                        |
+| Floating UI          | Assistant Input, Global Timer Indicator       |
+| Contextual triggers  | Sheets/Modals from tables, actions, links     |
+| Dashboard only       | Widgets carousel, Charts                      |
 
-4. **Floating UI:**
-   - Assistant Input (bottom of pages)
-   - Global Timer Indicator (header)
-
-5. **Contextual Triggers:**
-   - Sheets (from table rows, buttons, actions)
-   - Modals (from buttons, links, query parameters)
-
-6. **Dashboard Widgets:**
-   - Overview page carousel
-
-7. **Query Parameters:**
-   - Many features triggered via URL params (see [Navigation Structure](./nav.md#notes) for examples)
-
-## Notes
-
-- All global sheets and modals are registered in `GlobalSheets` component, which is included in the main layout
-- Widgets are only available on the Overview page (`/`)
-- Many features have both modal and sheet variants depending on context
-- Some features are conditionally rendered based on user permissions, team settings, or data availability
+These features are core to the product but are reached via shortcuts, header, sidebar chrome, overlays, and contextual actions rather than sidebar nav items.

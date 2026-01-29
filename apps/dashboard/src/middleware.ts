@@ -11,7 +11,6 @@ const I18nMiddleware = createI18nMiddleware({
 
 export async function middleware(request: NextRequest) {
   const response = await updateSession(request, I18nMiddleware(request));
-  const supabase = await createClient();
   const url = new URL("/", request.url);
   const nextUrl = request.nextUrl;
 
@@ -29,6 +28,12 @@ export async function middleware(request: NextRequest) {
     newUrl.search
   }`;
 
+  // DEV BYPASS: Skip auth check for local development
+  if (process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === "true") {
+    return response;
+  }
+
+  const supabase = await createClient();
   const {
     data: { session },
   } = await supabase.auth.getSession();
