@@ -276,12 +276,63 @@ bun run dev
 # Runs on http://localhost:3002
 ```
 
-### 7. First Run
+### 7. Login & Authentication
+
+#### Development Login (Recommended for Local Dev)
+
+The dashboard includes a **dev-only password bypass** for quick local testing:
 
 1. Go to http://localhost:3001
-2. Sign up with email/password (or Google if configured)
-3. Create a team at /teams/create
-4. Start using the dashboard
+2. You'll see a dev login form with pre-filled credentials:
+   - **Email**: `compliance@nicholasgousis.com`
+   - **Password**: `dev123`
+3. Click "Sign in" - this bypasses email verification for local development
+
+**Note**: This dev login only works in `NODE_ENV=development` and is automatically disabled in production.
+
+#### Production Login Methods
+
+For production-like testing, use one of these methods:
+
+**Email/Password**:
+1. Go to http://localhost:3001
+2. Enter your email
+3. Check your email for the magic link
+4. Click the link to sign in
+
+**Google OAuth** (if configured):
+1. Click "Sign in with Google"
+2. Authorize with your Google account
+3. You'll be redirected back to the dashboard
+
+#### First-Time Setup
+
+After logging in:
+1. You'll be prompted to create a team (or you'll be added to an existing one)
+2. Complete your profile information
+3. Start using the dashboard at http://localhost:3001
+
+#### Seeding Test Data
+
+To populate your local database with test data for development:
+
+```bash
+# Connect to your Supabase database
+psql -h localhost -U postgres -d midday < supabase/seed.sql
+
+# Or run the seed script directly
+cd supabase
+psql -h db.[PROJECT_ID].supabase.co -U postgres -d postgres < seed.sql
+```
+
+The seed script creates:
+- Test user account
+- Sample team ("Test Company")
+- Transaction categories (income, expenses, etc.)
+- Bank connection and accounts
+- 12 months of sample transactions for charts
+
+After seeding, the dashboard charts (Revenue, Profit, Burn Rate, Expense) will display with realistic data.
 
 ### Troubleshooting
 
