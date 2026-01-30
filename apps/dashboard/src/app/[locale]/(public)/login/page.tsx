@@ -1,5 +1,6 @@
 import { AppleSignIn } from "@/components/apple-sign-in";
 import { ConsentBanner } from "@/components/consent-banner";
+import { DevPasswordSignIn } from "@/components/dev-password-sign-in";
 import { GithubSignIn } from "@/components/github-sign-in";
 import { GoogleSignIn } from "@/components/google-sign-in";
 import { OTPSignIn } from "@/components/otp-sign-in";
@@ -30,6 +31,7 @@ export default async function Page() {
   const showTrackingConsent =
     (await isEU()) && !cookieStore.has(Cookies.TrackingConsent);
   const { device } = userAgent({ headers: await headers() });
+  const isDev = process.env.NODE_ENV === "development";
 
   let moreSignInOptions = null;
   let preferredSignInOption =
@@ -150,6 +152,13 @@ export default async function Page() {
 
               {/* Sign In Options */}
               <div className="space-y-4">
+                {/* Dev Mode Login */}
+                {isDev && (
+                  <div className="space-y-3 mb-6">
+                    <DevPasswordSignIn />
+                  </div>
+                )}
+
                 {/* Primary Sign In Option */}
                 <div className="space-y-3">{preferredSignInOption}</div>
 
