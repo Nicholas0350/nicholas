@@ -1,6 +1,6 @@
-# Features Not in Navigation but Adding Value
+# Features Not in Navigation
 
-Findings from codebase review: features that are used and add value but are **not** part of the sidebar navigation. Documented to avoid confusion (e.g. Assistant/Chat tripping up discovery).
+Features that arent part of the sidebar navigation. Documented to avoid confusion (e.g. Assistant/Chat tripping up discovery).
 
 ---
 
