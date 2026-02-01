@@ -12,8 +12,11 @@ Complete mapping of the Complimet compliance dashboard navigation, including mai
 └─────────────────────────────────────────────────────────────────────────────┘
 
 
-TODOS that not done but required are marked with emoji: 👍
-TODOS that are in the plan and not required 👎
+TODOS not done but required are marked with emoji: 👍
+Feature: Brief explanation emoji: 💯
+TODOS in the plan but not required 👎
+
+Feature
 
 📊 OVERVIEW (/dashboard)
    ├─ Metrics: Open Breaches | Complaints Pipeline | Overdue Filings
@@ -29,27 +32,30 @@ TODOS that are in the plan and not required 👎
       <!-- • Account Balance - Bank account balances -->
       👍• Vault - Document storage preview
 
-📋 REGISTERS (/dashboard/registers)
-   ├─ Tabs: Breach | Complaint | Incident | Training | Audit
-   ├─ Filters: status | severity | regulator | assigned_to | date range | sla_breached
-   ├─ Detail: /dashboard/registers/[id]
-   └─ Data: compliance_registers.getById
-      └─ Returns: title, severity, status, occurred_at, identified_at, closed_at,
-                  assigned_to, source, source_reference, sla_due_at, sla_breached,
-                  entry_data (JSONB), regulator_id, reportable, remediation_required,
-                  obligations[], tasks[]
 
-🧾 👍 REGISTERS (/dashboard/registers)
+
+🧾 👍 BREACHES (/(dashboard)/breaches)
+   |   Data: compliance_registers.getById
+   ├─ Tabs: Breach | Complaint | Incident | Training | Audit
    ├─ Metrics (4 cards):
-   │  • Open - draft + scheduled + unpaid count & total
+   │  • Open - draft + scheduled
    │  • Overdue - overdue count & total
-   │  • Paid - paid count & total
-   │  • Payment Score - health score with status (excellent | good | average | poor)
-   ├─ Sub-nav: Products | Create new
-   ├─ Filters: draft | scheduled | unpaid | overdue | paid | canceled
-   │           + date range | customers
+   │  • Closed - draft + scheduled
+   │  • Breach Score - breach score with status (excellent | good | average | poor)
+   ├─ Filters: draft | scheduled | overdue | canceled | status | severity | regulator | assigned_to | date range | regulator_breached
    └─ Sheet: BreachDetailsSheet → breach.getById
-      └─ Returns: breach #, customer, breach items, amounts, status, dates, template
+      └─ Returns: breach #, customer, breach items, status, dates, title, severity, status, occurred_at, identified_at, closed_at,
+                  assigned_to, source, source_reference, sla_due_at, sla_breached, entry_data (JSONB), regulator_id, reportable, remediation_required, obligations[], tasks[]  template
+   └─ Sheet: artefactSheet →
+
+
+   ├─ Tabs: Drafts (task_artefacts) | Sealed (sealed_artefacts)
+   ├─ Filters: artefact_type | created_date | approval_state
+   ├─ Types: smr_draft | board_report |
+             rg166_return | idr_response | email_draft | alert_pack | etc.
+   └─ Data: task_artefacts.getById / sealed_artefacts.getById
+      └─ Returns: artefact_type, content, approval_state, content_hash (sealed),
+                  task_id, workspace_id, metadata
 
 📅 CALENDAR (/dashboard/calendar)
    ├─ View: Merged timeline (schedules + tasks)
@@ -64,14 +70,7 @@ TODOS that are in the plan and not required 👎
       └─ Returns: task_type, status, severity, due_at, sla_hours, sla_breached,
                   assigned_to, idempotency_key, workspace_id, register_links[]
 
-📄 ARTEFACTS (/dashboard/artefacts)
-   ├─ Tabs: Drafts (task_artefacts) | Sealed (sealed_artefacts)
-   ├─ Filters: artefact_type | created_date | approval_state
-   ├─ Types: sla_agreement | breach_report | smr_draft | board_report |
-             rg166_return | idr_response | email_draft | alert_pack | etc.
-   └─ Data: task_artefacts.getById / sealed_artefacts.getById
-      └─ Returns: artefact_type, content, approval_state, content_hash (sealed),
-                  task_id, workspace_id, metadata
+
 
 📝 SLA CREATOR (/dashboard/sla-creator)
    ├─ Access: workspace_members.role IN (owner, admin) + subscription_tier = compliance_officer
@@ -86,11 +85,9 @@ TODOS that are in the plan and not required 👎
    └─ Modal: Chat interface with streaming responses
 
 🗄️  👍 VAULT (/vault)
-   Feature: Regulated Entity provided folder containing collection of customers that LLM will scan for any potential breaches based on the Regulated Entity's Licence conditions
+   💯 Feature: Regulated Entity provided folder containing collection of customers that LLM will scan for any potential breaches based on the Regulated Entity's Licence conditions
    └─ Sheet: DocumentSheet
       └─ Returns: file preview & metadata
-
-
 
 
    💼  👎 KEY PERSONS (/dashboard/persons) Key Person Becomes part of a Team
@@ -115,3 +112,17 @@ TODOS that are in the plan and not required 👎
 ⚙️  👍 SETTINGS (/settings)
    ├─ Sub-nav: General | Billing | Bank Connections | Members | Notifications
    └─ No sheet (full-page views)
+
+
+A slide-out panel system that displays detailed views/forms without
+full page navigation - URL params (e.g., ?transactionId=123) control which sheet
+opens, preserving browser history and shareability while keeping the user on the
+current page.
+
+All sheets mounted globally in layout → controlled by URL params → fetch via tRPC
+
+
+
+   Available Sheets:
+
+   BreachDetailsSheet

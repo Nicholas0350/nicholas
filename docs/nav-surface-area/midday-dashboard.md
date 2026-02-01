@@ -32,9 +32,17 @@ Complete mapping of the Midday dashboard side navigation, including main pages, 
 
 💳 TRANSACTIONS (/transactions)
    ├─ Sub-nav: Categories | Connect bank | Import | Create new
+   ├─ Actions Menu (+):
+   │  • Connect account - Link bank via Plaid/GoCardless
+   │  • Import/backfill - Upload CSV/OFX transactions
+   │  • Create transaction - Manual entry
    ├─ Filters: completed | uncompleted | archived | excluded | pending
    │           + attachments | recurring | date range | amount | categories | tags | accounts | assignees
-   └─ Sheet: TransactionSheet → transactions.getById
+   ├─ Column Visibility Toggle:
+   │  • Always visible: Date, Description, Amount, Category, Account
+   │  • Hidden by default: Assigned, Tags, Method, From/To (Counterparty), Tax Amount
+   │  • User preference saved in cookies
+   └─ Sheet: TransactionEditSheet → transactions.getById
       └─ Returns: amount, date, merchant, category, status, notes, attachments, tax
 
 🧾 INVOICES (/invoices)
@@ -46,15 +54,34 @@ Complete mapping of the Midday dashboard side navigation, including main pages, 
    ├─ Sub-nav: Products | Create new
    ├─ Filters: draft | scheduled | unpaid | overdue | paid | canceled
    │           + date range | customers
+   ├─ Column Visibility Toggle:
+   │  • Always visible: Invoice no., Status, Due date, Customer, Amount, Issue date
+   │  • Hidden by default: VAT Rate, VAT Amount, Tax Rate, Tax Amount, Excl. VAT, Excl. Tax, Internal Note, Sent at
+   │  • User preference saved in cookies
    └─ Sheet: InvoiceDetailsSheet → invoice.getById
-      └─ Returns: invoice #, customer, line items, amounts, status, dates, template
+      └─ Returns:
+         • Invoice: id, invoiceNumber, amount, currency, status, vat, tax, discount, subtotal
+         • Dates: issueDate, dueDate, paidAt, sentAt, scheduledAt, viewedAt, reminderSentAt
+         • Customer: id, name, website, email, customerName, customerDetails
+         • Content: lineItems, noteDetails, internalNote, paymentDetails, fromDetails
+         • Files: filePath, fileSize, token (for public URL)
+         • Template: template, topBlock, bottomBlock
+         • Meta: team.name, createdAt, updatedAt, sentTo, scheduledJobId
 
 ⏱️  TRACKER (/tracker)
    ├─ Calendar: Weekly/monthly view with time entries
-   ├─ Sub-nav: Create new
-   ├─ Filters: date range | search
-   └─ Sheet: TrackerUpdateSheet → trackerProjects.getById
-      └─ Returns: project name, rate, currency, estimate, status
+   ├─ Sub-nav: Create new (+ button)
+   ├─ Filters: status | date range | customers | tags | search
+   ├─ Sheets:
+   │  • TrackerCreateSheet (?create=true) - Create new project form
+   │  • TrackerUpdateSheet (?projectId=...) → trackerProjects.getById
+   │    └─ Returns: project name, rate, currency, estimate, status, customer, tags, billable
+   └─ Projects Table → trackerProjects.get (infinite scroll)
+      └─ Returns per project:
+         • Project: id, name, description, status, estimate, rate, currency
+         • Customer: id, name, website
+         • Aggregates: totalDuration (computed), totalAmount (computed)
+         • Meta: teamId, createdAt
 
 👥 CUSTOMERS (/customers)
    ├─ Metrics (4 cards):
@@ -97,16 +124,29 @@ Complete mapping of the Midday dashboard side navigation, including main pages, 
 │                          GLOBALSHEETS SYSTEM                                 │
 └─────────────────────────────────────────────────────────────────────────────┘
 
+**What it is**: A slide-out panel system that displays detailed views/forms without
+full page navigation - URL params (e.g., ?transactionId=123) control which sheet
+opens, preserving browser history and shareability while keeping the user on the
+current page.
+
 All sheets mounted globally in layout → controlled by URL params → fetch via tRPC
 
-Available Sheets:
-  • TransactionSheet, TransactionEditSheet, TransactionCreateSheet
-  • InvoiceSheet, InvoiceDetailsSheet
-  • InboxDetailsSheet, DocumentSheet
-  • CustomerEditSheet, CustomerCreateSheet
-  • TrackerUpdateSheet, TrackerCreateSheet, TrackerScheduleSheet
-  • CategoryEditSheet, CategoryCreateSheet
-  • ProductEditSheet, ProductCreateSheet
+Available Sheets (16 total):
+  • Transactions: TransactionSheet, TransactionEditSheet, TransactionCreateSheet
+  • Invoices: InvoiceSheet, InvoiceDetailsSheet
+  • Inbox: InboxDetailsSheet, DocumentSheet
+  • Customers: CustomerEditSheet, CustomerCreateSheet
+  • Tracker: TrackerUpdateSheet, TrackerCreateSheet, TrackerScheduleSheet
+  • Categories: CategoryEditSheet, CategoryCreateSheet
+  • Products: ProductEditSheet, ProductCreateSheet,
+
+Global Modals (also mounted globally, but centered overlays vs slide-out sheets):
+  • AssistantModal - AI chat interface
+  • SearchModal - Global search (Cmd+K)
+  • ImportModal - CSV/OFX transaction import
+  • ConnectTransactionsModal - Bank connection flow
+  • SelectBankAccountsModal - Account selection after bank connection
+  • TrialEndedModal - Subscription prompt
 
 Flow: Click item → URL param added → Sheet opens → tRPC fetch → Display/Edit
 ```
