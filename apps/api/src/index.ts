@@ -224,5 +224,5 @@ if (typeof Bun === "undefined") {
 export default {
   port: process.env.PORT ? Number.parseInt(process.env.PORT) : 3000,
   fetch: app.fetch,
-  host: "::", // Listen on all interfaces
+  hostname: "0.0.0.0", // Listen on all interfaces
 };
