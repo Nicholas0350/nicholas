@@ -46,16 +46,18 @@ Feature
    └─ Sheet: BreachDetailsSheet → breach.getById
       └─ Returns: breach #, customer, breach items, status, dates, title, severity, status, occurred_at, identified_at, closed_at,
                   assigned_to, source, source_reference, sla_due_at, sla_breached, entry_data (JSONB), regulator_id, reportable, remediation_required, obligations[], tasks[]  template
-   └─ Sheet: artefactSheet →
-
-
-   ├─ Tabs: Drafts (task_artefacts) | Sealed (sealed_artefacts)
+   └─ Sheets:
+      artefactSheet →
    ├─ Filters: artefact_type | created_date | approval_state
    ├─ Types: smr_draft | board_report |
              rg166_return | idr_response | email_draft | alert_pack | etc.
    └─ Data: task_artefacts.getById / sealed_artefacts.getById
       └─ Returns: artefact_type, content, approval_state, content_hash (sealed),
                   task_id, workspace_id, metadata
+
+
+
+
 
 📅 CALENDAR (/dashboard/calendar)
    ├─ View: Merged timeline (schedules + tasks)
