@@ -33,6 +33,7 @@ Breaches have artifacts which ar the artifacts of the breach
                   task_id, workspace_id, metadata
 
 
+Teams are merged with Key Person of which Key Person is a Sheet
 🏢 👍 TEAMS (/(dashboard)/teams - List/select teams)
    └─ Context: All dashboard data scoped to currently selected team
       └─ Team switch = complete workspace context switch
@@ -50,13 +51,16 @@ Breaches have artifacts which ar the artifacts of the breach
    │  • TaskUpdateSheet (?taskId=...) → teamTasks.
 
 
+TRAINING is the gray area. Given Aust Regulatory canonicals do we add it as a sheet on Teams or give it its own side nav?
 
 
-📅 CALENDAR (/dashboard/calendar)
-   ├─ View: Merged timeline (schedules + tasks)
-   ├─ Sources: compliance_schedules + fulfilment_tasks.due_at
-   ├─ Filters: date range | regulator | task_type
-   └─ Read-only (no sheets, links to tasks/registers)
+
+🗄️  👍 VAULT (/vault)
+   💯 Feature: Regulated Entity provides folder containing collection of customers that LLM will scan for any potential breaches based on the Regulated Entity's Licence conditions & Corpora
+   └─ Sheet: DocumentSheet
+      └─ Returns: file preview & metadata
+
+
 
 
  Admin enabled only.. A profile becomes a customer when they purchase a subscription
@@ -84,10 +88,6 @@ A subscription triggers creation of SLA based on the profile's details
    ├─ RAG: regulatory_guide_embeddings (ASIC only in V1)
    └─ Modal: Chat interface with streaming responses
 
-🗄️  👍 VAULT (/vault)
-   💯 Feature: Regulated Entity provides folder containing collection of customers that LLM will scan for any potential breaches based on the Regulated Entity's Licence conditions & Corpora
-   └─ Sheet: DocumentSheet
-      └─ Returns: file preview & metadata
 
 
 ⚙️  👍 SETTINGS (/settings)
