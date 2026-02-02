@@ -20,7 +20,11 @@ app.use(secureHeaders());
 app.use(
   "*",
   cors({
-    origin: process.env.ALLOWED_API_ORIGINS?.split(",") ?? [],
+    origin:
+      process.env.ALLOWED_API_ORIGINS?.split(",").filter(Boolean) ?? [
+        "http://localhost:3001",
+        "http://localhost:3005",
+      ],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allowHeaders: [
       "Authorization",

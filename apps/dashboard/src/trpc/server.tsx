@@ -18,12 +18,15 @@ import { makeQueryClient } from "./query-client";
 //            will return the same client during the same request.
 export const getQueryClient = cache(makeQueryClient);
 
+const apiUrl =
+  process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:3003";
+
 export const trpc = createTRPCOptionsProxy<AppRouter>({
   queryClient: getQueryClient,
   client: createTRPCClient({
     links: [
       httpBatchLink({
-        url: `${process.env.NEXT_PUBLIC_API_URL}/trpc`,
+        url: `${apiUrl}/trpc`,
         transformer: superjson,
         async headers() {
           // DEV BYPASS: Use dev token for local development

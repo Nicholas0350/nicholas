@@ -12,42 +12,19 @@ Complete mapping of the Complimet compliance dashboard navigation, including mai
 └─────────────────────────────────────────────────────────────────────────────┘
 
 
-TODOS not done but required are marked with emoji: 👍
-Feature: Brief explanation emoji: 💯
-TODOS in the plan but not required 👎
-
-Feature
-
-📊 OVERVIEW (/dashboard)
-   ├─ Metrics: Open Breaches | Complaints Pipeline | Overdue Filings
-   ├─ Filters: 7d | 30d | 90d | YTD
-   └─ No sheets (dashboard widgets)
-   └─ 👍 Widgets (carousel):
-      👍 Assistant - AI chat interface
-      <!-- • Spending - Category breakdown with chart -->
-      <!-- • Invoice - Recent invoices list -->
-      <!-- • Transactions - Recent transactions list -->
-      👍• Tracker - Time tracking summary
-      • Inbox - Document inbox preview
-      <!-- • Account Balance - Bank account balances -->
-      👍• Vault - Document storage preview
 
 
-
+Notes: Breach and Artifacts are merged where Artifacts are accessed via a sheet on a Breach. Artifact is the Artifact of the breach
+Breaches have artifacts which ar the artifacts of the breach
 🧾 👍 BREACHES (/(dashboard)/breaches)
    |   Data: compliance_registers.getById
-   ├─ Tabs: Breach | Complaint | Incident | Training | Audit
-   ├─ Metrics (4 cards):
-   │  • Open - draft + scheduled
-   │  • Overdue - overdue count & total
-   │  • Closed - draft + scheduled
+   ├─ Sub-nav: Create new (+ button)
    │  • Breach Score - breach score with status (excellent | good | average | poor)
    ├─ Filters: draft | scheduled | overdue | canceled | status | severity | regulator | assigned_to | date range | regulator_breached
-   └─ Sheet: BreachDetailsSheet → breach.getById
-      └─ Returns: breach #, customer, breach items, status, dates, title, severity, status, occurred_at, identified_at, closed_at,
-                  assigned_to, source, source_reference, sla_due_at, sla_breached, entry_data (JSONB), regulator_id, reportable, remediation_required, obligations[], tasks[]  template
    └─ Sheets:
       artefactSheet →
+      │  • BreachCreateSheet (?create=true) - Create new breach form
+      │  • breachUpdateSheet (?breachId=...) → trackerBreaches.
    ├─ Filters: artefact_type | created_date | approval_state
    ├─ Types: smr_draft | board_report |
              rg166_return | idr_response | email_draft | alert_pack | etc.
@@ -55,6 +32,22 @@ Feature
       └─ Returns: artefact_type, content, approval_state, content_hash (sealed),
                   task_id, workspace_id, metadata
 
+
+🏢 👍 TEAMS (/(dashboard)/teams - List/select teams)
+   └─ Context: All dashboard data scoped to currently selected team
+      └─ Team switch = complete workspace context switch
+   ├─ Sub-nav: Create new (+ button)
+   ├─ Filters: status | task_type | severity | sla_breached | assigned_to | due_date | Manage team memberships person_type | ban_status | active/ceased
+   └─ Data: fulfilment_tasks.getById (existing table)
+      └─ Returns: task_type, status, severity, due_at, sla_hours, sla_breached,
+                  assigned_to, idempotency_key, workspace_id, register_links[]
+   └─ Data: key_persons.getById
+      └─ Returns: full_name, email, person_type, asic_rep_number, appointment_date,
+                  cessation_date, ban_status, ban_checked_at, pii_data (encrypted),
+                  audit_log (PII access tracking)
+   ├─ Sheets:
+   │  • TaskCreateSheet (?create=true) - Create new task form
+   │  • TaskUpdateSheet (?taskId=...) → teamTasks.
 
 
 
@@ -65,20 +58,25 @@ Feature
    ├─ Filters: date range | regulator | task_type
    └─ Read-only (no sheets, links to tasks/registers)
 
-✅ TASKS (/dashboard/tasks)
-   ├─ Filters: status | task_type | severity | sla_breached | assigned_to | due_date
-   ├─ Detail: Task modal/sheet
-   └─ Data: fulfilment_tasks.getById (existing table)
-      └─ Returns: task_type, status, severity, due_at, sla_hours, sla_breached,
-                  assigned_to, idempotency_key, workspace_id, register_links[]
 
-
-
-📝 SLA CREATOR (/dashboard/sla-creator)
+ Admin enabled only.. A profile becomes a customer when they purchase a subscription
+A subscription triggers creation of SLA based on the profile's details
+👥 PROFILES (/admin/profiles)
    ├─ Access: workspace_members.role IN (owner, admin) + subscription_tier = compliance_officer
    ├─ Env flag: NEXT_PUBLIC_ENABLE_SLA_CREATOR=false (default off)
    ├─ Flow: Draft (task_artefacts) → Review → Seal (sealed_artefacts)
    └─ Data: Creates sla_agreement artefact with content_hash
+   ├─ Metrics (4 cards):
+   │  • Inactive Profiles - count of profiles with no recent invoices
+   │  • Most Active profile - name & details
+   │  • Top Revenue Profile - name & total revenue
+   │  • New Customers This Month - count
+   ├─ Filters: search | sort
+   └─ Sheet: CustomerCreateSheet → profiles.getById()
+   └─ Sheet: CustomerEditSheet → profiles.getById
+      └─ Returns: name, email, phone, address, website, notes
+            SlaCreate
+
 
 🤖 COMPLIANCE ASSISTANT (Cmd+K)
    ├─ Access: workspace_members.role IN (owner, admin) + subscription_tier = compliance_officer
@@ -87,28 +85,9 @@ Feature
    └─ Modal: Chat interface with streaming responses
 
 🗄️  👍 VAULT (/vault)
-   💯 Feature: Regulated Entity provided folder containing collection of customers that LLM will scan for any potential breaches based on the Regulated Entity's Licence conditions
+   💯 Feature: Regulated Entity provides folder containing collection of customers that LLM will scan for any potential breaches based on the Regulated Entity's Licence conditions & Corpora
    └─ Sheet: DocumentSheet
       └─ Returns: file preview & metadata
-
-
-   💼  👎 KEY PERSONS (/dashboard/persons) Key Person Becomes part of a Team
-   ├─ Filters: person_type | ban_status | active/ceased
-   ├─ Detail: Person modal/sheet
-   └─ Data: key_persons.getById
-      └─ Returns: full_name, email, person_type, asic_rep_number, appointment_date,
-                  cessation_date, ban_status, ban_checked_at, pii_data (encrypted),
-                  audit_log (PII access tracking)
-
-🏢 👍 TEAMS (Not in sidebar - accessed via bottom dropdown & separate routes)
-   ├─ Team Dropdown (bottom of sidebar):
-   │  └─ Switch between teams user belongs to
-   ├─ Routes (outside main nav):
-   │  • /teams - List/select teams
-   │  • /teams/create - Create new team
-   │  • /account/teams - Manage team memberships
-   └─ Context: All dashboard data scoped to currently selected team
-      └─ Team switch = complete workspace context switch
 
 
 ⚙️  👍 SETTINGS (/settings)
@@ -116,15 +95,16 @@ Feature
    └─ No sheet (full-page views)
 
 
+Global Modals (mounted globally, but centered overlays vs slide-out sheets):
+  • AssistantModal - AI chat interface
+  • SearchModal - Global search (Cmd+K)
+  • ImportModal - CSV/OFX transaction import
+
+
+All sheets mounted globally in layout → controlled by URL params → fetch via tRPC
+  Flow: Click item → URL param added → Sheet opens → tRPC fetch → Display/Edit
+
 A slide-out panel system that displays detailed views/forms without
 full page navigation - URL params (e.g., ?transactionId=123) control which sheet
 opens, preserving browser history and shareability while keeping the user on the
 current page.
-
-All sheets mounted globally in layout → controlled by URL params → fetch via tRPC
-
-
-
-   Available Sheets:
-
-   BreachDetailsSheet

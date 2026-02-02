@@ -330,6 +330,7 @@ CREATE TABLE "teams" (
 	"flags" text[],
 	"canceled_at" timestamp with time zone,
 	"plan" "plans" DEFAULT 'trial' NOT NULL,
+	"country_code" text,
 	CONSTRAINT "teams_inbox_id_key" UNIQUE("inbox_id")
 );
 ;
@@ -433,6 +434,7 @@ CREATE TABLE "users" (
 	"locale" text DEFAULT 'en',
 	"week_starts_on_monday" boolean DEFAULT false,
 	"timezone" text,
+	"timezone_auto_sync" boolean DEFAULT true,
 	"time_format" numeric DEFAULT '24',
 	"date_format" text
 );

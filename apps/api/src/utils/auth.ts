@@ -18,13 +18,14 @@ export async function verifyAccessToken(
   }
 
   // DEV BYPASS: Accept special token for local development
+  // Uses the seeded test user from supabase/seed.sql
   if (process.env.NODE_ENV !== "production" && accessToken === "dev-local-token") {
     console.log("[auth] DEV MODE: Using local dev user bypass");
     return {
       user: {
-        id: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
-        email: "compliance@nicholasgousis.com",
-        full_name: "Nicholas",
+        id: "00000000-0000-0000-0000-000000000001",
+        email: "test@midday.ai",
+        full_name: "Test User",
       },
     };
   }

@@ -1,6 +1,7 @@
 import { updateUserSchema } from "@api/schemas/users";
 import { resend } from "@api/services/resend";
 import { createTRPCRouter, protectedProcedure } from "@api/trpc/init";
+import { teamCache } from "@midday/cache/team-cache";
 import {
   deleteUser,
   getUserById,
@@ -16,6 +17,11 @@ export const userRouter = createTRPCRouter({
   update: protectedProcedure
     .input(updateUserSchema)
     .mutation(async ({ ctx: { db, session }, input }) => {
+      // Clear team permission cache when switching teams
+      if (input.teamId) {
+        await teamCache.delete(`user:${session.user.id}:team:${input.teamId}`);
+      }
+
       return updateUser(db, {
         id: session.user.id,
         ...input,

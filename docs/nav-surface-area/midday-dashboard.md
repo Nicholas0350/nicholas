@@ -136,7 +136,9 @@ Available Sheets (16 total):
   • Invoices: InvoiceSheet, InvoiceDetailsSheet
   • Inbox: InboxDetailsSheet, DocumentSheet
   • Customers: CustomerEditSheet, CustomerCreateSheet
-  • Tracker: TrackerUpdateSheet, TrackerCreateSheet, TrackerScheduleSheet
+  • Tracker: TrackerUpdateSheet, TrackerCreateSheet,
+
+  TrackerScheduleSheet
   • Categories: CategoryEditSheet, CategoryCreateSheet
   • Products: ProductEditSheet, ProductCreateSheet,
 

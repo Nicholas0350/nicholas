@@ -35,11 +35,16 @@ export function TRPCReactProvider(
   }>,
 ) {
   const queryClient = getQueryClient();
-  const [trpcClient] = useState(() =>
-    createTRPCClient<AppRouter>({
+  const [trpcClient] = useState(() => {
+    const apiUrl =
+      process.env.NEXT_PUBLIC_API_URL ||
+      (typeof window !== "undefined"
+        ? "http://localhost:3003"
+        : "http://127.0.0.1:3003");
+    return createTRPCClient<AppRouter>({
       links: [
         httpBatchLink({
-          url: `${process.env.NEXT_PUBLIC_API_URL}/trpc`,
+          url: `${apiUrl}/trpc`,
           transformer: superjson,
           async headers() {
             // DEV BYPASS: Use dev token for local development
@@ -67,7 +72,7 @@ export function TRPCReactProvider(
             }).catch((error) => {
               console.error("tRPC fetch error:", error);
               throw new Error(
-                `Failed to connect to API server at ${process.env.NEXT_PUBLIC_API_URL}. Make sure the API server is running.`,
+                `Failed to connect to API server at ${apiUrl}. Make sure the API server is running.`,
               );
             });
           },
@@ -78,8 +83,8 @@ export function TRPCReactProvider(
             (opts.direction === "down" && opts.result instanceof Error),
         }),
       ],
-    }),
-  );
+    });
+  });
 
   return (
     <QueryClientProvider client={queryClient}>

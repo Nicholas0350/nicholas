@@ -1,8 +1,8 @@
 {
   "name": "@midday/api",
   "scripts": {
-    "dev": "TZ=UTC PORT=3003 bun run --hot src/index.ts",
-    "dev:node": "TZ=UTC PORT=3003 tsx watch src/index.ts",
+    "dev": "TZ=UTC PORT=3003 tsx watch src/index.ts",
+    "dev:bun": "TZ=UTC PORT=3003 bun run --hot src/index.ts",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
