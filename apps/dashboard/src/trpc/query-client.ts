@@ -5,6 +5,8 @@ import {
 import superjson from "superjson";
 
 export function makeQueryClient() {
+  const isUiOnlyMode = process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === "true";
+
   return new QueryClient({
     defaultOptions: {
       queries: {
@@ -14,7 +16,7 @@ export function makeQueryClient() {
         serializeData: superjson.serialize,
         shouldDehydrateQuery: (query) =>
           defaultShouldDehydrateQuery(query) ||
-          query.state.status === "pending",
+          (!isUiOnlyMode && query.state.status === "pending"),
       },
       hydrate: {
         deserializeData: superjson.deserialize,

@@ -21,6 +21,7 @@ type Props = {
 };
 
 export default async function Overview(props: Props) {
+  const isDevAuthBypass = process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === "true";
   const queryClient = getQueryClient();
   const searchParams = await props.searchParams;
   const { from, to, currency } = loadReportsParams(searchParams);
@@ -66,20 +67,26 @@ export default async function Overview(props: Props) {
   ]);
 
   // Load the data for the first visible chart
-  await Promise.all([
-    queryClient.fetchQuery(
-      trpc.bankAccounts.get.queryOptions({
-        enabled: true,
-      }),
-    ),
-    queryClient.fetchQuery(
-      trpc.reports.revenue.queryOptions({
-        from,
-        to,
-        currency: currency ?? undefined,
-      }),
-    ),
-  ]);
+  try {
+    await Promise.all([
+      queryClient.fetchQuery(
+        trpc.bankAccounts.get.queryOptions({
+          enabled: true,
+        }),
+      ),
+      queryClient.fetchQuery(
+        trpc.reports.revenue.queryOptions({
+          from,
+          to,
+          currency: currency ?? undefined,
+        }),
+      ),
+    ]);
+  } catch (error) {
+    if (!isDevAuthBypass) {
+      throw error;
+    }
+  }
 
   return (
     <HydrateClient>

@@ -35,6 +35,7 @@ export function TRPCReactProvider(
   }>,
 ) {
   const queryClient = getQueryClient();
+  const isUiOnlyMode = process.env.NEXT_PUBLIC_DEV_AUTH_BYPASS === "true";
   const [trpcClient] = useState(() => {
     const apiUrl =
       process.env.NEXT_PUBLIC_API_URL ||
@@ -70,6 +71,20 @@ export function TRPCReactProvider(
               ...options,
               credentials: "include",
             }).catch((error) => {
+              if (isUiOnlyMode) {
+                return new Response(
+                  JSON.stringify({
+                    result: { data: { json: null } },
+                  }),
+                  {
+                  status: 200,
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  },
+                );
+              }
+
               console.error("tRPC fetch error:", error);
               throw new Error(
                 `Failed to connect to API server at ${apiUrl}. Make sure the API server is running.`,
